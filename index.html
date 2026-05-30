@@ -141,6 +141,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <div class="skill-row">
 <span class="sk">Python</span>
 <span class="sk">SQL</span>
+<span class="sk">BigQuery</span>
 <span class="sk">텍스트 분석</span>
 <span class="sk">데이터 라벨링</span>
 <span class="sk">LLM 평가셋 설계</span>
@@ -162,10 +163,10 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <div class="tl-item active">
 <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
 <div class="tl-content">
-<div class="tl-period">2026 · SSAFY 2nd AI Challenge</div>
-<div class="tl-title">제한된 GPU 안에서 VLM 돌려보기</div>
-<div class="tl-desc">분리수거 지원 VQA 서비스를 만들면서, 풀 파인튜닝이 불가능한 환경이라 LoRA로 전체 파라미터의 0.57%만 학습시켰습니다. 라벨 마스킹으로 손실 함수를 조정하고 시드 3개로 앙상블해서 모델 간 일치율 95.7%까지 끌어올렸습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">라벨 마스킹</span><span class="tl-tag">LoRA · PEFT</span><span class="tl-tag">VLM / ViT</span></div>
+<div class="tl-period">2026 · BigQuery 세미 프로젝트</div>
+<div class="tl-title">브라질 이커머스 데이터로 코호트 돌려보기</div>
+<div class="tl-desc">이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</div>
+<div class="tl-tag-row"><span class="tl-tag">BigQuery</span><span class="tl-tag">SQL · 코호트</span><span class="tl-tag">Streamlit</span></div>
 </div>
 </div>
 
@@ -193,9 +194,9 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
 <div class="tl-content">
 <div class="tl-period">2024 · 데이터마케팅코리아</div>
-<div class="tl-title">노이즈 잡으려고 도메인 사전 만든 경험</div>
-<div class="tl-desc">네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 다루다 보니, ‘OO신문’ 같은 언론사명에 키워드 추출 모델이 끌려가는 게 보였습니다. 1만 행 규모 불용어 사전을 직접 만들었고, DB 테이블 30여 개의 명세서도 같이 정리해 분석가들이 같은 기준으로 데이터를 쓸 수 있게 했습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">텍스트 분석</span><span class="tl-tag">도메인 사전 1만 행</span><span class="tl-tag">가이드라인 표준화</span></div>
+<div class="tl-title">SQL로 매일 DB 이상값 잡아내기</div>
+<div class="tl-desc">네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, 분석가들이 같은 기준으로 데이터를 쓸 수 있게 했습니다.</div>
+<div class="tl-tag-row"><span class="tl-tag">SQL · 데이터 점검</span><span class="tl-tag">불용어 사전 1만 행</span><span class="tl-tag">가이드라인 표준화</span></div>
 </div>
 </div>
 
@@ -220,33 +221,38 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 
 <div class="proj-list">
 
-<!-- 1. SSAFY AI Challenge -->
-<div class="pc" id="pc1">
+<!-- 1. Olist BigQuery 세미 프로젝트 -->
+<div class="pc" id="pc-olist">
 <div class="ph">
 <div class="ph-left">
-<div class="pm"><span class="pb-org">SSAFY 15기 · 2nd AI Challenge</span>2026.04 · 팀(5명)</div>
-<div class="pt">분리수거 도와주는 VQA 서비스 (LoRA로 최적화)</div>
+<div class="pm"><span class="pb-org">개인 프로젝트</span>2026 · 단독 진행</div>
+<div class="pt">브라질 이커머스 데이터로 본 '배송 지연 → 만족도 → 리텐션'</div>
 </div>
 <div class="ph-right">
+<a href="https://github.com/doyeon-del/olist-data-project" class="gh-link" target="_blank" rel="noopener">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+GitHub
+</a>
 </div>
 </div>
-<div class="pbody col" id="pb1">
-<div class="p-summary">쓰레기 사진을 보여주면 어떻게 버려야 할지 답해주는 서비스를 만들었습니다. GPU가 충분치 않아서 모델을 키우는 대신, 적은 학습량으로 성능을 끌어올리는 쪽으로 접근했습니다.</div>
+<div class="pbody col" id="pb-olist">
+<div class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</div>
 <div class="pirow">
-<span class="pip">전체 파라미터의 0.57%만 학습</span>
-<span class="pip">모델 간 일치율 95.7%</span>
+<span class="pip">지연 3일 기점 평점 4.28→2.58 급락</span>
+<span class="pip">Same State 7.5일 vs Cross State 14.7일</span>
 </div>
 <ul class="pbu">
-<li><strong>PEFT 적용:</strong> 풀 파인튜닝 대신 <strong>LoRA</strong>를 적용해 전체 파라미터의 0.57%만 학습했고, 메모리 점유율을 최소화하면서도 성능을 유지했습니다.</li>
-<li><strong>학습 안정화:</strong> 정답 토큰에만 가중치를 두는 <strong>라벨 마스킹</strong>으로 손실함수를 개선했고, 해상도 조절로 데이터 가독성·학습 속도의 균형점을 찾았습니다.</li>
-<li><strong>앙상블 & 검증:</strong> 3개의 서로 다른 시드 모델을 다수결 앙상블해 일치율 95.7%를 달성했고, 과적합을 방지했습니다.</li>
-<li>한정된 IT 자원 안에서 비즈니스 효과를 도출하는 ‘자원 효율 중심 학습 전략’을 체득했습니다.</li>
+<li><strong>데이터 모델링:</strong> raw → staging → mart → analysis 4계층으로 분리해 분석 자산의 재현성과 재사용성을 확보했습니다. dbt에서 쓰는 디멘셔널 모델링 사상을 사이드 프로젝트에 적용해본 경험입니다.</li>
+<li><strong>지연 임계점 분석:</strong> 예상일 대비 지연 일수를 D≤0, D+1~2, D+3~4 단위로 버킷팅해 평점이 비선형적으로 무너지는 지점을 찾았습니다. 정시·조기 평점 4.28에서 D+3~4 구간 평점 2.58로 급락했고, 저평점률은 9.5%에서 53.5%까지 상승했습니다.</li>
+<li><strong>코호트 리텐션:</strong> 첫 주문 배송 경험에 따라 고객을 두 그룹(지연 vs 정시)으로 나누고 월별 잔존율을 비교했습니다. Olist는 재구매가 희소해 표본 안정성에 한계가 있다는 점도 함께 명시했습니다.</li>
+<li><strong>통계 추론:</strong> Welch t-test + Cohen's d + 95% 신뢰구간으로 그룹 간 평점 차이를 검정했습니다. 큰 표본에서 p-value의 한계를 인지하고 효과크기를 함께 보고했습니다.</li>
+<li><strong>인터랙티브 대시보드:</strong> Streamlit + BigQuery로 KPI 카드와 6개 탭(퍼널 / 통계 검정 / 배송 지연 / 지역 매칭 / 카테고리 / 리텐션)을 구성했고, 자격증명이 없으면 CSV 폴백으로도 띄울 수 있게 만들었습니다.</li>
 </ul>
 <div class="ptags">
-<span class="ptag">PyTorch</span><span class="ptag">LoRA / PEFT</span><span class="ptag">VLM · ViT</span><span class="ptag">VQA</span><span class="ptag">Ensemble</span>
+<span class="ptag">BigQuery</span><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">pandas</span><span class="ptag">scipy.stats</span><span class="ptag">Streamlit</span>
 </div>
 </div>
-<button class="ptoggle" onclick="tog('pc1','pb1',this)">펼쳐보기 <span>▼</span></button>
+<button class="ptoggle" onclick="tog('pc-olist','pb-olist',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
 <!-- 2. Pow.Bio -->
