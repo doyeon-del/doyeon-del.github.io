@@ -328,6 +328,14 @@ GitHub
 <div class="pt">버즈 데이터 다루며 라벨링 기준 만들기</div>
 </div>
 <div class="ph-right">
+<a href="https://doyeon-del.github.io/buzz-data-quality-demo/" class="gh-link" target="_blank" rel="noopener">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
+재현 데모
+</a>
+<a href="https://github.com/doyeon-del/buzz-data-quality-demo" class="gh-link" target="_blank" rel="noopener">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+GitHub
+</a>
 </div>
 </div>
 <div class="pbody col" id="pb4">
@@ -341,6 +349,7 @@ GitHub
 <li><strong>도메인 사전 직접 구축 (라벨링 기준 정의):</strong> Python 정규표현식으로 ‘…신문 / …뉴스’ 패턴 기반 불용어 후보를 자동 추출하고, 1만 행 규모의 사전을 구축했습니다. 매월 신규 데이터를 반영해 사전을 갱신·운영했고, DS팀의 코사인 유사도 측정 정확도를 개선했습니다.</li>
 <li><strong>가이드라인 표준화:</strong> 30여 개 DB 테이블의 컬럼·관계·정합성 규칙을 명세서로 정리하고 쿼리를 표준화했습니다. 신규 분석가가 별도 설명 없이도 일관된 기준으로 데이터에 접근할 수 있도록 만들었습니다.</li>
 <li><strong>오탐·누락 케이스 대응:</strong> 매일 적재되는 데이터를 SQL로 점검해 누락·중복·null을 탐지했고, 적재 오류 발생 시 DevOps에는 재현 경로를, 컨설팅팀에는 대시보드 영향을 따로 정리해 전달했습니다.</li>
+<li><strong>재현 데모:</strong> 회사 데이터는 공개할 수 없어, 같은 구조·품질 이슈를 <strong>합성 데이터로 재현</strong>해 SQL 품질 점검과 불용어 사전 기반 TF-IDF Before/After를 직접 보여드립니다. (데이터만 합성, 수치는 실제 계산) → <a href="https://doyeon-del.github.io/buzz-data-quality-demo/" target="_blank" rel="noopener" style="color:var(--accent-bright);text-decoration:underline;">재현 데모 보기</a></li>
 </ul>
 <div class="ptags">
 <span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">NLP</span><span class="ptag">정규표현식</span><span class="ptag">데이터 정제</span><span class="ptag">Tableau</span>
