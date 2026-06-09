@@ -101,7 +101,10 @@ body{font-family:var(--font);background:var(--canvas);color:var(--ink);-webkit-f
 .pcover-cap .cap-r{margin-left:auto;color:var(--accent-bright);text-decoration:none;font-weight:500;}
 .pcover-cap .cap-r:hover{text-decoration:underline;}
 .pshots{margin:2px 0 18px;}
-.pshots-lab{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:-0.01em;margin-bottom:9px;}
+.pshots-lab{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:-0.01em;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
+.pcover-in{display:block;border:0.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:9px;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}
+.pcover-in:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,44,0.1);border-color:var(--accent-mid);}
+.pcover-in img{display:block;width:100%;height:auto;}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
 .pgrid a{display:block;border:0.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--canvas);transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}
 .pgrid a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,44,0.1);border-color:var(--accent-mid);}
@@ -153,7 +156,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <span class="meta-chip">dlehduslee@naver.com</span>
 <span class="meta-chip">github.com/doyeon-del</span>
 </div>
-<p class="hero-edu">성균관대학교 &nbsp;문헌정보학과 · 통계학과 복수전공 &nbsp;|&nbsp; 2021.03 – 2026.02 졸업 &nbsp;|&nbsp; 학점 97.3 / 100</p>
+<p class="hero-edu">성균관대학교 &nbsp;문헌정보학과 · 통계학과 복수전공 &nbsp;|&nbsp; 2021.03 입학 – 2026.02 졸업 &nbsp;|&nbsp; 학점 97.3 / 100</p>
 <div class="skill-row">
 <span class="sk">Python</span>
 <span class="sk">SQL</span>
@@ -251,17 +254,12 @@ GitHub
 </a>
 </div>
 </div>
-<!-- 항상 보이는 대시보드 커버 -->
-<a class="pcover" href="assets/olist/hero.png" target="_blank" rel="noopener">
-<img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
-</a>
-<div class="pcover-cap">
-<span class="live-dot"></span>Streamlit + BigQuery 대시보드 · 실제 화면
-<a class="cap-r" href="#pc-olist" onclick="if(!document.getElementById('pc-olist').classList.contains('open')){tog('pc-olist','pb-olist',document.querySelector('#pc-olist .ptoggle'));}">차트 더 보기 ↓</a>
-</div>
 <div class="pbody col" id="pb-olist">
 <div class="pshots">
-<div class="pshots-lab">대시보드 화면</div>
+<div class="pshots-lab"><span class="live-dot"></span>Streamlit + BigQuery 대시보드 · 실제 화면</div>
+<a class="pcover-in" href="assets/olist/hero.png" target="_blank" rel="noopener">
+<img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
+</a>
 <div class="pgrid">
 <a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 붕괴</div></a>
 <a href="assets/olist/geo.png" target="_blank" rel="noopener"><img src="assets/olist/geo.png" alt="판매자-고객 지역 리드타임" loading="lazy"><div class="gcap">지역 매칭 — 리드타임</div></a>
