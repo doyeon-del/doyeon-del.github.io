@@ -93,6 +93,21 @@ body{font-family:var(--font);background:var(--canvas);color:var(--ink);-webkit-f
 .ptag{background:var(--parchment);border:0.5px solid var(--border-soft);color:var(--muted);font-size:11px;padding:3px 10px;border-radius:var(--r-pill);letter-spacing:-0.01em;}
 .ptoggle{width:100%;background:transparent;border:none;border-top:0.5px solid var(--border-soft);padding:9px 24px;display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted-light);font-size:11.5px;font-family:var(--font);cursor:pointer;transition:color 0.15s,background 0.15s;letter-spacing:-0.01em;}
 .ptoggle:hover{color:var(--accent-bright);background:var(--accent-light);}
+/* ── PROJECT SCREENSHOTS ── */
+.pcover{display:block;border-top:0.5px solid var(--border-soft);background:var(--parchment);position:relative;}
+.pcover img{display:block;width:100%;height:auto;}
+.pcover-cap{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted);padding:9px 24px 13px;letter-spacing:-0.01em;background:var(--parchment);border-bottom:0.5px solid var(--border-soft);}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(14,138,95,0.15);flex-shrink:0;}
+.pcover-cap .cap-r{margin-left:auto;color:var(--accent-bright);text-decoration:none;font-weight:500;}
+.pcover-cap .cap-r:hover{text-decoration:underline;}
+.pshots{margin:2px 0 18px;}
+.pshots-lab{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:-0.01em;margin-bottom:9px;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.pgrid a{display:block;border:0.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--canvas);transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}
+.pgrid a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,44,0.1);border-color:var(--accent-mid);}
+.pgrid img{display:block;width:100%;height:158px;object-fit:cover;object-position:top center;}
+.pgrid .gcap{font-size:11px;color:var(--muted);padding:7px 11px;letter-spacing:-0.01em;border-top:0.5px solid var(--border-soft);}
+@media(max-width:640px){.pgrid{grid-template-columns:1fr;}.pgrid img{height:auto;}}
 /* ── FOOTER ── */
 footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(--border-soft);}
 .ft-inner{max-width:740px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
@@ -173,7 +188,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <div class="tl-item active">
 <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
 <div class="tl-content">
-<div class="tl-period">2025 · Pow.Bio (미국)</div>
+<div class="tl-period">2025 · Pow.Bio (미국) · Data Team</div>
 <div class="tl-title">연구진이 답답해하는 부분을 직접 고쳐보기</div>
 <div class="tl-desc">실험 결과를 비교하느라 매일 창을 여러 개 띄우고 이미지를 일일이 받던 연구진을 인터뷰한 뒤, 다중 티켓 비교 화면으로 바꿨습니다. React와 Node.js로 직접 구현해, 여러 결과를 한 화면에서 바로 겹쳐 비교할 수 있게 했습니다.</div>
 <div class="tl-tag-row"><span class="tl-tag">사용자 인터뷰</span><span class="tl-tag">UX 설계</span><span class="tl-tag">React</span><span class="tl-tag">Node.js</span></div>
@@ -193,7 +208,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <div class="tl-item active">
 <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
 <div class="tl-content">
-<div class="tl-period">2024 · 데이터마케팅코리아</div>
+<div class="tl-period">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</div>
 <div class="tl-title">SQL로 매일 DB 이상값 잡아내기</div>
 <div class="tl-desc">네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, 분석가들이 같은 기준으로 데이터를 쓸 수 있게 했습니다.</div>
 <div class="tl-tag-row"><span class="tl-tag">SQL · 데이터 점검</span><span class="tl-tag">불용어 사전 1만 행</span><span class="tl-tag">가이드라인 표준화</span></div>
@@ -216,7 +231,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <!-- PROJECTS -->
 <section class="tile-dark appear" id="proj">
 <p class="sec-label">경험 · 프로젝트</p>
-<h2 class="sec-h2">직접 만든 것들</h2>
+<h2 class="sec-h2">활동 결과물</h2>
 <p class="sec-sub">각 카드를 펼치면 자세히 보실 수 있습니다.</p>
 
 <div class="proj-list">
@@ -235,7 +250,23 @@ GitHub
 </a>
 </div>
 </div>
+<!-- 항상 보이는 대시보드 커버 -->
+<a class="pcover" href="assets/olist/hero.png" target="_blank" rel="noopener">
+<img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
+</a>
+<div class="pcover-cap">
+<span class="live-dot"></span>Streamlit + BigQuery 대시보드 · 실제 화면
+<a class="cap-r" href="#pc-olist" onclick="if(!document.getElementById('pc-olist').classList.contains('open')){tog('pc-olist','pb-olist',document.querySelector('#pc-olist .ptoggle'));}">차트 더 보기 ↓</a>
+</div>
 <div class="pbody col" id="pb-olist">
+<div class="pshots">
+<div class="pshots-lab">대시보드 화면</div>
+<div class="pgrid">
+<a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 붕괴</div></a>
+<a href="assets/olist/geo.png" target="_blank" rel="noopener"><img src="assets/olist/geo.png" alt="판매자-고객 지역 리드타임" loading="lazy"><div class="gcap">지역 매칭 — 리드타임</div></a>
+<a href="assets/olist/retention.png" target="_blank" rel="noopener"><img src="assets/olist/retention.png" alt="배송 경험별 코호트 리텐션" loading="lazy"><div class="gcap">코호트 리텐션</div></a>
+</div>
+</div>
 <div class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</div>
 <div class="pirow">
 <span class="pip">지연 3일 기점 평점 4.28→2.58 급락</span>
@@ -265,7 +296,7 @@ GitHub
 <div class="ph-right">
 <a href="https://doyeon-del.github.io/fermentation-multirun-demo/" class="gh-link" target="_blank" rel="noopener">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
-Live Demo
+재현 데모
 </a>
 <a href="https://github.com/doyeon-del/fermentation-multirun-demo" class="gh-link" target="_blank" rel="noopener">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
