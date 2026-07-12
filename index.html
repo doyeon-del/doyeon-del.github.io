@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이도연 포트폴리오 </title>
-<meta name="description" content="이도연 — 활동 내용">
+<meta name="description" content="이도연 — 데이터 분석과 서비스 구현. Olist 분석 · BaroFarm 운영 배포 · Pow.Bio 인턴 등.">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -38,7 +38,7 @@ body{font-family:var(--font);background:var(--canvas);color:var(--ink);-webkit-f
 .btn-p:active{transform:scale(0.96);}
 .meta-chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
 .meta-chip{font-size:14px;color:var(--muted);background:var(--parchment);border:0.5px solid var(--border);padding:5px 14px;border-radius:var(--r-pill);letter-spacing:-0.01em;}
-.hero-edu{font-size:14px;color:var(--muted-light);letter-spacing:-0.01em;margin-bottom:28px;}
+.hero-edu{font-size:14px;color:var(--muted-light);letter-spacing:-0.01em;margin-bottom:28px;line-height:1.8;}
 .skill-row{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;}
 .sk{font-size:13px;color:var(--navy-soft);background:var(--accent-light);border:0.5px solid var(--accent-mid);padding:5px 13px;border-radius:var(--r-pill);letter-spacing:-0.01em;cursor:default;transition:background 0.15s;}
 .sk:hover{background:var(--accent-mid);}
@@ -82,6 +82,7 @@ body{font-family:var(--font);background:var(--canvas);color:var(--ink);-webkit-f
 .gh-link svg{flex-shrink:0;}
 .pbody{padding:0 24px 20px;max-height:800px;overflow:hidden;transition:max-height 0.38s ease,opacity 0.3s ease;opacity:1;}
 .pbody.col{max-height:0;opacity:0;padding-bottom:0;}
+.pc.open .pbody{max-height:4000px;}
 .p-summary{font-size:14px;color:var(--body);line-height:1.6;letter-spacing:-0.01em;margin-bottom:14px;}
 .pirow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
 .pip{background:var(--accent-light);border:0.5px solid var(--accent-mid);color:var(--navy-soft);font-size:12px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);}
@@ -147,7 +148,7 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <section class="tile-hero" id="top">
 <h1 class="hero-name">이도연</h1>
 <p class="hero-name-sub">Doyeon Lee</p>
-<p class="hero-tagline">성균관대학교에서 문헌정보학과 통계학을 함께 전공했습니다. 데이터 수집부터 정제, 분석, 시각화의 전 과정에 참여하며, 데이터의 정확성과 활용성을 높일 수 있는 방안을 고민해왔습니다.
+<p class="hero-tagline">성균관대학교에서 문헌정보학과 통계학을 함께 전공했습니다. 데이터 수집부터 정제, 분석, 시각화의 전 과정에 참여해왔고, SSAFY에서 백엔드와 배포를 익혀 분석에서 멈추지 않고 직접 서비스로 만들어 운영해본 경험이 있습니다.
 </p>
 <div style="margin-bottom:48px;">
 <a href="#proj" class="btn-p">프로젝트 보기</a>
@@ -156,7 +157,8 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <span class="meta-chip">dlehduslee@naver.com</span>
 <span class="meta-chip">github.com/doyeon-del</span>
 </div>
-<p class="hero-edu">성균관대학교 &nbsp;문헌정보학과 · 통계학과 복수전공 &nbsp;|&nbsp; 2021.03 입학 – 2026.02 졸업 &nbsp;|&nbsp; 학점 97.3 / 100</p>
+<p class="hero-edu">성균관대학교 &nbsp;문헌정보학과 · 통계학과 복수전공 &nbsp;|&nbsp; 2021.03 – 2026.02 졸업 &nbsp;|&nbsp; 학점 4.23 / 4.5<br>
+삼성청년SW·AI아카데미(SSAFY) 15기 · 2026 &nbsp;|&nbsp; 정보처리기사 · 빅데이터분석기사 · SQLD · ADsP &nbsp;|&nbsp; TOEIC 960 · OPIc IH</p>
 <div class="skill-row">
 <span class="sk">Python</span>
 <span class="sk">SQL</span>
@@ -166,7 +168,9 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <span class="sk">LLM 응답 라벨링</span>
 <span class="sk">정보품질 · 메타데이터</span>
 <span class="sk">R / Shiny</span>
-<span class="sk">LoRA · VLM</span>
+<span class="sk">Spring Boot · Java</span>
+<span class="sk">Vue.js</span>
+<span class="sk">Docker · CI/CD</span>
 <span class="sk">Tableau</span>
 <span class="sk">Git</span>
 </div>
@@ -178,6 +182,16 @@ footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(
 <p class="sec-sub"> 최신 순으로 정리했습니다.</p>
 
 <div class="timeline">
+
+<div class="tl-item active">
+<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+<div class="tl-content">
+<div class="tl-period">2026 · SSAFY 15기 관통 프로젝트 (2인 팀, 팀장)</div>
+<div class="tl-title">분석에서 멈추지 않고, 서비스를 만들어 배포까지</div>
+<div class="tl-desc">신선식품 판매자의 폐기 손실 문제를 잡아 마감임박 딜 마켓 'BaroFarm'을 만들었습니다. Spring Boot 백엔드와 유통기한 기반 폐기위험 산출·동적 할인 로직을 직접 구현하고, Docker와 GitHub Actions CI로 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</div>
+<div class="tl-tag-row"><span class="tl-tag">Spring Boot</span><span class="tl-tag">폐기위험 엔진</span><span class="tl-tag">Docker · CI</span><span class="tl-tag">운영 배포</span></div>
+</div>
+</div>
 
 <div class="tl-item active">
 <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
@@ -285,7 +299,46 @@ GitHub
 <button class="ptoggle" onclick="tog('pc-olist','pb-olist',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
-<!-- 2. Pow.Bio -->
+<!-- 2. BaroFarm (SSAFY 관통 프로젝트) -->
+<div class="pc" id="pc-baro">
+<div class="ph">
+<div class="ph-left">
+<div class="pm"><span class="pb-org">SSAFY 15기 관통 프로젝트</span>2026.05 – 06 · 2인 팀 (팀장)</div>
+<div class="pt">BaroFarm — 신선식품 직거래 마켓 &amp; 폐기위험 예측·동적 할인</div>
+</div>
+<div class="ph-right">
+<a href="https://barofarm.duckdns.org" class="gh-link" target="_blank" rel="noopener">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
+운영 배포
+</a>
+<a href="https://github.com/doyeon-del/BaroFarm" class="gh-link" target="_blank" rel="noopener">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+GitHub
+</a>
+</div>
+</div>
+<div class="pbody col" id="pb-baro">
+<div class="p-summary">신선식품은 유통기한이 짧아 소상공인 판매자에게 폐기 손실이 큰데, 기존 마켓은 임박 재고를 판매자가 수동으로 내려야 하고 소비자는 그 딜을 찾기 어렵습니다. 판매자에게는 폐기 위험을 미리 보여주고, 소비자에게는 마감임박 딜을 한곳에 모아주는 마켓으로 설계해, 커머스 백엔드와 배포 인프라를 단독으로 구현하고 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</div>
+<div class="pirow">
+<span class="pip">개발 → CI → 운영 배포 완주</span>
+<span class="pip">커밋 기준 기여 약 71%</span>
+</div>
+<ul class="pbu">
+<li><strong>커머스 백엔드 단독 구현:</strong> Spring Boot/MyBatis 기반 CRUD와 JWT 인증(탈퇴 시 토큰 즉시 무효화·블랙리스트), BCrypt 전환, 배포 도메인 CORS 처리까지 인증·보안 흐름을 직접 설계했습니다.</li>
+<li><strong>폐기위험 엔진 &amp; 동적 할인:</strong> 유통기한 D-day와 재고를 규칙 기반으로 평가해 폐기위험(HIGH/MED/LOW)을 산출하고, 위험도에 연동해 할인가가 바뀌는 로직을 구현했습니다. 가격은 주문 시 서버가 재계산해 청구하도록 설계해 클라이언트 가격 조작을 차단했습니다.</li>
+<li><strong>데이터 레이어:</strong> 실트래픽이 없어 행동로그를 파라메트릭 시뮬레이터로 합성(seed 고정·재현 가능)하고 서비스 시드로 변환하는 파이프라인을 만들었습니다. 데이터는 합성이되, 그 위에서 계산한 지표는 전부 실측임을 문서에 명시했습니다.</li>
+<li><strong>AI 추천가:</strong> 상품 등록 시 KAMIS 소매 시세를 근거로 판매가를 추천하고(등락·단위 주의 문구까지 노출), 상품 설명은 gpt-4o-mini를 실호출해 생성했습니다.</li>
+<li><strong>배포/인프라:</strong> Docker Compose로 팀 개발환경을 통일하고, Caddy(HTTPS 리버스프록시) + GitHub Actions CI를 구성해 Oracle Cloud VM에 운영 배포했습니다. 혼합콘텐츠·CORS 403 등 배포 단계 이슈를 직접 해결했습니다.</li>
+<li><strong>설계 문서:</strong> 요구사항정의서·유스케이스·ERD·WBS·간트차트·화면설계 6종을 작성하고 버전 관리했습니다.</li>
+</ul>
+<div class="ptags">
+<span class="ptag">Spring Boot</span><span class="ptag">Java 17</span><span class="ptag">MyBatis</span><span class="ptag">MySQL</span><span class="ptag">Vue 3</span><span class="ptag">Docker</span><span class="ptag">GitHub Actions</span><span class="ptag">Oracle Cloud</span>
+</div>
+</div>
+<button class="ptoggle" onclick="tog('pc-baro','pb-baro',this)">펼쳐보기 <span>▼</span></button>
+</div>
+
+<!-- 3. Pow.Bio -->
 <div class="pc" id="pc2">
 <div class="ph">
 <div class="ph-left">
@@ -326,7 +379,7 @@ GitHub
 <button class="ptoggle" onclick="tog('pc2','pb2',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
-<!-- 3. 졸업논문 -->
+<!-- 4. 졸업논문 -->
 <div class="pc" id="pc3">
 <div class="ph">
 <div class="ph-left">
@@ -357,7 +410,7 @@ GitHub
 <button class="ptoggle" onclick="tog('pc3','pb3',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
-<!-- 4. 데마코 -->
+<!-- 5. 데마코 -->
 <div class="pc" id="pc4">
 <div class="ph">
 <div class="ph-left">
@@ -395,7 +448,7 @@ GitHub
 <button class="ptoggle" onclick="tog('pc4','pb4',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
-<!-- 5. R Shiny -->
+<!-- 6. R Shiny -->
 <div class="pc" id="pc5">
 <div class="ph">
 <div class="ph-left">
@@ -418,7 +471,7 @@ GitHub
 <button class="ptoggle" onclick="tog('pc5','pb5',this)">펼쳐보기 <span>▼</span></button>
 </div>
 
-<!-- 6. 수면 웨어러블 -->
+<!-- 7. 수면 웨어러블 -->
 <div class="pc" id="pc6">
 <div class="ph">
 <div class="ph-left">
