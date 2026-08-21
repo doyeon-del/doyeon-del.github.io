@@ -16,7 +16,6 @@
     <nav>
       <a href="#cases">프로젝트</a>
       <a href="#timeline">그동안 해온 일들</a>
-      <a href="#works">활동 결과물</a>
       <a href="#about">프로필</a>
       <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -25,9 +24,10 @@
   <!-- 히어로 -->
   <section style="margin-top: 128px;">
     <h1 class="hero-title">이도연</h1>
+    <p style="margin-top:10px; font-size:17px; color:var(--muted); letter-spacing:0.04em; font-weight:500;">Doyeon Lee</p>
   </section>
 
-  <!-- 증거: 케이스 1·2 -->
+  <!-- 프로젝트 -->
   <section id="cases">
     <h2 class="index-h2">프로젝트</h2>
     <div class="case-grid">
@@ -36,9 +36,10 @@
         <div class="meta-row">
           <span class="num">PROJECT 01</span>
           <span class="badge">최우수상</span>
+          <span class="badge plain">팀장 · 발표자</span>
         </div>
-        <h3>철도 실적 0톤.<br>수요가 없어서가 아니었다</h3>
-        <p class="desc">대전행 화물의 철도 전환 조건 분석입니다. 공개데이터 11종으로 병목을 특정하고, AI에게 결론을 반박시켜 오류 3건을 정정했습니다.</p>
+        <h3>대전행 화물의 철도 전환 조건 분석</h3>
+        <p class="desc">2026 물류데이터·AI 공모전 <strong>최우수상</strong> 수상작</p>
         <div class="thumb"><img src="assets/case1/deck/slide-01.png" alt="본선 발표자료 타이틀 — 대전행 화물의 철도 전환 조건 분석" style="object-position: left top;"></div>
         <div class="chips">
           <span><strong>최우수상</strong></span>
@@ -52,9 +53,10 @@
         <div class="meta-row">
           <span class="num">PROJECT 02</span>
           <span class="badge">결선 진출</span>
+          <span class="badge plain">AI 파트 전담</span>
         </div>
-        <h3>AI가 말을 지어내지<br>않게 만드는 일</h3>
-        <p class="desc">화물기사 암묵지를 구조화하는 LLM 파이프라인입니다. 확인 가능한 것만 추출하는 비환각 원칙과 STT 인젝션 방어를 설계했습니다.</p>
+        <h3>길벗 Gilbeot</h3>
+        <p class="desc">MOVE-AI Challenge 해커톤 <strong>결선 진출작</strong></p>
         <div class="thumb"><img src="assets/case2/gilbeot_landing_desktop.png" alt="길벗 랜딩 페이지 — 먼저 간 사람의 발자국을 따라갑니다"></div>
         <div class="chips">
           <span>예선 <strong>상위 6팀</strong></span>
@@ -64,22 +66,16 @@
         <span class="go">자세히 보기 →</span>
       </a>
 
-    </div>
-  </section>
-
-  <!-- 확장: 케이스 3·4 -->
-  <section class="sec-gap-s">
-    <p class="label">팀과 시스템으로 확장</p>
-    <div class="case-grid">
 
       <a class="case-card" href="turtle-neck.html">
         <div class="meta-row">
           <span class="num">PROJECT 03</span>
-          <span class="badge plain">팀장 · PM · FE</span>
+          <span class="badge">반 3등</span>
+          <span class="badge plain">팀장 · FE</span>
         </div>
-        <h3>AI에게 맡기기 전에, 틀린 걸<br>판별할 기준부터 만들었다</h3>
-        <p class="desc">온디바이스 AI 자세 감지 데스크톱 앱입니다. AI를 쓰는 5인 팀의 기준 문서와 계약 기반 병렬 개발을 운영했습니다.</p>
-        <div class="thumb"><img src="assets/case3/home.png" alt="토끼와 거북목 홈 화면 — 세션 시작과 연속 기록"></div>
+        <h3>토끼와 거북목</h3>
+        <p class="desc">SSAFY 공통 프로젝트 <strong>반 3등</strong> 수상작</p>
+        <div class="thumb"><img src="assets/case3/home.png" alt="토끼와 거북목 홈 화면 — 세션 시작과 연속 기록" style="object-position: left top;"></div>
         <div class="chips">
           <span>사용자 피드백 <strong>27건</strong> 반영</span>
           <span>테스트 <strong>40건</strong></span>
@@ -93,8 +89,8 @@
           <span class="num">PROJECT 04</span>
           <span class="badge plain">1인 설계·구현</span>
         </div>
-        <h3>요약·분류·선별·편집을<br>한 프롬프트에 넣지 않았다</h3>
-        <p class="desc">경제 뉴스 다이제스트 메일러입니다. Kafka 3단 토픽과 역할 분리 에이전트 4종으로 파이프라인을 구성했습니다.</p>
+        <h3>경제 뉴스 다이제스트 메일러</h3>
+        <p class="desc">Kafka 기반 멀티에이전트 개인 프로젝트</p>
         <div class="chips">
           <span>에이전트 <strong>4종</strong></span>
           <span>Kafka <strong>3단</strong> 토픽</span>
@@ -106,59 +102,9 @@
     </div>
   </section>
 
-  <!-- 타임라인 -->
-  <section id="timeline">
-    <h2 class="index-h2">그동안 해온 일들<span class="sub">최신 순으로 정리했습니다.</span></h2>
-    <div class="timeline">
-
-      <div class="t-item">
-        <p class="t-meta">2026 · SSAFY 15기 관통 프로젝트 (2인 팀, 팀장)</p>
-        <h3>분석에서 멈추지 않고, 서비스를 만들어 배포까지</h3>
-        <p>신선식품 판매자의 폐기 손실 문제를 잡아 마감임박 딜 마켓 'BaroFarm'을 만들었습니다. Spring Boot 백엔드와 유통기한 기반 폐기위험 산출·동적 할인 로직을 직접 구현하고, Docker와 GitHub Actions CI로 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</p>
-        <div class="chips"><span>Spring Boot</span><span>폐기위험 엔진</span><span>Docker · CI</span><span>운영 배포</span></div>
-      </div>
-
-      <div class="t-item">
-        <p class="t-meta">2026 · BigQuery 세미 프로젝트</p>
-        <h3>브라질 이커머스 데이터로 코호트 돌려보기</h3>
-        <p>이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</p>
-        <div class="chips"><span>BigQuery</span><span>SQL · 코호트</span><span>Streamlit</span></div>
-      </div>
-
-      <div class="t-item">
-        <p class="t-meta">2025 · Pow.Bio (미국) · Data Team</p>
-        <h3>연구진이 답답해하는 부분을 찾아내고, 직접 고쳐보기</h3>
-        <p>실험 결과를 비교하느라 매일 창을 여러 개 띄우고 이미지를 일일이 받던 연구진을 인터뷰한 뒤, 다중 티켓 비교 화면으로 바꿨습니다. React와 Node.js로 직접 구현해, 여러 결과를 한 화면에서 바로 겹쳐 비교할 수 있게 했습니다.</p>
-        <div class="chips"><span>사용자 인터뷰</span><span>UX 설계</span><span>React</span><span>Node.js</span></div>
-      </div>
-
-      <div class="t-item">
-        <p class="t-meta">2025 · 학사 학위 논문</p>
-        <h3>ChatGPT와 Gemini, 같은 질문에 어떤 출처를 바탕으로 대답할까</h3>
-        <p>같은 질문 10개를 두 모델에 넣고 응답 100건을 받아서, 출처 유형과 주제를 하나씩 직접 라벨링했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 KL/JS divergence와 Gini, Entropy를 얹어 'Bias Risk Score'라는 평가 모델을 제안했습니다.</p>
-        <div class="chips"><span>직접 라벨링 100건</span><span>재분류 규칙 정의</span><span>LLM 평가 모델</span></div>
-      </div>
-
-      <div class="t-item">
-        <p class="t-meta">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</p>
-        <h3>SQL로 매일 DB 내의 이상값 잡아내기</h3>
-        <p>네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, ML을 활용한 데이터 분석 결과의 정확도를 높이고자 했습니다.</p>
-        <div class="chips"><span>SQL · 데이터 점검</span><span>불용어 사전 1만 행</span><span>가이드라인 표준화</span></div>
-      </div>
-
-      <div class="t-item">
-        <p class="t-meta">2023 · 융합기초프로젝트 (5인 팀) · 개인 전공 프로젝트</p>
-        <h3>피보팅</h3>
-        <p>중간 평가에서 아이템이 망했을 때, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</p>
-        <div class="chips"><span>R · Shiny</span><span>Arduino MVP</span><span>사용자 테스트</span></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 활동 결과물 -->
-  <section id="works">
-    <h2 class="index-h2">활동 결과물<span class="sub">각 카드를 펼치면 내역을 자세히 보실 수 있습니다.</span></h2>
+  <!-- 그 외 프로젝트 -->
+  <section id="works" class="sec-gap-s">
+    <p class="label">그 외 프로젝트 — 카드를 펼치면 자세히 보실 수 있습니다</p>
 
     <!-- Olist -->
     <details class="pcard">
@@ -314,7 +260,7 @@
         <span class="toggle-hint"></span>
       </summary>
       <div class="pcard-body">
-        <p class="p-summary">초기 아이템(무인 포토부스)이 중간 평가에서 까였습니다. 슬립테크 시장 데이터를 정리해 팀을 설득해 수면 자세 교정 기기로 방향을 바꿨고, 10일 만에 압력센서 기반 MVP를 만들어 실사용자 테스트까지 진행했습니다.</p>
+        <p class="p-summary">초기 아이템(무인 포토부스)이 중간 평가에서 혹평을 받았습니다. 슬립테크 시장 데이터를 정리해 팀을 설득해 수면 자세 교정 기기로 방향을 바꿨고, 10일 만에 압력센서 기반 MVP를 만들어 실사용자 테스트까지 진행했습니다.</p>
         <ul class="pbullets">
           <li>초기 아이디어(무인 포토부스)가 설득력이 없다고 판단해 시장조사·논문 데이터를 정리하고 팀을 설득했으며, <strong>수면 자세 교정</strong>으로 피벗했습니다.</li>
           <li>압력센서(FSR)+아두이노로 MVP를 제작했고, 실사용자 수면자세 측정 후 데이터를 시각화했습니다. 솔루션 가능성을 직접 검증했습니다.</li>
@@ -323,6 +269,61 @@
       </div>
     </details>
 
+    <ul class="one-liners" style="margin-top: 8px;">
+      <li><b>카드 결제 이상거래 분석</b>24M 거래 모니터링 → 드릴다운 → 예측</li>
+      <li><b>분리수거 VQA</b>VLM LoRA 파인튜닝(학습 파라미터 0.57%), 3-seed 앙상블</li>
+      <li><b>n8n 뉴스 요약 봇</b>RSS → Claude 요약 → 메일 자동화</li>
+    </ul>
+  </section>
+
+  <!-- 타임라인 -->
+  <section id="timeline">
+    <h2 class="index-h2">그동안 해온 일들<span class="sub">최신 순으로 정리했습니다.</span></h2>
+    <div class="timeline">
+
+      <div class="t-item">
+        <p class="t-meta">2026 · SSAFY 15기 관통 프로젝트 (2인 팀, 팀장)</p>
+        <h3>분석에서 멈추지 않고, 서비스를 만들어 배포까지</h3>
+        <p>신선식품 판매자의 폐기 손실 문제를 잡아 마감임박 딜 마켓 'BaroFarm'을 만들었습니다. Spring Boot 백엔드와 유통기한 기반 폐기위험 산출·동적 할인 로직을 직접 구현하고, Docker와 GitHub Actions CI로 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</p>
+        <div class="chips"><span>Spring Boot</span><span>폐기위험 엔진</span><span>Docker · CI</span><span>운영 배포</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2026 · BigQuery 세미 프로젝트</p>
+        <h3>브라질 이커머스 데이터로 코호트 돌려보기</h3>
+        <p>이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</p>
+        <div class="chips"><span>BigQuery</span><span>SQL · 코호트</span><span>Streamlit</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2025 · Pow.Bio (미국) · Data Team</p>
+        <h3>연구진이 답답해하는 부분을 찾아내고, 직접 고쳐보기</h3>
+        <p>실험 결과를 비교하느라 매일 창을 여러 개 띄우고 이미지를 일일이 받던 연구진을 인터뷰한 뒤, 다중 티켓 비교 화면으로 바꿨습니다. React와 Node.js로 직접 구현해, 여러 결과를 한 화면에서 바로 겹쳐 비교할 수 있게 했습니다.</p>
+        <div class="chips"><span>사용자 인터뷰</span><span>UX 설계</span><span>React</span><span>Node.js</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2025 · 학사 학위 논문</p>
+        <h3>ChatGPT와 Gemini, 같은 질문에 어떤 출처를 바탕으로 대답할까</h3>
+        <p>같은 질문 10개를 두 모델에 넣고 응답 100건을 받아서, 출처 유형과 주제를 하나씩 직접 라벨링했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 KL/JS divergence와 Gini, Entropy를 얹어 'Bias Risk Score'라는 평가 모델을 제안했습니다.</p>
+        <div class="chips"><span>직접 라벨링 100건</span><span>재분류 규칙 정의</span><span>LLM 평가 모델</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</p>
+        <h3>SQL로 매일 DB 내의 이상값 잡아내기</h3>
+        <p>네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, ML을 활용한 데이터 분석 결과의 정확도를 높이고자 했습니다.</p>
+        <div class="chips"><span>SQL · 데이터 점검</span><span>불용어 사전 1만 행</span><span>가이드라인 표준화</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2023 · 융합기초프로젝트 (5인 팀) · 개인 전공 프로젝트</p>
+        <h3>피보팅</h3>
+        <p>중간 평가에서 아이템이 망했을 때, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</p>
+        <div class="chips"><span>R · Shiny</span><span>Arduino MVP</span><span>사용자 테스트</span></div>
+      </div>
+
+    </div>
   </section>
 
   <!-- 프로필 -->
@@ -336,11 +337,17 @@
         </div>
         <div>
           <dt>학력 · 교육</dt>
-          <dd>성균관대학교 문헌정보학 주전공 · <b>통계학 복수전공</b><br>2021.03 – 2026.02<br>삼성청년SW·AI아카데미(SSAFY) 15기 — 2026, 2학기 진행 중</dd>
+          <dd><span style="color:var(--muted); font-variant-numeric:tabular-nums;">2021.03 – 2026.02</span>&ensp;성균관대학교 문헌정보학 주전공 · <b>통계학 복수전공</b><br><span style="color:var(--muted); font-variant-numeric:tabular-nums;">2026.01 – 2026.12</span>&ensp;삼성청년SW·AI아카데미(SSAFY) 15기 — 2학기 진행 중</dd>
         </div>
         <div>
           <dt>경력</dt>
-          <dd><b>Pow.Bio</b> Data Team 인턴 (미국, WEST)<br><b>데이터마케팅코리아</b> 데이터컨설팅팀 인턴</dd>
+          <dd>
+            <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2025.03 – 2025.06</span><br>
+            <b>Pow.Bio</b> Data Team 인턴 (미국, WEST · 16주)
+            <span style="display:block; height:12px;"></span>
+            <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2024.03 – 2024.06</span><br>
+            <b>데이터마케팅코리아</b> 데이터컨설팅팀 인턴 (16주)
+          </dd>
         </div>
         <div>
           <dt>스킬</dt>
@@ -348,16 +355,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 나머지 프로젝트 -->
-  <section class="sec-gap-s">
-    <h2 class="index-h2">나머지 프로젝트</h2>
-    <ul class="one-liners">
-      <li><b>카드 결제 이상거래 분석</b>24M 거래 모니터링 → 드릴다운 → 예측</li>
-      <li><b>분리수거 VQA</b>VLM LoRA 파인튜닝(학습 파라미터 0.57%), 3-seed 앙상블</li>
-      <li><b>n8n 뉴스 요약 봇</b>RSS → Claude 요약 → 메일 자동화</li>
-    </ul>
   </section>
 
   <footer>

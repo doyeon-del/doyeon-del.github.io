@@ -52,8 +52,8 @@ a { color: inherit; text-decoration: none; }
 
 /* ── 타이포 ── */
 .kicker {
-  font-size: 13px; color: var(--muted); letter-spacing: 0.08em;
-  text-transform: lowercase; font-weight: 500;
+  font-size: 14.5px; color: var(--muted); letter-spacing: 0.02em;
+  font-weight: 600;
 }
 .label {
   display: flex; align-items: center; gap: 12px;
@@ -83,8 +83,8 @@ h2.sec-title {
   word-break: keep-all;
   margin-bottom: 16px;
 }
-.lede { font-size: 18px; color: var(--sub); word-break: keep-all; max-width: 620px; }
-p.body-text { color: var(--body); word-break: keep-all; max-width: 680px; }
+.lede { font-size: 19px; color: var(--sub); word-break: keep-all; max-width: 800px; }
+p.body-text { color: var(--body); word-break: keep-all; max-width: 880px; font-size: 17.5px; }
 
 section { margin-top: 120px; }
 .sec-gap-s { margin-top: 72px; }
@@ -118,11 +118,12 @@ section { margin-top: 120px; }
   line-height: 1.4; letter-spacing: -0.02em; word-break: keep-all;
   margin-bottom: 10px;
 }
-.case-card .desc { font-size: 15px; color: var(--sub); word-break: keep-all; margin-bottom: 22px; }
+.case-card .desc { font-size: 16.5px; color: var(--sub); word-break: keep-all; margin-bottom: 22px; }
 .case-card .thumb {
   background: #fff; border: 1px solid var(--line); border-radius: 14px;
-  padding: 14px; margin-bottom: 20px;
+  padding: 14px; margin-top: auto; margin-bottom: 20px;
 }
+.case-card .thumb + .chips { margin-top: 0; }
 .case-card .thumb img {
   border-radius: 6px; width: 100%; height: 240px;
   object-fit: cover; object-position: top;
@@ -156,7 +157,7 @@ section { margin-top: 120px; }
   font-size: 20px; font-weight: 800; color: var(--ink);
   margin: 8px 0 10px; line-height: 1.45; letter-spacing: -0.01em; word-break: keep-all;
 }
-.t-item p { font-size: 15.5px; color: var(--sub); word-break: keep-all; max-width: 640px; }
+.t-item p { font-size: 16.5px; color: var(--sub); word-break: keep-all; max-width: 820px; }
 .t-item .chips { margin-top: 16px; }
 
 /* ── 프로필 ── */
@@ -220,7 +221,7 @@ section { margin-top: 120px; }
 .case-hero { margin-top: 88px; }
 .case-hero .meta {
   display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 28px;
-  font-size: 14.5px; color: var(--sub);
+  font-size: 16px; color: var(--sub);
 }
 .case-hero .meta b { color: var(--ink); font-weight: 700; }
 
@@ -239,8 +240,8 @@ section { margin-top: 120px; }
   display: flex; align-items: center; justify-content: center;
   margin-top: 2px;
 }
-.steps h4 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 4px; word-break: keep-all; }
-.steps p { font-size: 15.5px; color: var(--sub); word-break: keep-all; }
+.steps h4 { font-size: 18.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; word-break: keep-all; }
+.steps p { font-size: 17px; color: var(--sub); word-break: keep-all; }
 
 /* 가설 카드 등 소형 번호 카드 */
 .num-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -261,15 +262,15 @@ section { margin-top: 120px; }
 }
 .tag.asis { background: #e2e6ec; color: var(--sub); }
 .tag.tobe { background: var(--blue); color: #fff; }
-.compare h4 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; word-break: keep-all; }
-.compare p { font-size: 15px; color: var(--sub); word-break: keep-all; }
+.compare h4 { font-size: 18.5px; font-weight: 700; color: var(--ink); margin-bottom: 8px; word-break: keep-all; }
+.compare p { font-size: 16.5px; color: var(--sub); word-break: keep-all; }
 .compare .frame { margin-top: 18px; }
 
 /* 콜아웃 (화살표 문법) */
 .callout {
   display: flex; gap: 14px; align-items: flex-start;
   background: var(--blue-soft); border-radius: 16px; padding: 22px 26px;
-  font-size: 15.5px; color: var(--body); word-break: keep-all;
+  font-size: 17px; color: var(--body); word-break: keep-all;
 }
 .callout::before {
   content: "→"; font-weight: 800; color: var(--blue); font-size: 18px; line-height: 1.5;
@@ -284,7 +285,7 @@ section { margin-top: 120px; }
 .frame img { border-radius: 8px; width: 100%; }
 .frame.bare { padding: 0; overflow: hidden; }
 .frame.bare img { border-radius: 0; }
-.cap { font-size: 13.5px; color: var(--muted); margin-top: 12px; word-break: keep-all; }
+.cap { font-size: 15px; color: var(--muted); margin-top: 12px; word-break: keep-all; }
 .frame-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .frame-row.three { grid-template-columns: repeat(3, 1fr); }
 
@@ -301,7 +302,7 @@ section { margin-top: 120px; }
 .retro {
   border-left: 3px solid var(--blue); padding: 6px 0 6px 28px;
   font-size: 18px; color: var(--ink); font-weight: 600; line-height: 1.7;
-  word-break: keep-all; max-width: 680px;
+  word-break: keep-all; max-width: 880px;
 }
 
 /* 기술 스택 */
@@ -330,7 +331,7 @@ footer a { color: var(--sub); font-weight: 600; }
 footer a:hover { color: var(--blue); }
 
 /* 주석 */
-.footnote { font-size: 14px; color: var(--muted); word-break: keep-all; }
+.footnote { font-size: 16px; color: var(--muted); word-break: keep-all; }
 
 /* ── 인터랙션 ── */
 .deck { display: flex; flex-direction: column; gap: 16px; }

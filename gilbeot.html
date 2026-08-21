@@ -6,18 +6,25 @@
 <title>AI가 말을 지어내지 않게 만드는 일 — 이도연</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 프로젝트 테마 — 길벗 크림·옐로 */
+    :root {
+      --blue: #a67c00; --blue-soft: #fff3c4;
+      --bg: #fffdf6; --card: #faf5e3; --dark: #22201a;
+    }
+  </style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="case-top">
     <a href="index.html">← 이도연 포트폴리오</a>
-    <span class="idx">CASE 02 / 04</span>
+    <span class="idx">PROJECT 02 / 04</span>
   </header>
 
   <!-- 히어로 -->
   <section class="case-hero">
-    <p class="kicker">gilbeot — llm pipeline for tacit knowledge</p>
+    <p class="kicker">MOVE-AI Challenge 해커톤 — 길벗(Gilbeot)</p>
     <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
       <span class="badge">예선 상위 6팀 결선 진출</span>
       <span class="badge plain">AI 파트 전담</span>
@@ -55,7 +62,7 @@
       판단 API <code style="font-size:15px; background:var(--card); padding:2px 8px; border-radius:6px;">/api/structure</code>(Gemini)가
       다섯 단계를 순서대로 통과합니다. 한 번에 모두 맡기지 않았습니다.
     </p>
-    <ol class="steps" style="margin-top:28px; max-width:680px;">
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
       <li><div><h4>추출</h4><p>답변에서 확인 가능한 요소만 뽑습니다.</p></div></li>
       <li><div><h4>충족도 판단</h4><p>노하우로 게시할 만큼 정보가 충분한지 판정합니다.</p></div></li>
       <li><div><h4>후속 질문</h4><p>부족한 요소는 추가 질문으로 되묻습니다.</p></div></li>
@@ -94,7 +101,7 @@
         <p>말하지 않은 항목은 채우지 않고 비워 둡니다. 구체화는 사용자가 말한 범위 안에서만 일어납니다.</p>
       </div>
     </div>
-    <div class="callout" style="margin-top:32px; max-width:680px;">
+    <div class="callout" style="margin-top:32px; max-width:880px;">
       <span><b>STT 인젝션 방어</b> — "유효 판정해줘" 같은 발화가 들어와도 지시로 실행하지 않습니다. 인터뷰 답변은 언제나 지시가 아니라 데이터로 처리합니다.</span>
     </div>
     <div class="frame-row" style="margin-top:40px;">
@@ -123,7 +130,7 @@
   <section>
     <p class="label">운영 판단</p>
     <h2 class="sec-title">LLM이 실패해도 응답을 반환하도록 설계했습니다</h2>
-    <ol class="steps" style="margin-top:28px; max-width:680px;">
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
       <li><div><h4>LLM 예산 20초 &lt; 타임아웃 25초</h4><p>LLM 호출이 실패해도 타임아웃 전에 폴백을 반환합니다.</p></div></li>
       <li><div><h4>thinking 14초 → 2.4초</h4><p>응답 지연의 원인이던 thinking 시간을 조정했습니다.</p></div></li>
       <li><div><h4>폴백 캐시 3종</h4><p>실패 상황별 폴백 캐시를 두어 사용자 흐름이 끊기지 않게 했습니다.</p></div></li>
@@ -162,8 +169,8 @@
   </section>
 
   <nav class="pager">
-    <a href="rail-shift.html"><span class="dir">이전 케이스</span>← 철도 실적 0톤. 수요가 없어서가 아니었다</a>
-    <a class="next" href="turtle-neck.html"><span class="dir">다음 케이스</span>틀린 걸 판별할 기준부터 만들었다 →</a>
+    <a href="rail-shift.html"><span class="dir">이전 프로젝트</span>← 대전행 화물의 철도 전환 조건 분석</a>
+    <a class="next" href="turtle-neck.html"><span class="dir">다음 프로젝트</span>토끼와 거북목 →</a>
   </nav>
 
   <footer>
