@@ -144,6 +144,13 @@ section { margin-top: 120px; }
 
 .case-card .go { margin-top: 20px; font-size: 14.5px; font-weight: 700; color: var(--blue); }
 
+.app-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  border: 1px solid var(--line); background: #fff; flex-shrink: 0;
+}
+.title-with-icon { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.title-with-icon h3 { margin-bottom: 0; }
+
 /* ── 타임라인 ── */
 .timeline {
   position: relative; margin-left: 6px;
