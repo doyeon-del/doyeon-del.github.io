@@ -51,6 +51,83 @@
     </div>
   </section>
 
+  <!-- 시스템 아키텍처 -->
+  <section>
+    <p class="label">시스템 아키텍처</p>
+    <div class="frame" style="padding:28px;">
+      <svg viewBox="0 0 1000 600" role="img" aria-label="토끼와 거북목 시스템 아키텍처: Electron 데스크톱 앱의 온디바이스 AI 감지, Spring Boot 백엔드, MySQL·Redis, Jenkins·Docker·EC2 배포 파이프라인" style="width:100%; height:auto; font-family:inherit;">
+        <defs>
+          <marker id="arwT" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#4a665f"/>
+          </marker>
+        </defs>
+
+        <!-- Kakao OAuth -->
+        <rect x="430" y="16" width="230" height="52" rx="12" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="545" y="41" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">Kakao OAuth 2.0</text>
+        <text x="545" y="58" text-anchor="middle" fill="#4e5968" font-size="11.5">PKCE + 루프백 리다이렉트</text>
+        <polyline points="174,100 174,42 424,42" fill="none" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+
+        <!-- 사용자 PC -->
+        <rect x="24" y="100" width="300" height="320" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="174" y="132" text-anchor="middle" fill="#191f28" font-size="15" font-weight="800">사용자 PC — 데스크톱 앱</text>
+        <image href="assets/arch/electron.svg" x="104" y="150" width="36" height="36"/>
+        <image href="assets/arch/react.svg" x="156" y="150" width="36" height="36"/>
+        <image href="assets/arch/typescript.svg" x="208" y="150" width="36" height="36"/>
+        <text x="174" y="212" text-anchor="middle" fill="#4e5968" font-size="12.5">Electron · React · TypeScript</text>
+        <rect x="44" y="232" width="260" height="98" rx="10" fill="#f4f6fa"/>
+        <text x="174" y="260" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">온디바이스 AI 감지</text>
+        <text x="174" y="282" text-anchor="middle" fill="#4e5968" font-size="12">MediaPipe — 얼굴·몸통 모델 2종</text>
+        <text x="174" y="303" text-anchor="middle" fill="#8b95a1" font-size="11.5">웹캠 영상은 PC 밖으로 나가지 않음</text>
+        <text x="174" y="360" text-anchor="middle" fill="#4e5968" font-size="12">알림 · 세션 · 스트레칭 판정</text>
+        <text x="174" y="380" text-anchor="middle" fill="#4e5968" font-size="12">기록 대시보드 (Recharts)</text>
+
+        <!-- 화살표: 클라이언트 → 서버 -->
+        <line x1="324" y1="215" x2="424" y2="215" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <text x="374" y="205" text-anchor="middle" fill="#4e5968" font-size="11.5" font-weight="600">REST API</text>
+        <line x1="324" y1="285" x2="424" y2="285" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <text x="374" y="275" text-anchor="middle" fill="#4e5968" font-size="11.5" font-weight="600">WebSocket</text>
+
+        <!-- Spring Boot -->
+        <rect x="430" y="150" width="230" height="190" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/spring.svg" x="525" y="170" width="40" height="40"/>
+        <text x="545" y="238" text-anchor="middle" fill="#191f28" font-size="15" font-weight="800">Spring Boot</text>
+        <text x="545" y="262" text-anchor="middle" fill="#4e5968" font-size="12.5">JPA · Spring Security(JWT)</text>
+        <text x="545" y="282" text-anchor="middle" fill="#4e5968" font-size="12.5">WebSocket · Spring AI</text>
+        <text x="545" y="302" text-anchor="middle" fill="#8b95a1" font-size="11.5">팀 스트레칭 회차 · AI 리포트</text>
+
+        <!-- DB -->
+        <rect x="760" y="140" width="216" height="92" rx="14" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/mysql.svg" x="778" y="168" width="36" height="36"/>
+        <text x="830" y="182" fill="#191f28" font-size="14" font-weight="700">MySQL</text>
+        <text x="830" y="204" fill="#4e5968" font-size="11.5">회원·세션·기록·상점</text>
+        <rect x="760" y="258" width="216" height="92" rx="14" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/redis.svg" x="778" y="286" width="36" height="36"/>
+        <text x="830" y="300" fill="#191f28" font-size="14" font-weight="700">Redis</text>
+        <text x="830" y="322" fill="#4e5968" font-size="11.5">Refresh Token Rotation</text>
+        <line x1="660" y1="210" x2="754" y2="190" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <line x1="660" y1="290" x2="754" y2="308" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+
+        <!-- 배포 파이프라인 -->
+        <rect x="24" y="460" width="952" height="116" rx="16" fill="#f4f6fa"/>
+        <text x="44" y="490" fill="#8b95a1" font-size="12" font-weight="700">배포 파이프라인</text>
+        <image href="assets/arch/jenkins.svg" x="150" y="496" width="38" height="38"/>
+        <text x="169" y="556" text-anchor="middle" fill="#4e5968" font-size="12">Jenkins CI/CD</text>
+        <line x1="230" y1="516" x2="320" y2="516" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <image href="assets/arch/docker.svg" x="350" y="496" width="38" height="38"/>
+        <text x="369" y="556" text-anchor="middle" fill="#4e5968" font-size="12">Docker Compose</text>
+        <line x1="440" y1="516" x2="530" y2="516" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <image href="assets/arch/amazonwebservices.svg" x="558" y="494" width="42" height="42"/>
+        <text x="579" y="556" text-anchor="middle" fill="#4e5968" font-size="12">AWS EC2</text>
+        <line x1="650" y1="516" x2="740" y2="516" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <rect x="756" y="496" width="180" height="40" rx="20" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="846" y="521" text-anchor="middle" fill="#191f28" font-size="12.5" font-weight="700">Caddy — 자동 HTTPS</text>
+        <line x1="545" y1="456" x2="545" y2="346" stroke="#4a665f" stroke-width="2" marker-end="url(#arwT)"/>
+        <text x="558" y="408" fill="#8b95a1" font-size="11.5">배포</text>
+      </svg>
+    </div>
+  </section>
+
   <!-- 0. 서비스 소개 -->
   <section>
     <p class="label">서비스 소개</p>
