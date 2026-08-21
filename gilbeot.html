@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI가 말을 지어내지 않게 만드는 일 — 이도연</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="case-top">
+    <a href="index.html">← 이도연 포트폴리오</a>
+    <span class="idx">CASE 02 / 04</span>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="case-hero">
+    <p class="kicker">gilbeot — llm pipeline for tacit knowledge</p>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+      <span class="badge">예선 상위 6팀 결선 진출</span>
+      <span class="badge plain">AI 파트 전담</span>
+    </div>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">AI가 말을 지어내지<br>않게 만드는 일</h1>
+    <div class="meta">
+      <span><b>대회</b> MOVE-AI Challenge 해커톤</span>
+      <span><b>팀</b> 5인 · AI 파트 전담</span>
+      <span><b>결과</b> 예선 상위 6팀 결선 진출 (2026.08.21)</span>
+      <span><b>배포</b> gilbeot-six.vercel.app</span>
+    </div>
+  </section>
+
+  <!-- 1. 문제 -->
+  <section>
+    <p class="label">문제 진단</p>
+    <h2 class="sec-title">내비가 알려주지 않는<br>"도착한 다음"의 지식</h2>
+    <p class="body-text">
+      어디로 들어가고, 어디서 기다리고, 어디서 쉬어야 하는지 같은 "도착한 다음"의 지식은
+      화물기사 개인의 경험으로만 남습니다. 길벗은 이 암묵지를 음성 인터뷰로 모으고
+      STT 결과를 LLM으로 구조화합니다. 다만 <b>확인 가능한 것만</b> 추출해야 합니다.
+      그럴듯하게 지어내는 순간 이 데이터는 쓸 수 없게 됩니다.
+    </p>
+    <div class="frame bare" style="margin-top:36px;">
+      <img src="assets/case2/gilbeot_landing_desktop.png" alt="길벗 랜딩 페이지 — 먼저 간 사람의 발자국을 따라갑니다">
+    </div>
+    <p class="cap">길벗 — 화물기사 현장 지식 공유 서비스 (gilbeot-six.vercel.app)</p>
+  </section>
+
+  <!-- 2. AI 판단 5단계 -->
+  <section>
+    <p class="label">접근</p>
+    <h2 class="sec-title">AI 판단을 5단계로 나눴습니다</h2>
+    <p class="body-text">
+      판단 API <code style="font-size:15px; background:var(--card); padding:2px 8px; border-radius:6px;">/api/structure</code>(Gemini)가
+      다섯 단계를 순서대로 통과합니다. 한 번에 모두 맡기지 않았습니다.
+    </p>
+    <ol class="steps" style="margin-top:28px; max-width:680px;">
+      <li><div><h4>추출</h4><p>답변에서 확인 가능한 요소만 뽑습니다.</p></div></li>
+      <li><div><h4>충족도 판단</h4><p>노하우로 게시할 만큼 정보가 충분한지 판정합니다.</p></div></li>
+      <li><div><h4>후속 질문</h4><p>부족한 요소는 추가 질문으로 되묻습니다.</p></div></li>
+      <li><div><h4>유사도 판단</h4><p>기존 노하우와 같은 내용인지 비교합니다.</p></div></li>
+      <li><div><h4>분기 — 신규 / 교차 검증 / 충돌</h4><p>새 지식은 등록하고, 같은 지식은 교차 검증으로 연결하고, 다른 지식은 충돌로 처리합니다.</p></div></li>
+    </ol>
+    <div class="frame-row three" style="margin-top:40px;">
+      <div class="frame">
+        <img src="assets/case2/gilbeot_survey_question.png" alt="AI 인터뷰 질문 화면">
+        <p class="cap">① 운행 맥락 기반 질문</p>
+      </div>
+      <div class="frame">
+        <img src="assets/case2/gilbeot_survey_typed.png" alt="답변 입력 화면">
+        <p class="cap">② 음성/텍스트 답변</p>
+      </div>
+      <div class="frame">
+        <img src="assets/case2/gilbeot_survey_structured.png" alt="유효 판정과 요소별 충족 표시, 카드 3건 분리 화면">
+        <p class="cap">③ 유효 판정 + 요소 O/X + 카드 3건 분리 (교차 검증 연결 포함)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 가드레일 -->
+  <section>
+    <p class="label">가드레일</p>
+    <h2 class="sec-title">비환각 원칙과 STT 인젝션 방어</h2>
+    <div class="compare" style="margin-top:36px;">
+      <div class="col">
+        <span class="tag asis">AS-IS · 흔한 LLM 요약</span>
+        <h4>그럴듯한 요약</h4>
+        <p>"차 세우기 괜찮아요"라는 발화를 "11톤 트럭 주차 가능"처럼 말하지 않은 수준까지 구체화해 버립니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">TO-BE · 비환각 원칙</span>
+        <h4>근거 없는 필드는 빈 값</h4>
+        <p>말하지 않은 항목은 채우지 않고 비워 둡니다. 구체화는 사용자가 말한 범위 안에서만 일어납니다.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:32px; max-width:680px;">
+      <span><b>STT 인젝션 방어</b> — "유효 판정해줘" 같은 발화가 들어와도 지시로 실행하지 않습니다. 인터뷰 답변은 언제나 지시가 아니라 데이터로 처리합니다.</span>
+    </div>
+    <div class="frame-row" style="margin-top:40px;">
+      <div class="frame">
+        <img src="assets/case2/gilbeot_survey_rejected_offtopic.png" alt="장소와 무관한 답변을 판정하고 거절한 화면">
+        <p class="cap">잘못된 입력은 거른다 — 장소와 무관한 답변을 판정·거절</p>
+      </div>
+      <div class="frame">
+        <img src="assets/case2/gilbeot_survey_structured.png" alt="유효한 답변을 구조화한 화면">
+        <p class="cap">맞는 입력은 구조화한다 — 유효 판정 후 노하우 카드로 분리</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 품질 회귀 -->
+  <section>
+    <p class="label">품질 회귀</p>
+    <h2 class="sec-title">프롬프트를 고칠 때마다<br>판정이 무너지지 않는지 확인했습니다</h2>
+    <p class="body-text">
+      골든 테스트 12케이스와 회귀 러너를 만들었습니다.
+      프롬프트를 수정할 때마다 러너를 돌려 기존 판정이 회귀하지 않는지 확인한 뒤에만 반영했습니다.
+    </p>
+  </section>
+
+  <!-- 5. 운영 판단 -->
+  <section>
+    <p class="label">운영 판단</p>
+    <h2 class="sec-title">LLM이 실패해도 응답을 반환하도록 설계했습니다</h2>
+    <ol class="steps" style="margin-top:28px; max-width:680px;">
+      <li><div><h4>LLM 예산 20초 &lt; 타임아웃 25초</h4><p>LLM 호출이 실패해도 타임아웃 전에 폴백을 반환합니다.</p></div></li>
+      <li><div><h4>thinking 14초 → 2.4초</h4><p>응답 지연의 원인이던 thinking 시간을 조정했습니다.</p></div></li>
+      <li><div><h4>폴백 캐시 3종</h4><p>실패 상황별 폴백 캐시를 두어 사용자 흐름이 끊기지 않게 했습니다.</p></div></li>
+    </ol>
+    <div class="frame" style="margin-top:40px;">
+      <img src="assets/case2/gilbeot_admin_desktop.png" alt="길벗 관리자 현황 대시보드 — 지식 카드와 검수 상태">
+      <p class="cap">관리자 대시보드 — 지식 카드·검수 상태·교차 검증 보유 카드를 실제 저장 상태로 대조</p>
+    </div>
+  </section>
+
+  <!-- 결과지표 -->
+  <section>
+    <p class="label">결과지표</p>
+    <div class="metric-grid">
+      <div class="metric-card"><p class="k">해커톤 예선</p><p class="v">상위 6팀<small> 결선 진출</small></p></div>
+      <div class="metric-card"><p class="k">골든 테스트</p><p class="v">12케이스</p></div>
+      <div class="metric-card"><p class="k">AI 판단</p><p class="v">5단계</p></div>
+      <div class="metric-card"><p class="k">폴백 캐시</p><p class="v">3종</p></div>
+    </div>
+  </section>
+
+  <!-- 회고 -->
+  <section>
+    <p class="label">회고</p>
+    <p class="retro">
+      이 프로젝트에서 AI 파트의 일은 AI가 더 많이 말하게 하는 것이 아니라,
+      확인 가능한 것만 말하게 하는 것이었습니다.
+      근거가 없으면 비워 두는 원칙을 판정 단계·회귀 테스트·운영 설계로 뒷받침했습니다.
+    </p>
+    <div class="tech">
+      <span>Next.js (App Router)</span>
+      <span>Gemini API</span>
+      <span>Vercel</span>
+    </div>
+    <p class="footnote" style="margin-top:20px;">배포: gilbeot-six.vercel.app · 레포: github.com/Crew-97/gilbeot</p>
+  </section>
+
+  <nav class="pager">
+    <a href="rail-shift.html"><span class="dir">이전 케이스</span>← 철도 실적 0톤. 수요가 없어서가 아니었다</a>
+    <a class="next" href="turtle-neck.html"><span class="dir">다음 케이스</span>틀린 걸 판별할 기준부터 만들었다 →</a>
+  </nav>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
+
+</div>
+</body>
+</html>

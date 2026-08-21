@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>철도 실적 0톤. 수요가 없어서가 아니었다 — 이도연</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="case-top">
+    <a href="index.html">← 이도연 포트폴리오</a>
+    <span class="idx">CASE 01 / 04</span>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="case-hero">
+    <p class="kicker">rail freight shift analysis</p>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+      <span class="badge">최우수상</span>
+      <span class="badge plain">팀장</span>
+    </div>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">철도 실적 0톤.<br>수요가 없어서가 아니었다</h1>
+    <div class="meta">
+      <span><b>대회</b> 2026 물류데이터·AI 활용 및 분석 아이디어 공모전 (대전정보문화산업진흥원)</span>
+      <span><b>팀</b> 철들었조 · 팀장</span>
+      <span><b>결과</b> 최우수상 (2026.08.21)</span>
+    </div>
+  </section>
+
+  <!-- 1. 문제 -->
+  <section>
+    <p class="label">문제 진단</p>
+    <h2 class="sec-title">도로로는 연 113.9만 톤이 가는데,<br>같은 구간 철도는 0톤</h2>
+    <p class="body-text">
+      인천·평택·당진에서 대전으로 가는 도로화물은 연 113.9만 톤이지만, 같은 구간의 철도 실적은 0톤입니다.
+      반면 부산권발 대전행은 철도 15.5만 톤이 실제로 쓰이고 있습니다.
+      서해안권만 철도가 비어 있는 이유를 찾는 것이 이 분석의 출발점이었습니다.
+    </p>
+    <div class="frame" style="margin-top:36px;">
+      <img src="assets/case1/chart1_od.png" alt="대전행 화물의 수단별 물동량 — 인천·평택·당진발은 철도 0, 부산권발은 철도 15.5만 톤">
+      <p class="cap">대전행 화물의 수단별 물동량 (KTDB 2023) — 서해안권만 철도가 0입니다</p>
+    </div>
+  </section>
+
+  <!-- 2. 가설 -->
+  <section>
+    <p class="label">가설</p>
+    <h2 class="sec-title">가설 세 개로 나눠 확인했습니다</h2>
+    <div class="num-cards" style="margin-top:36px;">
+      <div class="card">
+        <span class="n">1</span>
+        <h3>물리적 한계가 아니다</h3>
+        <p>선로·역 시설이 없어서가 아니라는 것부터 확인합니다.</p>
+      </div>
+      <div class="card">
+        <span class="n">2</span>
+        <h3>병목은 양끝 비용이다</h3>
+        <p>철도 운임이 아니라 양끝의 트럭비·상하차비가 병목이라고 가정합니다.</p>
+      </div>
+      <div class="card">
+        <span class="n">3</span>
+        <h3>정책으로 메울 크기다</h3>
+        <p>도로와의 격차가 정책 지원으로 메울 수 있는 규모인지 확인합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 검증 -->
+  <section>
+    <p class="label">검증</p>
+    <h2 class="sec-title">공개데이터 11종을 결합하고,<br>읽기 규칙부터 정했습니다</h2>
+    <p class="body-text">
+      데이터를 결합하기 전에 <b>「행≠작업, 행 수≠물동량, 기록 부재≠작업 부재」</b>라는 사전 규칙을 세웠습니다.
+      이 규칙이 있었기 때문에 신탄진 컨테이너 35행이 35번의 작업이 아니라
+      하루·한 건의 일괄 기록이라는 것을 확인할 수 있었습니다.
+    </p>
+    <div class="frame" style="margin-top:36px;">
+      <img src="assets/case1/chart2_adjust.png" alt="작업 시간 조정 기록 — 전국은 시간을 늘려 달라 하고, 신탄진은 짧게 끝났다고 한다">
+      <p class="cap">작업 시간 조정 기록 — 전국 평균은 +3.65시간을 늘려 달라 신청하는데, 신탄진은 −1.27시간 짧게 끝납니다</p>
+    </div>
+  </section>
+
+  <!-- 4. 비용 모델 -->
+  <section>
+    <p class="label">비용 모델</p>
+    <h2 class="sec-title">철도 운임은 전체 비용의 14.7%였습니다</h2>
+    <p class="body-text">
+      3개 경로의 왕복 총비용을 고시 운임 기준으로 계산했습니다.
+      신탄진 철도복합 경로의 총 763,700원 중 철도 운임은 112,000원(14.7%)에 불과합니다.
+      병목은 철도가 아니라 양끝의 트럭·상하차 비용입니다.
+    </p>
+    <div class="frame" style="margin-top:36px;">
+      <img src="assets/case1/fig2_routes.png" alt="3경로 왕복 총비용 비교 — 도로 직송과 철도복합의 비용 구성">
+      <p class="cap">3경로 왕복 총비용 — 도로·트럭은 고시 제2026-55호, 철도는 코레일 공시 임률 기준</p>
+    </div>
+    <div class="compare" style="margin-top:32px;">
+      <div class="col">
+        <span class="tag asis">AS-IS</span>
+        <h4>도로 직송</h4>
+        <p>전 구간을 트럭으로 직송합니다. 현재 서해안권→대전 화물의 유일한 선택지입니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">TO-BE</span>
+        <h4>철도복합 성립 조건</h4>
+        <p>양끝 비용이 임계치 아래로 내려오면 철도복합이 성립합니다. 하역 작업비 기준 회당 22,150~27,600원이 그 경계입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AI 반증 -->
+  <section>
+    <p class="label">AI를 반증에 활용</p>
+    <h2 class="sec-title">"이 결론을 반박하라"</h2>
+    <p class="body-text">
+      결론을 완성한 뒤, AI에게 결론을 다듬게 하는 대신 반박하게 했습니다.
+      반박 프롬프트가 잡아낸 오류는 실제로 있었습니다.
+    </p>
+    <ol class="steps" style="margin-top:28px; max-width:680px;">
+      <li>
+        <div>
+          <h4>운임 오적용 2건 정정</h4>
+          <p>반박 과정에서 드러난 운임 적용 오류를 고시 기준으로 다시 계산했습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>집계 오류 1건 정정</h4>
+          <p>결합 데이터의 집계 단위 오류를 바로잡았습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>틀린 산출물은 폐기</h4>
+          <p>확률 미보정 모델 점수를 물량으로 환산한 산출물은 방어할 수 없다고 판단해 폐기했습니다.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="callout" style="margin-top:32px; max-width:680px;">
+      <span>AI의 역할은 결론을 포장하는 것이 아니라 <b>결론이 틀렸을 가능성을 먼저 찾는 것</b>이었습니다. 반박을 통과한 수치만 제안에 실었습니다.</span>
+    </div>
+  </section>
+
+  <!-- 6. 제안 -->
+  <section>
+    <p class="label">제안</p>
+    <h2 class="sec-title">「철도 전환 가능성 확인 서비스」</h2>
+    <p class="body-text">
+      분석을 일회성 보고서로 끝내지 않고, 화주·담당자가 성립 조건을 직접 확인할 수 있는
+      4화면 웹 서비스로 제안했습니다.
+    </p>
+    <div class="frame bare" style="margin-top:36px;">
+      <img src="assets/case1/fig5_screens.png" alt="철도 전환 가능성 확인 서비스 4화면 — 구간 지도, 역 카드, 비용 계산기, 확인 목록">
+    </div>
+    <p class="cap">① 구간 지도 → ② 역 카드 → ③ 비용 계산기 → ④ 확인 목록 — 빨간 칸만 사람이 확인하면 판정이 나오는 구조</p>
+    <div class="frame" style="margin-top:32px;">
+      <img src="assets/case1/fig1_boundary.png" alt="신탄진 철도복합 성립 경계 — 하역 작업비와 철도운임 상한의 관계">
+      <p class="cap">성립 경계 — 하역 작업비가 내려갈수록 성립 가능한 철도운임 상한이 올라갑니다</p>
+    </div>
+  </section>
+
+  <!-- 발표 자료 원본 -->
+  <section>
+    <p class="label">발표 자료</p>
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>본선 발표자료</b>27장 · 2026-지정5-14</p>
+          <p class="pt">대전행 화물의 철도 전환 조건 분석 — 도로·철도 운송 경로 비용 비교</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <div class="deck">
+          <div class="frame bare"><img src="assets/case1/deck/slide-01.png" alt="발표자료 1장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-02.png" alt="발표자료 2장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-03.png" alt="발표자료 3장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-04.png" alt="발표자료 4장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-05.png" alt="발표자료 5장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-06.png" alt="발표자료 6장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-07.png" alt="발표자료 7장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-08.png" alt="발표자료 8장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-09.png" alt="발표자료 9장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-10.png" alt="발표자료 10장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-11.png" alt="발표자료 11장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-12.png" alt="발표자료 12장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-13.png" alt="발표자료 13장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-14.png" alt="발표자료 14장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-15.png" alt="발표자료 15장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-16.png" alt="발표자료 16장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-17.png" alt="발표자료 17장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-18.png" alt="발표자료 18장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-19.png" alt="발표자료 19장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-20.png" alt="발표자료 20장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-21.png" alt="발표자료 21장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-22.png" alt="발표자료 22장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-23.png" alt="발표자료 23장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-24.png" alt="발표자료 24장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-25.png" alt="발표자료 25장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-26.png" alt="발표자료 26장" loading="lazy"></div>
+          <div class="frame bare"><img src="assets/case1/deck/slide-27.png" alt="발표자료 27장" loading="lazy"></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 결과지표 -->
+  <section>
+    <p class="label">결과지표</p>
+    <div class="metric-grid">
+      <div class="metric-card"><p class="k">공모전 결과</p><p class="v">최우수상</p></div>
+      <div class="metric-card"><p class="k">임계단가 역산</p><p class="v">22,150~27,600<small>원/회</small></p></div>
+      <div class="metric-card"><p class="k">AI 반증으로 오류 정정</p><p class="v">3건</p></div>
+      <div class="metric-card"><p class="k">결합한 공개데이터</p><p class="v">11종</p></div>
+    </div>
+  </section>
+
+  <!-- 회고 -->
+  <section>
+    <p class="label">회고</p>
+    <p class="retro">
+      결론을 그럴듯하게 만드는 데 AI를 쓰지 않았습니다.
+      결론을 반박시키고, 반박을 버티지 못한 산출물은 폐기했습니다.
+      제안에 실은 수치는 모두 이 과정을 거친 것들입니다.
+    </p>
+    <div class="tech">
+      <span>Python (pandas · matplotlib)</span>
+      <span>가중 로지스틱 회귀</span>
+      <span>Claude / ChatGPT (반증)</span>
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="index.html"><span class="dir">인덱스</span>이도연 포트폴리오</a>
+    <a class="next" href="gilbeot.html"><span class="dir">다음 케이스</span>AI가 말을 지어내지 않게 만드는 일 →</a>
+  </nav>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
+
+</div>
+</body>
+</html>

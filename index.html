@@ -3,488 +3,422 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>이도연 포트폴리오 </title>
-<meta name="description" content="이도연 — 활동 내용">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
---navy:#0F1B2C;--navy-soft:#1E3A5F;--navy-mid:#2A4A77;
---accent:#3563B0;--accent-bright:#2563EB;--accent-light:#EEF2F9;--accent-mid:#C8D5EA;
---green:#0E8A5F;
---ink:#0c1117;--body:#33373d;--muted:#6e7480;--muted-light:#a4a9b2;
---border:#dde1e7;--border-soft:#ebeef2;
---canvas:#ffffff;--parchment:#f6f7f9;
---tile-warm:#F4F5F7;--tile-warm2:#EBEEF2;
---on-warm:#0c1117;--on-warm-muted:#6e7480;
---font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
---r-sm:8px;--r-md:12px;--r-lg:18px;--r-pill:9999px;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.47;}
-.subnav{position:sticky;top:0;z-index:190;background:rgba(246,247,249,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:0.5px solid var(--border-soft);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;}
-.subnav-title{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-0.025em;}
-.subnav-right{display:flex;align-items:center;gap:24px;}
-.subnav-right a{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:-0.01em;transition:color 0.15s;}
-.subnav-right a:hover{color:var(--accent-bright);}
-/* ── HERO ── */
-.tile-hero{background:var(--canvas);padding:88px 48px 80px;text-align:center;}
-.hero-intro{font-size:15px;font-weight:400;color:var(--muted);letter-spacing:-0.01em;margin-bottom:14px;}
-.hero-name{font-size:56px;font-weight:700;color:var(--ink);letter-spacing:-0.04em;line-height:1.07;margin-bottom:8px;}
-.hero-name-sub{font-size:28px;font-weight:300;color:var(--muted);letter-spacing:0.01em;margin-bottom:28px;}
-.hero-tagline{font-size:21px;font-weight:400;color:var(--body);line-height:1.5;max-width:600px;margin:0 auto 40px;letter-spacing:-0.01em;}
-.btn-p{font-family:var(--font);font-size:17px;font-weight:500;background:var(--navy);color:#fff;border:none;cursor:pointer;padding:11px 28px;border-radius:var(--r-pill);text-decoration:none;display:inline-block;transition:background 0.15s,transform 0.1s;letter-spacing:-0.01em;}
-.btn-p:hover{background:var(--navy-soft);}
-.btn-p:active{transform:scale(0.96);}
-.meta-chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
-.meta-chip{font-size:14px;color:var(--muted);background:var(--parchment);border:0.5px solid var(--border);padding:5px 14px;border-radius:var(--r-pill);letter-spacing:-0.01em;}
-.hero-edu{font-size:14px;color:var(--muted-light);letter-spacing:-0.01em;margin-bottom:28px;}
-.skill-row{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;}
-.sk{font-size:13px;color:var(--navy-soft);background:var(--accent-light);border:0.5px solid var(--accent-mid);padding:5px 13px;border-radius:var(--r-pill);letter-spacing:-0.01em;cursor:default;transition:background 0.15s;}
-.sk:hover{background:var(--accent-mid);}
-/* ── SECTION LABELS ── */
-.sec-label{font-size:17px;font-weight:400;color:var(--accent-bright);letter-spacing:-0.01em;margin-bottom:8px;}
-.sec-h2{font-size:40px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px;}
-.sec-sub{font-size:19px;font-weight:300;color:var(--muted);letter-spacing:-0.01em;line-height:1.45;}
-/* ── TIMELINE ── */
-.tile-parch{background:var(--parchment);padding:88px 48px;text-align:center;}
-.tile-parch .sec-h2{color:var(--ink);}
-.timeline{max-width:680px;margin:52px auto 0;text-align:left;position:relative;}
-.timeline::before{content:'';position:absolute;left:15px;top:6px;bottom:6px;width:1.5px;background:var(--accent-mid);}
-.tl-item{display:flex;gap:28px;margin-bottom:40px;position:relative;}
-.tl-item:last-child{margin-bottom:0;}
-.tl-dot-wrap{flex-shrink:0;width:32px;display:flex;flex-direction:column;align-items:center;padding-top:3px;}
-.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--canvas);border:2px solid var(--accent-bright);flex-shrink:0;position:relative;z-index:1;}
-.tl-item.active .tl-dot{background:var(--accent-bright);}
-.tl-content{}
-.tl-period{font-size:12px;font-weight:400;color:var(--muted-light);letter-spacing:-0.01em;margin-bottom:4px;}
-.tl-title{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:5px;line-height:1.35;}
-.tl-desc{font-size:14px;font-weight:400;color:var(--body);line-height:1.65;letter-spacing:-0.01em;}
-.tl-tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
-.tl-tag{font-size:11.5px;color:var(--navy-soft);background:var(--accent-light);border:0.5px solid var(--accent-mid);padding:3px 10px;border-radius:var(--r-pill);letter-spacing:-0.01em;}
-/* ── PROJECTS ── */
-.tile-dark{background:var(--tile-warm);padding:88px 48px;text-align:center;border-top:0.5px solid var(--border-soft);border-bottom:0.5px solid var(--border-soft);}
-.tile-dark .sec-label{color:var(--accent-bright);}
-.tile-dark .sec-h2{color:var(--on-warm);}
-.tile-dark .sec-sub{color:var(--on-warm-muted);}
-.proj-list{display:flex;flex-direction:column;gap:12px;max-width:740px;margin:52px auto 0;text-align:left;}
-.pc{background:var(--canvas);border:0.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
-.pc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,27,44,0.08);}
-.ph{padding:22px 24px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
-.ph-left{}
-.pm{font-size:11.5px;color:var(--muted);letter-spacing:-0.01em;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.pb-org{background:var(--accent-light);color:var(--navy-soft);font-size:11px;font-weight:600;padding:2px 8px;border-radius:var(--r-pill);}
-.pt{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-0.025em;line-height:1.3;}
-.ph-right{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding-top:2px;}
-.paward{background:var(--green);color:#fff;font-size:10.5px;font-weight:600;padding:4px 11px;border-radius:var(--r-pill);white-space:nowrap;}
-.gh-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;background:var(--parchment);border:0.5px solid var(--border);padding:4px 11px;border-radius:var(--r-pill);transition:color 0.15s,background 0.15s,border-color 0.15s;white-space:nowrap;}
-.gh-link:hover{color:var(--accent-bright);background:var(--accent-light);border-color:var(--accent-mid);}
-.gh-link svg{flex-shrink:0;}
-.pbody{padding:0 24px 20px;max-height:800px;overflow:hidden;transition:max-height 0.38s ease,opacity 0.3s ease;opacity:1;}
-.pbody.col{max-height:0;opacity:0;padding-bottom:0;}
-.p-summary{font-size:14px;color:var(--body);line-height:1.6;letter-spacing:-0.01em;margin-bottom:14px;}
-.pirow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
-.pip{background:var(--accent-light);border:0.5px solid var(--accent-mid);color:var(--navy-soft);font-size:12px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);}
-.pbu{list-style:none;margin-bottom:16px;}
-.pbu li{font-size:13.5px;color:var(--body);line-height:1.65;padding-left:14px;position:relative;margin-bottom:6px;letter-spacing:-0.01em;}
-.pbu li::before{content:'';position:absolute;left:3px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent-bright);opacity:0.7;}
-.pbu li strong{color:var(--ink);font-weight:600;}
-.ptags{display:flex;flex-wrap:wrap;gap:5px;}
-.ptag{background:var(--parchment);border:0.5px solid var(--border-soft);color:var(--muted);font-size:11px;padding:3px 10px;border-radius:var(--r-pill);letter-spacing:-0.01em;}
-.ptoggle{width:100%;background:transparent;border:none;border-top:0.5px solid var(--border-soft);padding:9px 24px;display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted-light);font-size:11.5px;font-family:var(--font);cursor:pointer;transition:color 0.15s,background 0.15s;letter-spacing:-0.01em;}
-.ptoggle:hover{color:var(--accent-bright);background:var(--accent-light);}
-/* ── PROJECT SCREENSHOTS ── */
-.pcover{display:block;border-top:0.5px solid var(--border-soft);background:var(--parchment);position:relative;}
-.pcover img{display:block;width:100%;height:auto;}
-.pcover-cap{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted);padding:9px 24px 13px;letter-spacing:-0.01em;background:var(--parchment);border-bottom:0.5px solid var(--border-soft);}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(14,138,95,0.15);flex-shrink:0;}
-.pcover-cap .cap-r{margin-left:auto;color:var(--accent-bright);text-decoration:none;font-weight:500;}
-.pcover-cap .cap-r:hover{text-decoration:underline;}
-.pshots{margin:2px 0 18px;}
-.pshots-lab{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:-0.01em;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
-.pcover-in{display:block;border:0.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:9px;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}
-.pcover-in:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,44,0.1);border-color:var(--accent-mid);}
-.pcover-in img{display:block;width:100%;height:auto;}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
-.pgrid a{display:block;border:0.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--canvas);transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}
-.pgrid a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,44,0.1);border-color:var(--accent-mid);}
-.pgrid img{display:block;width:100%;height:158px;object-fit:cover;object-position:top center;}
-.pgrid .gcap{font-size:11px;color:var(--muted);padding:7px 11px;letter-spacing:-0.01em;border-top:0.5px solid var(--border-soft);}
-@media(max-width:640px){.pgrid{grid-template-columns:1fr;}.pgrid img{height:auto;}}
-/* ── FOOTER ── */
-footer{background:var(--parchment);padding:48px 32px;border-top:0.5px solid var(--border-soft);}
-.ft-inner{max-width:740px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
-.ft-left{font-size:13px;color:var(--muted-light);letter-spacing:-0.01em;}
-.ft-right{display:flex;align-items:center;gap:12px;}
-.ft-contact{font-size:13px;color:var(--muted);letter-spacing:-0.01em;}
-/* ── SCROLL ANIM ── */
-.appear{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.appear.vis{opacity:1;transform:none;}
-@media(max-width:640px){
-.subnav{padding:0 16px;}
-.tile-hero,.tile-parch,.tile-dark{padding:60px 20px;}
-.hero-name{font-size:38px;}.hero-name-sub{font-size:20px;}.hero-tagline{font-size:17px;}
-.sec-h2{font-size:28px;}
-.timeline{margin-top:36px;}
-.ft-inner{flex-direction:column;align-items:flex-start;}
-.ph{flex-direction:column;}
-.ph-right{flex-direction:row;align-items:center;flex-wrap:wrap;}
-}
-</style>
+<title>이도연 포트폴리오</title>
+<meta name="description" content="이도연 데이터·AI 분석 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="wrap">
 
-<!-- SUB NAV -->
-<div class="subnav">
-<span class="subnav-title">이도연 · Doyeon Lee</span>
-<div class="subnav-right">
-<a href="#comp">여정</a>
-<a href="#proj">프로젝트</a>
-</div>
-</div>
+  <header class="top">
+    <span class="name">포트폴리오</span>
+    <nav>
+      <a href="#cases">프로젝트</a>
+      <a href="#timeline">그동안 해온 일들</a>
+      <a href="#works">활동 결과물</a>
+      <a href="#about">프로필</a>
+      <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="tile-hero" id="top">
-<h1 class="hero-name">이도연</h1>
-<p class="hero-name-sub">Doyeon Lee</p>
-<p class="hero-tagline">성균관대학교에서 문헌정보학과 통계학을 함께 전공했습니다. 데이터 수집부터 정제, 분석, 시각화의 전 과정에 참여하며, 데이터의 정확성과 활용성을 높일 수 있는 방안을 고민해왔습니다.
-</p>
-<div style="margin-bottom:48px;">
-<a href="#proj" class="btn-p">프로젝트 보기</a>
-</div>
-<div class="meta-chips">
-<span class="meta-chip">dlehduslee@naver.com</span>
-<span class="meta-chip">github.com/doyeon-del</span>
-</div>
-<p class="hero-edu">성균관대학교 &nbsp;문헌정보학과 · 통계학과 복수전공 &nbsp;|&nbsp; 2021.03 입학 – 2026.02 졸업 &nbsp;|&nbsp; 학점 97.3 / 100</p>
-<div class="skill-row">
-<span class="sk">Python</span>
-<span class="sk">SQL</span>
-<span class="sk">BigQuery</span>
-<span class="sk">텍스트 분석</span>
-<span class="sk">데이터 라벨링</span>
-<span class="sk">LLM 응답 라벨링</span>
-<span class="sk">정보품질 · 메타데이터</span>
-<span class="sk">R / Shiny</span>
-<span class="sk">LoRA · VLM</span>
-<span class="sk">Tableau</span>
-<span class="sk">Git</span>
-</div>
-</section>
+  <!-- 히어로 -->
+  <section style="margin-top: 128px;">
+    <h1 class="hero-title">이도연</h1>
+  </section>
 
-<!-- TIMELINE -->
-<section class="tile-parch appear" id="comp">
-<h2 class="sec-h2">그동안 해온 일들</h2>
-<p class="sec-sub"> 최신 순으로 정리했습니다.</p>
+  <!-- 증거: 케이스 1·2 -->
+  <section id="cases">
+    <h2 class="index-h2">프로젝트</h2>
+    <div class="case-grid">
 
-<div class="timeline">
+      <a class="case-card" href="rail-shift.html">
+        <div class="meta-row">
+          <span class="num">PROJECT 01</span>
+          <span class="badge">최우수상</span>
+        </div>
+        <h3>철도 실적 0톤.<br>수요가 없어서가 아니었다</h3>
+        <p class="desc">대전행 화물의 철도 전환 조건 분석입니다. 공개데이터 11종으로 병목을 특정하고, AI에게 결론을 반박시켜 오류 3건을 정정했습니다.</p>
+        <div class="thumb"><img src="assets/case1/deck/slide-01.png" alt="본선 발표자료 타이틀 — 대전행 화물의 철도 전환 조건 분석" style="object-position: left top;"></div>
+        <div class="chips">
+          <span><strong>최우수상</strong></span>
+          <span>AI 반증 정정 <strong>3건</strong></span>
+          <span>공개데이터 <strong>11종</strong></span>
+        </div>
+        <span class="go">자세히 보기 →</span>
+      </a>
 
-<div class="tl-item active">
-<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-<div class="tl-content">
-<div class="tl-period">2026 · BigQuery 세미 프로젝트</div>
-<div class="tl-title">브라질 이커머스 데이터로 코호트 돌려보기</div>
-<div class="tl-desc">이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">BigQuery</span><span class="tl-tag">SQL · 코호트</span><span class="tl-tag">Streamlit</span></div>
-</div>
-</div>
+      <a class="case-card" href="gilbeot.html">
+        <div class="meta-row">
+          <span class="num">PROJECT 02</span>
+          <span class="badge">결선 진출</span>
+        </div>
+        <h3>AI가 말을 지어내지<br>않게 만드는 일</h3>
+        <p class="desc">화물기사 암묵지를 구조화하는 LLM 파이프라인입니다. 확인 가능한 것만 추출하는 비환각 원칙과 STT 인젝션 방어를 설계했습니다.</p>
+        <div class="thumb"><img src="assets/case2/gilbeot_landing_desktop.png" alt="길벗 랜딩 페이지 — 먼저 간 사람의 발자국을 따라갑니다"></div>
+        <div class="chips">
+          <span>예선 <strong>상위 6팀</strong></span>
+          <span>골든 테스트 <strong>12케이스</strong></span>
+          <span>AI 판단 <strong>5단계</strong></span>
+        </div>
+        <span class="go">자세히 보기 →</span>
+      </a>
 
-<div class="tl-item active">
-<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-<div class="tl-content">
-<div class="tl-period">2025 · Pow.Bio (미국) · Data Team</div>
-<div class="tl-title">연구진이 답답해하는 부분을 찾아내고, 직접 고쳐보기</div>
-<div class="tl-desc">실험 결과를 비교하느라 매일 창을 여러 개 띄우고 이미지를 일일이 받던 연구진을 인터뷰한 뒤, 다중 티켓 비교 화면으로 바꿨습니다. React와 Node.js로 직접 구현해, 여러 결과를 한 화면에서 바로 겹쳐 비교할 수 있게 했습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">사용자 인터뷰</span><span class="tl-tag">UX 설계</span><span class="tl-tag">React</span><span class="tl-tag">Node.js</span></div>
-</div>
-</div>
+    </div>
+  </section>
 
-<div class="tl-item active">
-<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-<div class="tl-content">
-<div class="tl-period">2025 · 학사 학위 논문</div>
-<div class="tl-title">ChatGPT와 Gemini, 같은 질문에 어떤 출처를 바탕으로 대답할까</div>
-<div class="tl-desc">같은 질문 10개를 두 모델에 넣고 응답 100건을 받아서, 출처 유형과 주제를 하나씩 직접 라벨링했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 KL/JS divergence와 Gini, Entropy를 얹어 ‘Bias Risk Score’라는 평가 모델을 제안했습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">직접 라벨링 100건</span><span class="tl-tag">재분류 규칙 정의</span><span class="tl-tag">LLM 평가 모델</span></div>
-</div>
-</div>
+  <!-- 확장: 케이스 3·4 -->
+  <section class="sec-gap-s">
+    <p class="label">팀과 시스템으로 확장</p>
+    <div class="case-grid">
 
-<div class="tl-item active">
-<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-<div class="tl-content">
-<div class="tl-period">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</div>
-<div class="tl-title">SQL로 매일 DB 내의 이상값 잡아내기</div>
-<div class="tl-desc">네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, ML을 활용한 데이터 분석 결과의 정확도를 높이고자 했습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">SQL · 데이터 점검</span><span class="tl-tag">불용어 사전 1만 행</span><span class="tl-tag">가이드라인 표준화</span></div>
-</div>
-</div>
+      <a class="case-card" href="turtle-neck.html">
+        <div class="meta-row">
+          <span class="num">PROJECT 03</span>
+          <span class="badge plain">팀장 · PM · FE</span>
+        </div>
+        <h3>AI에게 맡기기 전에, 틀린 걸<br>판별할 기준부터 만들었다</h3>
+        <p class="desc">온디바이스 AI 자세 감지 데스크톱 앱입니다. AI를 쓰는 5인 팀의 기준 문서와 계약 기반 병렬 개발을 운영했습니다.</p>
+        <div class="thumb"><img src="assets/case3/home.png" alt="토끼와 거북목 홈 화면 — 세션 시작과 연속 기록"></div>
+        <div class="chips">
+          <span>사용자 피드백 <strong>27건</strong> 반영</span>
+          <span>테스트 <strong>40건</strong></span>
+          <span>와이어프레임 <strong>30장</strong></span>
+        </div>
+        <span class="go">자세히 보기 →</span>
+      </a>
 
-<div class="tl-item active">
-<div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-<div class="tl-content">
-<div class="tl-period">2023 · 융합기초프로젝트(팀, 5명) 및 개인 전공 프로젝트</div>
-<div class="tl-title">피보팅</div>
-<div class="tl-desc">중간 평가에서 아이템이 망했을 때, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</div>
-<div class="tl-tag-row"><span class="tl-tag">R · Shiny</span><span class="tl-tag">Arduino MVP</span><span class="tl-tag">사용자 테스트</span></div>
-</div>
-</div>
+      <a class="case-card" href="news-mailer.html">
+        <div class="meta-row">
+          <span class="num">PROJECT 04</span>
+          <span class="badge plain">1인 설계·구현</span>
+        </div>
+        <h3>요약·분류·선별·편집을<br>한 프롬프트에 넣지 않았다</h3>
+        <p class="desc">경제 뉴스 다이제스트 메일러입니다. Kafka 3단 토픽과 역할 분리 에이전트 4종으로 파이프라인을 구성했습니다.</p>
+        <div class="chips">
+          <span>에이전트 <strong>4종</strong></span>
+          <span>Kafka <strong>3단</strong> 토픽</span>
+          <span>실 Gmail 발송 검증</span>
+        </div>
+        <span class="go">자세히 보기 →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 타임라인 -->
+  <section id="timeline">
+    <h2 class="index-h2">그동안 해온 일들<span class="sub">최신 순으로 정리했습니다.</span></h2>
+    <div class="timeline">
+
+      <div class="t-item">
+        <p class="t-meta">2026 · SSAFY 15기 관통 프로젝트 (2인 팀, 팀장)</p>
+        <h3>분석에서 멈추지 않고, 서비스를 만들어 배포까지</h3>
+        <p>신선식품 판매자의 폐기 손실 문제를 잡아 마감임박 딜 마켓 'BaroFarm'을 만들었습니다. Spring Boot 백엔드와 유통기한 기반 폐기위험 산출·동적 할인 로직을 직접 구현하고, Docker와 GitHub Actions CI로 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</p>
+        <div class="chips"><span>Spring Boot</span><span>폐기위험 엔진</span><span>Docker · CI</span><span>운영 배포</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2026 · BigQuery 세미 프로젝트</p>
+        <h3>브라질 이커머스 데이터로 코호트 돌려보기</h3>
+        <p>이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</p>
+        <div class="chips"><span>BigQuery</span><span>SQL · 코호트</span><span>Streamlit</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2025 · Pow.Bio (미국) · Data Team</p>
+        <h3>연구진이 답답해하는 부분을 찾아내고, 직접 고쳐보기</h3>
+        <p>실험 결과를 비교하느라 매일 창을 여러 개 띄우고 이미지를 일일이 받던 연구진을 인터뷰한 뒤, 다중 티켓 비교 화면으로 바꿨습니다. React와 Node.js로 직접 구현해, 여러 결과를 한 화면에서 바로 겹쳐 비교할 수 있게 했습니다.</p>
+        <div class="chips"><span>사용자 인터뷰</span><span>UX 설계</span><span>React</span><span>Node.js</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2025 · 학사 학위 논문</p>
+        <h3>ChatGPT와 Gemini, 같은 질문에 어떤 출처를 바탕으로 대답할까</h3>
+        <p>같은 질문 10개를 두 모델에 넣고 응답 100건을 받아서, 출처 유형과 주제를 하나씩 직접 라벨링했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 KL/JS divergence와 Gini, Entropy를 얹어 'Bias Risk Score'라는 평가 모델을 제안했습니다.</p>
+        <div class="chips"><span>직접 라벨링 100건</span><span>재분류 규칙 정의</span><span>LLM 평가 모델</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</p>
+        <h3>SQL로 매일 DB 내의 이상값 잡아내기</h3>
+        <p>네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, ML을 활용한 데이터 분석 결과의 정확도를 높이고자 했습니다.</p>
+        <div class="chips"><span>SQL · 데이터 점검</span><span>불용어 사전 1만 행</span><span>가이드라인 표준화</span></div>
+      </div>
+
+      <div class="t-item">
+        <p class="t-meta">2023 · 융합기초프로젝트 (5인 팀) · 개인 전공 프로젝트</p>
+        <h3>피보팅</h3>
+        <p>중간 평가에서 아이템이 망했을 때, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</p>
+        <div class="chips"><span>R · Shiny</span><span>Arduino MVP</span><span>사용자 테스트</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 활동 결과물 -->
+  <section id="works">
+    <h2 class="index-h2">활동 결과물<span class="sub">각 카드를 펼치면 내역을 자세히 보실 수 있습니다.</span></h2>
+
+    <!-- Olist -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>개인 프로젝트</b>2026 · 단독 진행</p>
+          <p class="pt">브라질 이커머스 데이터로 본 '배송 지연 → 만족도 → 리텐션'</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <div class="pcard-links">
+          <a href="https://github.com/doyeon-del/olist-data-project" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <a class="pshot" href="assets/olist/hero.png" target="_blank" rel="noopener">
+          <img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
+        </a>
+        <div class="pshot-grid">
+          <a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 붕괴</div></a>
+          <a href="assets/olist/geo.png" target="_blank" rel="noopener"><img src="assets/olist/geo.png" alt="판매자-고객 지역 리드타임" loading="lazy"><div class="gcap">지역 매칭 — 리드타임</div></a>
+          <a href="assets/olist/retention.png" target="_blank" rel="noopener"><img src="assets/olist/retention.png" alt="배송 경험별 코호트 리텐션" loading="lazy"><div class="gcap">코호트 리텐션</div></a>
+        </div>
+        <p class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</p>
+        <div class="pips">
+          <span>지연 3일 기점 평점 4.28→2.58 급락</span>
+          <span>Same State 7.5일 vs Cross State 14.7일</span>
+        </div>
+        <ul class="pbullets">
+          <li><strong>데이터 모델링:</strong> raw → staging → mart → analysis 4계층으로 분리해 분석 자산의 재현성과 재사용성을 확보했습니다. dbt에서 쓰는 디멘셔널 모델링 사상을 사이드 프로젝트에 적용해본 경험입니다.</li>
+          <li><strong>지연 임계점 분석:</strong> 예상일 대비 지연 일수를 D≤0, D+1~2, D+3~4 단위로 버킷팅해 평점이 비선형적으로 무너지는 지점을 찾았습니다. 정시·조기 평점 4.28에서 D+3~4 구간 평점 2.58로 급락했고, 저평점률은 9.5%에서 53.5%까지 상승했습니다.</li>
+          <li><strong>코호트 리텐션:</strong> 첫 주문 배송 경험에 따라 고객을 두 그룹(지연 vs 정시)으로 나누고 월별 잔존율을 비교했습니다. Olist는 재구매가 희소해 표본 안정성에 한계가 있다는 점도 함께 명시했습니다.</li>
+          <li><strong>통계 추론:</strong> Welch t-test + Cohen's d + 95% 신뢰구간으로 그룹 간 평점 차이를 검정했습니다. 큰 표본에서 p-value의 한계를 인지하고 효과크기를 함께 보고했습니다.</li>
+          <li><strong>인터랙티브 대시보드:</strong> Streamlit + BigQuery로 KPI 카드와 6개 탭(퍼널 / 통계 검정 / 배송 지연 / 지역 매칭 / 카테고리 / 리텐션)을 구성했고, 자격증명이 없으면 CSV 폴백으로도 띄울 수 있게 만들었습니다.</li>
+        </ul>
+        <div class="chips"><span>BigQuery</span><span>SQL</span><span>Python</span><span>pandas</span><span>scipy.stats</span><span>Streamlit</span></div>
+      </div>
+    </details>
+
+    <!-- Pow.Bio -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>Pow.Bio · 미국</b>2025.03 – 06 · Data Team 인턴</p>
+          <p class="pt">분석 플랫폼 'Cassie' UX/UI 개선</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <div class="pcard-links">
+          <a href="https://doyeon-del.github.io/fermentation-multirun-demo/" target="_blank" rel="noopener">재현 데모 ↗</a>
+          <a href="https://github.com/doyeon-del/fermentation-multirun-demo" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <a class="pshot" href="assets/powbio/multirun.png" target="_blank" rel="noopener">
+          <img src="assets/powbio/multirun.png" alt="여러 발효 실험 결과(티켓)를 한 차트에 겹쳐 비교하는 다중 티켓 비교 화면 — 합성 데이터 재현 데모" loading="lazy">
+        </a>
+        <p class="p-summary">연구진이 매일 창을 여러 개 띄우고 이미지를 내려받아 실험 결과를 비교하던 불편을 인터뷰로 확인했습니다. React 기반 Cassie 대시보드에서 발효 시뮬레이션 결과를 티켓 단위로 조회하고, 여러 실행 결과를 한 차트에 겹쳐 비교할 수 있도록 데이터 흐름과 시각화 로직을 개선했습니다.</p>
+        <div class="pips">
+          <span>단일 → 다중 티켓 비교 UI</span>
+          <span>선택 즉시 차트 동기화</span>
+        </div>
+        <ul class="pbullets">
+          <li>단일 티켓 조회 중심이던 UI를 <strong>단일·다중 티켓 선택 구조</strong>로 확장해, 여러 시뮬레이션 실행 결과를 한 화면에서 겹쳐 비교할 수 있게 했습니다.</li>
+          <li>서버 응답을 차트용 데이터(CSV·모델·rate·limiting)로 파싱해 <strong>차트 상태와 연결</strong>하고, 티켓을 추가·삭제하면 차트가 즉시 반영되도록 필터링·누적 갱신 로직을 개선했습니다. 선택을 해제한 티켓은 차트에서 바로 제거됩니다.</li>
+          <li>React 컴포넌트 → API 응답 → 차트 렌더링으로 이어지는 <strong>전체 데이터 흐름을 플로우차트로 문서화</strong>해 유지보수성과 팀 내 커뮤니케이션을 높였습니다.</li>
+        </ul>
+        <div class="chips"><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>JavaScript</span><span>데이터 시각화</span><span>사용자 인터뷰</span></div>
+      </div>
+    </details>
+
+    <!-- 졸업논문 -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>학사 학위 논문 · 성균관대 문헌정보학</b>2025 · 단독 연구</p>
+          <p class="pt">생성형 AI 검색의 정보 구성 편향성 분석</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <p class="p-summary">같은 질문에 ChatGPT와 Gemini가 어떤 출처를 들고 오는지 100건을 직접 라벨링해서 비교했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 통계 지표를 얹어 LLM 응답의 편향을 점수화하는 평가 모델까지 제안했습니다.</p>
+        <div class="pips">
+          <span>평가셋 100건 직접 라벨링</span>
+          <span>재분류 규칙 정의</span>
+          <span>Bias Risk Score 모델 제안</span>
+        </div>
+        <ul class="pbullets">
+          <li><strong>평가셋 직접 구축 &amp; 라벨링:</strong> 사회·정책·환경·교육 등 10개 대표 쿼리를 설계했고, ChatGPT/Gemini 응답 상위 5건씩 총 100개 레코드를 <strong>출처(domain) · 정보유형(source type) · 주제 토픽</strong> 단위로 직접 라벨링해 CSV로 정형화했습니다.</li>
+          <li><strong>모호 케이스 재분류 &amp; 가이드라인 정의:</strong> news/com을 '언론 기반', gov/edu/org를 '공공·학술 기반'으로 묶는 등 모호한 source_type을 일관 규칙으로 재분류했습니다. 결측값(stance_tag, country_tag) 처리 기준을 정의해 KL/JS 연산의 일관성을 확보했습니다.</li>
+          <li><strong>편향 정량화 모델:</strong> KL/JS divergence(엔진 간 분포 차이), Gini index(집중도), Shannon entropy(다양성)를 동일 가중으로 결합한 <strong>Bias Risk Score</strong>를 정의했습니다. ANOVA·χ² 검정으로 차이의 통계적 유의성을 확인했습니다.</li>
+          <li><strong>핵심 발견:</strong> ChatGPT는 news·blog 등 언론 기반 출처 의존도가 높았고(JS divergence 0.69), Gemini는 academic·gov·nonprofit에 고르게 분포했습니다. 환경·감시 등 정책성 주제일수록 두 모델의 정보 구조가 구조적으로 다름을 검증했습니다.</li>
+          <li><strong>실무적 의미:</strong> LLM 기반 정보 서비스의 출력 품질을 정량적으로 평가할 수 있는 틀입니다. RAG 평가셋 구축, 출처 신뢰도 검증, 환각·편향 리스크 분석 등 AI 안전성 영역으로 확장 가능합니다.</li>
+        </ul>
+        <div class="chips"><span>Python</span><span>pandas</span><span>scipy.stats</span><span>LLM 평가</span><span>라벨링·재분류</span><span>Information Quality</span></div>
+      </div>
+    </details>
+
+    <!-- 데이터마케팅코리아 -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>데이터마케팅코리아</b>2024.03 – 06 · 데이터컨설팅팀 인턴</p>
+          <p class="pt">버즈 데이터 다루며 라벨링 기준 만들기</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <div class="pcard-links">
+          <a href="https://doyeon-del.github.io/buzz-data-quality-demo/" target="_blank" rel="noopener">재현 데모 ↗</a>
+          <a href="https://github.com/doyeon-del/buzz-data-quality-demo" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="p-summary">고객사의 ETF 플랫폼에서 네이버 검색·카페·블로그 같은 채널의 버즈 데이터를 매일 다뤘습니다. 키워드 추출 정확도를 떨어뜨리는 패턴을 찾아내, 분석가들이 같은 기준으로 데이터를 쓸 수 있도록 사전과 DB 명세서를 직접 정리했습니다.</p>
+        <div class="pips">
+          <span>도메인 사전 1만 행</span>
+          <span>DB 명세서 30+ 가이드라인 표준화</span>
+        </div>
+        <ul class="pbullets">
+          <li><strong>텍스트 분석 진단:</strong> TF-IDF 기반 키워드 추출 모델이 'OO신문 · OO뉴스' 같은 언론사명에 과한 가중치를 주는 희소 행렬 문제를 발견했습니다. 단순 모델 교체가 아닌 '불용 패턴을 분류 기준으로 정의'하는 방향으로 접근했습니다.</li>
+          <li><strong>도메인 사전 직접 구축 (라벨링 기준 정의):</strong> Python 정규표현식으로 '…신문 / …뉴스' 패턴 기반 불용어 후보를 자동 추출하고, 1만 행 규모의 사전을 구축했습니다. 매월 신규 데이터를 반영해 사전을 갱신·운영했고, DS팀의 코사인 유사도 측정 정확도를 개선했습니다.</li>
+          <li><strong>가이드라인 표준화:</strong> 30여 개 DB 테이블의 컬럼·관계·정합성 규칙을 명세서로 정리하고 쿼리를 표준화했습니다. 신규 분석가가 별도 설명 없이도 일관된 기준으로 데이터에 접근할 수 있도록 만들었습니다.</li>
+          <li><strong>오탐·누락 케이스 대응:</strong> 매일 적재되는 데이터를 SQL로 점검해 누락·중복·null을 탐지했고, 적재 오류 발생 시 DevOps에는 재현 경로를, 컨설팅팀에는 대시보드 영향을 따로 정리해 전달했습니다.</li>
+          <li><strong>재현 데모:</strong> 회사 데이터는 공개할 수 없어, 같은 구조·품질 이슈를 <strong>합성 데이터로 재현</strong>해 SQL 품질 점검과 불용어 사전 기반 TF-IDF Before/After를 직접 보여드립니다. (데이터만 합성, 수치는 실제 계산) → <a href="https://doyeon-del.github.io/buzz-data-quality-demo/" target="_blank" rel="noopener">재현 데모 보기</a></li>
+        </ul>
+        <div class="chips"><span>Python</span><span>SQL</span><span>NLP</span><span>정규표현식</span><span>데이터 정제</span><span>Tableau</span></div>
+      </div>
+    </details>
+
+    <!-- R Shiny -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>개인 프로젝트</b>2023.09 – 12</p>
+          <p class="pt">수도권 공공도서관 접근성 분석 &amp; R Shiny 대시보드</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <p class="p-summary">수도권의 공공도서관이 지역별로 얼마나 다르게 접근되는지 공공데이터로 분석했습니다. 결과를 R Shiny 대시보드로 만들어, 보고서를 읽지 않아도 지역과 노선을 직접 골라가며 격차를 확인할 수 있게 했습니다.</p>
+        <ul class="pbullets">
+          <li>KOSIS·행정안전부 데이터 수집·정제, 회귀분석으로 이용률 영향요인 검증했습니다. '도서관당 인구수'로 지역 격차를 수치화했습니다.</li>
+          <li>지역·지하철 노선 필터가 있는 R Shiny 대시보드를 구현해 분석 결과를 보고서가 아닌 탐색 가능한 인터페이스로 전달했습니다.</li>
+        </ul>
+        <div class="chips"><span>R</span><span>tidyverse</span><span>Shiny</span><span>leaflet</span><span>회귀분석</span></div>
+      </div>
+    </details>
+
+    <!-- 수면 웨어러블 -->
+    <details class="pcard">
+      <summary>
+        <div>
+          <p class="pm"><b>성균관대 융합기초프로젝트</b>2023.07 – 08 · 팀장 (5명)<span class="badge">우수상 · 8팀 중 3위</span></p>
+          <p class="pt">수면 자세 교정 웨어러블 MVP</p>
+        </div>
+        <span class="toggle-hint"></span>
+      </summary>
+      <div class="pcard-body">
+        <p class="p-summary">초기 아이템(무인 포토부스)이 중간 평가에서 까였습니다. 슬립테크 시장 데이터를 정리해 팀을 설득해 수면 자세 교정 기기로 방향을 바꿨고, 10일 만에 압력센서 기반 MVP를 만들어 실사용자 테스트까지 진행했습니다.</p>
+        <ul class="pbullets">
+          <li>초기 아이디어(무인 포토부스)가 설득력이 없다고 판단해 시장조사·논문 데이터를 정리하고 팀을 설득했으며, <strong>수면 자세 교정</strong>으로 피벗했습니다.</li>
+          <li>압력센서(FSR)+아두이노로 MVP를 제작했고, 실사용자 수면자세 측정 후 데이터를 시각화했습니다. 솔루션 가능성을 직접 검증했습니다.</li>
+        </ul>
+        <div class="chips"><span>Arduino</span><span>데이터 시각화</span><span>사용자 테스트</span></div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- 프로필 -->
+  <section id="about">
+    <h2 class="index-h2">프로필</h2>
+    <div class="profile-card">
+      <div class="profile-grid">
+        <div>
+          <dt>이름 · 연락처</dt>
+          <dd><b>이도연</b><br>dlehduslee@naver.com<br>github.com/doyeon-del</dd>
+        </div>
+        <div>
+          <dt>학력 · 교육</dt>
+          <dd>성균관대학교 문헌정보학 주전공 · <b>통계학 복수전공</b><br>2021.03 – 2026.02<br>삼성청년SW·AI아카데미(SSAFY) 15기 — 2026, 2학기 진행 중</dd>
+        </div>
+        <div>
+          <dt>경력</dt>
+          <dd><b>Pow.Bio</b> Data Team 인턴 (미국, WEST)<br><b>데이터마케팅코리아</b> 데이터컨설팅팀 인턴</dd>
+        </div>
+        <div>
+          <dt>스킬</dt>
+          <dd><div class="chips"><span>Python</span><span>SQL</span><span>BigQuery</span><span>R</span><span>Java · Spring Boot</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Next.js</span><span>Electron</span><span>Kafka</span><span>Docker</span><span>Streamlit</span><span>Tableau</span><span>Git</span></div></dd>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 나머지 프로젝트 -->
+  <section class="sec-gap-s">
+    <h2 class="index-h2">나머지 프로젝트</h2>
+    <ul class="one-liners">
+      <li><b>카드 결제 이상거래 분석</b>24M 거래 모니터링 → 드릴다운 → 예측</li>
+      <li><b>분리수거 VQA</b>VLM LoRA 파인튜닝(학습 파라미터 0.57%), 3-seed 앙상블</li>
+      <li><b>n8n 뉴스 요약 봇</b>RSS → Claude 요약 → 메일 자동화</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
 
 </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="tile-dark appear" id="proj">
-<p class="sec-label">경험 · 프로젝트</p>
-<h2 class="sec-h2">활동 결과물</h2>
-<p class="sec-sub">각 카드를 펼치면 내역을 자세히 보실 수 있습니다.</p>
-
-<div class="proj-list">
-
-<!-- 1. Olist BigQuery 세미 프로젝트 -->
-<div class="pc" id="pc-olist">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">개인 프로젝트</span>2026 · 단독 진행</div>
-<div class="pt">브라질 이커머스 데이터로 본 '배송 지연 → 만족도 → 리텐션'</div>
-</div>
-<div class="ph-right">
-<a href="https://github.com/doyeon-del/olist-data-project" class="gh-link" target="_blank" rel="noopener">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-GitHub
-</a>
-</div>
-</div>
-<div class="pbody col" id="pb-olist">
-<div class="pshots">
-<div class="pshots-lab"><span class="live-dot"></span>Streamlit + BigQuery 대시보드 · 실제 화면</div>
-<a class="pcover-in" href="assets/olist/hero.png" target="_blank" rel="noopener">
-<img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
-</a>
-<div class="pgrid">
-<a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 붕괴</div></a>
-<a href="assets/olist/geo.png" target="_blank" rel="noopener"><img src="assets/olist/geo.png" alt="판매자-고객 지역 리드타임" loading="lazy"><div class="gcap">지역 매칭 — 리드타임</div></a>
-<a href="assets/olist/retention.png" target="_blank" rel="noopener"><img src="assets/olist/retention.png" alt="배송 경험별 코호트 리텐션" loading="lazy"><div class="gcap">코호트 리텐션</div></a>
-</div>
-</div>
-<div class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</div>
-<div class="pirow">
-<span class="pip">지연 3일 기점 평점 4.28→2.58 급락</span>
-<span class="pip">Same State 7.5일 vs Cross State 14.7일</span>
-</div>
-<ul class="pbu">
-<li><strong>데이터 모델링:</strong> raw → staging → mart → analysis 4계층으로 분리해 분석 자산의 재현성과 재사용성을 확보했습니다. dbt에서 쓰는 디멘셔널 모델링 사상을 사이드 프로젝트에 적용해본 경험입니다.</li>
-<li><strong>지연 임계점 분석:</strong> 예상일 대비 지연 일수를 D≤0, D+1~2, D+3~4 단위로 버킷팅해 평점이 비선형적으로 무너지는 지점을 찾았습니다. 정시·조기 평점 4.28에서 D+3~4 구간 평점 2.58로 급락했고, 저평점률은 9.5%에서 53.5%까지 상승했습니다.</li>
-<li><strong>코호트 리텐션:</strong> 첫 주문 배송 경험에 따라 고객을 두 그룹(지연 vs 정시)으로 나누고 월별 잔존율을 비교했습니다. Olist는 재구매가 희소해 표본 안정성에 한계가 있다는 점도 함께 명시했습니다.</li>
-<li><strong>통계 추론:</strong> Welch t-test + Cohen's d + 95% 신뢰구간으로 그룹 간 평점 차이를 검정했습니다. 큰 표본에서 p-value의 한계를 인지하고 효과크기를 함께 보고했습니다.</li>
-<li><strong>인터랙티브 대시보드:</strong> Streamlit + BigQuery로 KPI 카드와 6개 탭(퍼널 / 통계 검정 / 배송 지연 / 지역 매칭 / 카테고리 / 리텐션)을 구성했고, 자격증명이 없으면 CSV 폴백으로도 띄울 수 있게 만들었습니다.</li>
-</ul>
-<div class="ptags">
-<span class="ptag">BigQuery</span><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">pandas</span><span class="ptag">scipy.stats</span><span class="ptag">Streamlit</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc-olist','pb-olist',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-<!-- 2. Pow.Bio -->
-<div class="pc" id="pc2">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">Pow.Bio · 미국</span>2025.03 – 06 · Data Team 인턴</div>
-<div class="pt">분석 플랫폼 ‘Cassie’ UX/UI 개선</div>
-</div>
-<div class="ph-right">
-<a href="https://doyeon-del.github.io/fermentation-multirun-demo/" class="gh-link" target="_blank" rel="noopener">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
-재현 데모
-</a>
-<a href="https://github.com/doyeon-del/fermentation-multirun-demo" class="gh-link" target="_blank" rel="noopener">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-GitHub
-</a>
-</div>
-</div>
-<div class="pbody col" id="pb2">
-<div class="pshots">
-<div class="pshots-lab"><span class="live-dot"></span>다중 티켓 비교 화면 · 합성 데이터 재현 데모</div>
-<a class="pcover-in" href="assets/powbio/multirun.png" target="_blank" rel="noopener">
-<img src="assets/powbio/multirun.png" alt="여러 발효 실험 결과(티켓)를 한 차트에 겹쳐 비교하는 다중 티켓 비교 화면 — 합성 데이터 재현 데모" loading="lazy">
-</a>
-</div>
-<div class="p-summary">연구진이 매일 창을 여러 개 띄우고 이미지를 내려받아 실험 결과를 비교하던 불편을 인터뷰로 확인했습니다. React 기반 Cassie 대시보드에서 발효 시뮬레이션 결과를 티켓 단위로 조회하고, 여러 실행 결과를 한 차트에 겹쳐 비교할 수 있도록 데이터 흐름과 시각화 로직을 개선했습니다.</div>
-<div class="pirow">
-<span class="pip">단일 → 다중 티켓 비교 UI</span>
-<span class="pip">선택 즉시 차트 동기화</span>
-</div>
-<ul class="pbu">
-<li>단일 티켓 조회 중심이던 UI를 <strong>단일·다중 티켓 선택 구조</strong>로 확장해, 여러 시뮬레이션 실행 결과를 한 화면에서 겹쳐 비교할 수 있게 했습니다.</li>
-<li>서버 응답을 차트용 데이터(CSV·모델·rate·limiting)로 파싱해 <strong>차트 상태와 연결</strong>하고, 티켓을 추가·삭제하면 차트가 즉시 반영되도록 필터링·누적 갱신 로직을 개선했습니다. 선택을 해제한 티켓은 차트에서 바로 제거됩니다.</li>
-<li>React 컴포넌트 → API 응답 → 차트 렌더링으로 이어지는 <strong>전체 데이터 흐름을 플로우차트로 문서화</strong>해 유지보수성과 팀 내 커뮤니케이션을 높였습니다.</li></ul>
-<div class="ptags">
-<span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">PostgreSQL</span><span class="ptag">JavaScript</span><span class="ptag">데이터 시각화</span><span class="ptag">사용자 인터뷰</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc2','pb2',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-<!-- 3. 졸업논문 -->
-<div class="pc" id="pc3">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">학사 학위 논문 · 성균관대 문헌정보학</span>2025 · 단독 연구</div>
-<div class="pt">생성형 AI 검색의 정보 구성 편향성 분석</div>
-</div>
-<div class="ph-right">
-</div>
-</div>
-<div class="pbody col" id="pb3">
-<div class="p-summary">같은 질문에 ChatGPT와 Gemini가 어떤 출처를 들고 오는지 100건을 직접 라벨링해서 비교했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 통계 지표를 얹어 LLM 응답의 편향을 점수화하는 평가 모델까지 제안했습니다.</div>
-<div class="pirow">
-<span class="pip">평가셋 100건 직접 라벨링</span>
-<span class="pip">재분류 규칙 정의</span>
-<span class="pip">Bias Risk Score 모델 제안</span>
-</div>
-<ul class="pbu">
-<li><strong>평가셋 직접 구축 &amp; 라벨링:</strong> 사회·정책·환경·교육 등 10개 대표 쿼리를 설계했고, ChatGPT/Gemini 응답 상위 5건씩 총 100개 레코드를 <strong>출처(domain) · 정보유형(source type) · 주제 토픽</strong> 단위로 직접 라벨링해 CSV로 정형화했습니다.</li>
-<li><strong>모호 케이스 재분류 &amp; 가이드라인 정의:</strong> news/com을 ‘언론 기반’, gov/edu/org를 ‘공공·학술 기반’으로 묶는 등 모호한 source_type을 일관 규칙으로 재분류했습니다. 결측값(stance_tag, country_tag) 처리 기준을 정의해 KL/JS 연산의 일관성을 확보했습니다.</li>
-<li><strong>편향 정량화 모델:</strong> KL/JS divergence(엔진 간 분포 차이), Gini index(집중도), Shannon entropy(다양성)를 동일 가중으로 결합한 <strong>Bias Risk Score</strong>를 정의했습니다. ANOVA·χ² 검정으로 차이의 통계적 유의성을 확인했습니다.</li>
-<li><strong>핵심 발견:</strong> ChatGPT는 news·blog 등 언론 기반 출처 의존도가 높았고(JS divergence 0.69), Gemini는 academic·gov·nonprofit에 고르게 분포했습니다. 환경·감시 등 정책성 주제일수록 두 모델의 정보 구조가 구조적으로 다름을 검증했습니다.</li>
-<li><strong>실무적 의미:</strong> LLM 기반 정보 서비스의 출력 품질을 정량적으로 평가할 수 있는 틀입니다. RAG 평가셋 구축, 출처 신뢰도 검증, 환각·편향 리스크 분석 등 AI 안전성 영역으로 확장 가능합니다.</li>
-</ul>
-<div class="ptags">
-<span class="ptag">Python</span><span class="ptag">pandas</span><span class="ptag">scipy.stats</span><span class="ptag">LLM 평가</span><span class="ptag">라벨링·재분류</span><span class="ptag">Information Quality</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc3','pb3',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-<!-- 4. 데마코 -->
-<div class="pc" id="pc4">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">데이터마케팅코리아</span>2024.03 – 06 · 데이터컨설팅팀 인턴</div>
-<div class="pt">버즈 데이터 다루며 라벨링 기준 만들기</div>
-</div>
-<div class="ph-right">
-<a href="https://doyeon-del.github.io/buzz-data-quality-demo/" class="gh-link" target="_blank" rel="noopener">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
-재현 데모
-</a>
-<a href="https://github.com/doyeon-del/buzz-data-quality-demo" class="gh-link" target="_blank" rel="noopener">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-GitHub
-</a>
-</div>
-</div>
-<div class="pbody col" id="pb4">
-<div class="p-summary">고객사의 ETF 플랫폼에서 네이버 검색·카페·블로그 같은 채널의 버즈 데이터를 매일 다뤘습니다. 키워드 추출 정확도를 떨어뜨리는 패턴을 찾아내, 분석가들이 같은 기준으로 데이터를 쓸 수 있도록 사전과 DB 명세서를 직접 정리했습니다.</div>
-<div class="pirow">
-<span class="pip">도메인 사전 1만 행</span>
-<span class="pip">DB 명세서 30+ 가이드라인 표준화</span>
-</div>
-<ul class="pbu">
-<li><strong>텍스트 분석 진단:</strong> TF-IDF 기반 키워드 추출 모델이 ‘OO신문 · OO뉴스’ 같은 언론사명에 과한 가중치를 주는 희소 행렬 문제를 발견했습니다. 단순 모델 교체가 아닌 ‘불용 패턴을 분류 기준으로 정의’하는 방향으로 접근했습니다.</li>
-<li><strong>도메인 사전 직접 구축 (라벨링 기준 정의):</strong> Python 정규표현식으로 ‘…신문 / …뉴스’ 패턴 기반 불용어 후보를 자동 추출하고, 1만 행 규모의 사전을 구축했습니다. 매월 신규 데이터를 반영해 사전을 갱신·운영했고, DS팀의 코사인 유사도 측정 정확도를 개선했습니다.</li>
-<li><strong>가이드라인 표준화:</strong> 30여 개 DB 테이블의 컬럼·관계·정합성 규칙을 명세서로 정리하고 쿼리를 표준화했습니다. 신규 분석가가 별도 설명 없이도 일관된 기준으로 데이터에 접근할 수 있도록 만들었습니다.</li>
-<li><strong>오탐·누락 케이스 대응:</strong> 매일 적재되는 데이터를 SQL로 점검해 누락·중복·null을 탐지했고, 적재 오류 발생 시 DevOps에는 재현 경로를, 컨설팅팀에는 대시보드 영향을 따로 정리해 전달했습니다.</li>
-<li><strong>재현 데모:</strong> 회사 데이터는 공개할 수 없어, 같은 구조·품질 이슈를 <strong>합성 데이터로 재현</strong>해 SQL 품질 점검과 불용어 사전 기반 TF-IDF Before/After를 직접 보여드립니다. (데이터만 합성, 수치는 실제 계산) → <a href="https://doyeon-del.github.io/buzz-data-quality-demo/" target="_blank" rel="noopener" style="color:var(--accent-bright);text-decoration:underline;">재현 데모 보기</a></li>
-</ul>
-<div class="ptags">
-<span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">NLP</span><span class="ptag">정규표현식</span><span class="ptag">데이터 정제</span><span class="ptag">Tableau</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc4','pb4',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-<!-- 5. R Shiny -->
-<div class="pc" id="pc5">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">개인 프로젝트</span>2023.09 – 12</div>
-<div class="pt">수도권 공공도서관 접근성 분석 &amp; R Shiny 대시보드</div>
-</div>
-<div class="ph-right">
-</div>
-</div>
-<div class="pbody col" id="pb5">
-<div class="p-summary">수도권의 공공도서관이 지역별로 얼마나 다르게 접근되는지 공공데이터로 분석했습니다. 결과를 R Shiny 대시보드로 만들어, 보고서를 읽지 않아도 지역과 노선을 직접 골라가며 격차를 확인할 수 있게 했습니다.</div>
-<ul class="pbu">
-<li>KOSIS·행정안전부 데이터 수집·정제, 회귀분석으로 이용률 영향요인 검증했습니다. ‘도서관당 인구수’로 지역 격차를 수치화했습니다.</li>
-<li>지역·지하철 노선 필터가 있는 R Shiny 대시보드를 구현해 분석 결과를 보고서가 아닌 탐색 가능한 인터페이스로 전달했습니다.</li>
-</ul>
-<div class="ptags">
-<span class="ptag">R</span><span class="ptag">tidyverse</span><span class="ptag">Shiny</span><span class="ptag">leaflet</span><span class="ptag">회귀분석</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc5','pb5',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-<!-- 6. 수면 웨어러블 -->
-<div class="pc" id="pc6">
-<div class="ph">
-<div class="ph-left">
-<div class="pm"><span class="pb-org">성균관대 융합기초프로젝트</span>2023.07 – 08 · 팀장 (5명)</div>
-<div class="pt">수면 자세 교정 웨어러블 MVP</div>
-</div>
-<div class="ph-right">
-<span class="paward">우수상 · 8팀 중 3위</span>
-</div>
-</div>
-<div class="pbody col" id="pb6">
-<div class="p-summary">초기 아이템(무인 포토부스)이 중간 평가에서 까였습니다. 슬립테크 시장 데이터를 정리해 팀을 설득해 수면 자세 교정 기기로 방향을 바꿨고, 10일 만에 압력센서 기반 MVP를 만들어 실사용자 테스트까지 진행했습니다.</div>
-<ul class="pbu">
-<li>초기 아이디어(무인 포토부스)가 설득력이 없다고 판단해 시장조사·논문 데이터를 정리하고 팀을 설득했으며, <strong>수면 자세 교정</strong>으로 피벗했습니다.</li>
-<li>압력센서(FSR)+아두이노로 MVP를 제작했고, 실사용자 수면자세 측정 후 데이터를 시각화했습니다. 솔루션 가능성을 직접 검증했습니다.</li>
-</ul>
-<div class="ptags">
-<span class="ptag">Arduino</span><span class="ptag">데이터 시각화</span><span class="ptag">사용자 테스트</span>
-</div>
-</div>
-<button class="ptoggle" onclick="tog('pc6','pb6',this)">펼쳐보기 <span>▼</span></button>
-</div>
-
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-<div class="ft-inner">
-<span class="ft-left">© 2026 이도연 · Doyeon Lee</span>
-<div class="ft-right">
-<span class="ft-contact">dlehduslee@naver.com</span>
-</div>
-</div>
-</footer>
 
 <script>
-function tog(cardId, bodyId, btn) {
-const card = document.getElementById(cardId);
-const body = document.getElementById(bodyId);
-const isOpen = card.classList.contains('open');
-if (isOpen) {
-body.classList.add('col');
-card.classList.remove('open');
-btn.innerHTML = '펼쳐보기 <span>▼</span>';
-} else {
-body.classList.remove('col');
-card.classList.add('open');
-btn.innerHTML = '접기 <span>▲</span>';
-}
-}
-const io = new IntersectionObserver(entries => {
-entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
-}, { threshold: 0.06 });
-document.querySelectorAll('.appear').forEach(el => io.observe(el));
-const allLinks = document.querySelectorAll('.subnav-right a');
-const secs = ['top','comp','proj'].map(id => document.getElementById(id)).filter(Boolean);
-window.addEventListener('scroll', () => {
-let cur = 'top';
-secs.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-allLinks.forEach(a => {
-const href = a.getAttribute('href');
-a.style.color = (href === '#' + cur) ? '#2563EB' : '';
-});
-}, { passive: true });
-</script>
+(function () {
+  var topBar = document.querySelector('.top');
 
+  var toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.textContent = '↑';
+  toTop.setAttribute('aria-label', '맨 위로');
+  toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  document.body.appendChild(toTop);
+
+  var navLinks = [].slice.call(document.querySelectorAll('.top nav a[href^="#"]'));
+  var secs = navLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+
+  window.addEventListener('scroll', function () {
+    topBar.classList.toggle('scrolled', window.scrollY > 8);
+    toTop.classList.toggle('show', window.scrollY > 600);
+    var cur = null;
+    secs.forEach(function (s) { if (window.scrollY >= s.offsetTop - 170) cur = s.id; });
+    navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }, { passive: true });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  [].slice.call(document.querySelectorAll('.case-card, .t-item, .pcard, .profile-card, .index-h2, .one-liners li')).forEach(function (el) {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  var items = [].slice.call(document.querySelectorAll('.timeline .t-item'));
+  if (items.length > 3) {
+    items.slice(3).forEach(function (el) { el.classList.add('folded'); });
+    var wrap = document.createElement('div');
+    wrap.className = 'tl-more-wrap';
+    var btn = document.createElement('button');
+    btn.className = 'btn-ghost';
+    var moreLabel = '타임라인 전체 보기 (' + items.length + '개)';
+    btn.textContent = moreLabel;
+    wrap.appendChild(btn);
+    var tl = document.querySelector('.timeline');
+    tl.parentNode.insertBefore(wrap, tl.nextSibling);
+    btn.addEventListener('click', function () {
+      var folded = items.slice(3).some(function (el) { return el.classList.contains('folded'); });
+      items.slice(3).forEach(function (el) { el.classList.toggle('folded', !folded); });
+      btn.textContent = folded ? '접기' : moreLabel;
+      if (!folded) document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+})();
+</script>
 </body>
 </html>
