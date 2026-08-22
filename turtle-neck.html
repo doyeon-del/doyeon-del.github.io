@@ -62,17 +62,53 @@
       <li><div><h4>보상 / 상점</h4><p>세션 참여와 좋은 자세 유지로 골드를 받아 캐릭터를 꾸밉니다. 키운 캐릭터는 트레이 아이콘에도 반영되어 작업 중에도 늘 곁에 보입니다.</p></div></li>
       <li><div><h4>기록 대시보드</h4><p>개인 단위로도, 팀 단위로도 바른 자세 시간, 시간대별 그래프, 연속 기록을 확인할 수 있습니다.</p></div></li>
     </ol>
-    <div class="compare" style="margin-top:36px;">
-      <div class="col tobe">
-        <span class="tag tobe">실시간 알림 3종 — 개별 토글</span>
-        <h4>자세 · 화면 근접 · 졸음</h4>
-        <p>자세는 좋음 / 주의 / 거북목 / 미검출 4단계로 판정하고, 졸음은 얼굴 모델의 깜박임 지표로 잡습니다.</p>
-      </div>
-      <div class="col">
-        <span class="tag asis">무효화 감지 2종 — 항상 동작</span>
-        <h4>자리비움 · 노트북 젖힘</h4>
-        <p>판정 기준 자체가 무효가 되는 상태라 알림을 끌 수 없고, 사용자가 처리해야 판정이 이어집니다.</p>
-      </div>
+  </section>
+
+  <!-- 알림 계층 -->
+  <section>
+    <p class="label">알림 계층</p>
+    <div class="frame" style="padding:28px;">
+      <svg viewBox="0 0 1000 540" role="img" aria-label="알림 계층: 무효화층(자리비움, 노트북 각도)이 감지층(화면근접, 거북목, 졸음)보다 먼저 노출되는 우선순위 구조" style="width:100%; height:auto; font-family:inherit;">
+        <defs>
+          <marker id="arwA" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#4a665f"/>
+          </marker>
+        </defs>
+
+        <!-- 우선순위 축 -->
+        <text x="58" y="66" text-anchor="middle" fill="#8b95a1" font-size="11.5" font-weight="700">노출 우선순위</text>
+        <text x="58" y="100" text-anchor="middle" fill="#4e5968" font-size="11.5">높음</text>
+        <line x1="58" y1="112" x2="58" y2="470" stroke="#c9d3cd" stroke-width="2" marker-end="url(#arwA)"/>
+        <text x="58" y="500" text-anchor="middle" fill="#4e5968" font-size="11.5">낮음</text>
+
+        <!-- [2] 무효화층 -->
+        <rect x="110" y="60" width="780" height="190" rx="16" fill="#4a665f"/>
+        <text x="500" y="94" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">[2] 무효화층</text>
+        <text x="500" y="116" text-anchor="middle" fill="#d7e0da" font-size="12.5">재캘리브레이션이 필요한 알림 — 끌 수 없고, 처리해야 판정이 이어집니다</text>
+        <rect x="170" y="140" width="280" height="48" rx="10" fill="#ffffff"/>
+        <text x="310" y="169" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[2]-2 자리비움 알림</text>
+        <line x1="462" y1="164" x2="536" y2="164" stroke="#d7e0da" stroke-width="2" marker-end="url(#arwA)"/>
+        <rect x="550" y="140" width="280" height="48" rx="10" fill="#ffffff"/>
+        <text x="690" y="169" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[2]-1 노트북 각도 알림</text>
+        <text x="500" y="222" text-anchor="middle" fill="#d7e0da" font-size="11.5">층 안에서는 자리비움 → 노트북 각도 순으로 노출</text>
+
+        <!-- 층 사이 화살표 -->
+        <line x1="500" y1="256" x2="500" y2="308" stroke="#4a665f" stroke-width="2.5" marker-end="url(#arwA)"/>
+        <text x="516" y="288" fill="#4e5968" font-size="12" font-weight="600">동시 발생 시 [2] 무효화층 먼저</text>
+
+        <!-- [1] 감지층 -->
+        <rect x="110" y="320" width="780" height="185" rx="16" fill="#eaefe9"/>
+        <text x="500" y="354" text-anchor="middle" fill="#191f28" font-size="16" font-weight="800">[1] 감지층</text>
+        <text x="500" y="376" text-anchor="middle" fill="#4e5968" font-size="12.5">사용자 상태에 따라 자동으로 꺼지는 알림 — 개별 토글 가능</text>
+        <rect x="145" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
+        <text x="257" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-1 화면근접 알림</text>
+        <rect x="388" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
+        <text x="500" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-2 거북목 알림</text>
+        <rect x="631" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
+        <text x="743" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-3 졸음 알림</text>
+        <text x="500" y="478" text-anchor="middle" fill="#8b95a1" font-size="11.5">층 안에서는 우선순위 없음 · 알림창 최대 3개 동시 표시</text>
+      </svg>
+      <p class="cap">[2] 무효화층은 재캘리브레이션이 필요한 알림, [1] 감지층은 사용자 상태에 따라 자동으로 꺼지는 알림입니다. 두 층이 동시에 발생하면 [2]층을, [2]-1과 [2]-2가 동시에 발생하면 [2]-2를 먼저 노출합니다.</p>
     </div>
   </section>
 
