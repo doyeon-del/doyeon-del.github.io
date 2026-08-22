@@ -209,8 +209,23 @@ section { margin-top: 120px; }
 .pcard .toggle-hint::after { content: "펼쳐보기 ▾"; }
 .pcard[open] .toggle-hint::after { content: "접기 ▴"; }
 .pcard-body { padding: 0 32px 32px; }
-.pcard-links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; font-size: 14px; font-weight: 700; }
-.pcard-links a { color: var(--blue); }
+.pcard-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; font-size: 14px; font-weight: 700; }
+/* 링크를 눌러지는 칩으로. 내부 이동은 채운 칩, 외부 이탈(target=_blank)은 아웃라인 칩 */
+.pcard-links a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 16px; border-radius: 100px;
+  border: 1px solid transparent;
+  color: var(--blue); background: var(--blue-soft);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.pcard-links a:hover {
+  background: var(--blue-soft); /* color-mix 미지원 브라우저 폴백 */
+  background: color-mix(in oklab, var(--blue-soft) 80%, var(--blue));
+}
+.pcard-links a[target="_blank"] {
+  color: var(--sub); background: var(--bg); border-color: var(--line);
+}
+.pcard-links a[target="_blank"]:hover { color: var(--blue); border-color: var(--blue); background: var(--bg); }
 .pshot { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 14px; display: block; }
 .pshot img { border-radius: 6px; }
 .pshot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }

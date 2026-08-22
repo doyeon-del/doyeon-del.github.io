@@ -7,6 +7,19 @@
 <meta name="description" content="이도연 데이터·AI 분석 포트폴리오">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── index 전용 컬러 ──────────────────────────────
+     이 블록은 이 파일 안에만 있음. css/style.css 는 블루 원본 그대로라
+     프로젝트 상세 페이지(rail-shift, gilbeot, turtle-neck, barofarm,
+     news-mailer)는 영향을 받지 않는다.
+     커스텀 속성을 body 에서 덮어쓰면 안쪽 규칙이 전부 따라온다.        */
+  body {
+    --blue: #006524;       /* 딥 그린 D2 — 흰 배경 대비 7.27:1 */
+    --blue-soft: #caedce;  /* 뱃지·버튼 칩 배경 — 글씨 대비 5.72:1 */
+  }
+  /* style.css 에 파란 hex 로 하드코딩된 곳만 따로 덮어씀 */
+  .btn-ghost:hover { background: #b9ddbd; }
+</style>
 </head>
 <body>
 <header class="top">
