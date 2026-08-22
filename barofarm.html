@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BaroFarm — 이도연</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 프로젝트 테마 — BaroFarm 프레시 오렌지 */
+    :root {
+      --blue: #d9480f; --blue-soft: #fbeae2; --dark: #33200f;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="case-top">
+    <a href="index.html">← 이도연 포트폴리오</a>
+    <span class="idx">SSAFY 관통 프로젝트</span>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="case-hero">
+    <p class="kicker">SSAFY 15기 관통 프로젝트 — BaroFarm</p>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:20px; flex-wrap:wrap;">
+      <span class="badge">운영 배포</span>
+      <span class="badge plain">2인 팀 · 팀장</span>
+      <span class="badge plain">백엔드 · 인프라 단독</span>
+    </div>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">BaroFarm</h1>
+    <div class="meta">
+      <span><b>프로젝트</b> 신선식품 직거래 마켓 — 폐기위험 예측·동적 할인</span>
+      <span><b>기간</b> 2026.05 – 06</span>
+      <span><b>팀</b> 2인 · 팀장</span>
+      <span><b>배포</b> barofarm.duckdns.org</span>
+    </div>
+    <div class="pcard-links" style="margin-top:20px;">
+      <a href="https://barofarm.duckdns.org" target="_blank" rel="noopener">운영 배포 ↗</a>
+      <a href="https://github.com/doyeon-del/BaroFarm" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- 소개 -->
+  <section style="margin-top:64px;">
+    <p class="label">소개</p>
+    <p class="body-text" style="font-size:18px;">
+      신선식품은 유통기한이 짧아 소상공인 판매자에게 폐기 손실이 큽니다.
+      기존 마켓은 임박 재고를 판매자가 수동으로 내려야 하고, 소비자는 그 딜을 찾기 어렵습니다.
+      BaroFarm은 판매자에게는 폐기 위험을 미리 보여주고, 소비자에게는 마감임박 딜을 한곳에
+      모아주는 마켓입니다. 커머스 백엔드와 배포 인프라를 단독으로 구현하고,
+      클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.
+    </p>
+  </section>
+
+  <!-- 주요 기능 -->
+  <section>
+    <p class="label">주요 기능</p>
+    <ul class="pbullets" style="max-width:720px; font-size:15.5px;">
+      <li><strong>마감임박 딜 전용 탭(/deals)</strong> — 유통기한이 임박한 상품을 한곳에 모아 소비자에게 노출합니다.</li>
+      <li><strong>폐기위험 산출 · 동적 할인</strong> — 유통기한 D-day와 재고로 폐기위험(HIGH/MED/LOW)을 평가하고, 위험도에 연동해 할인가가 바뀝니다.</li>
+      <li><strong>판매자 폐기 대시보드</strong> — 판매자가 자기 재고의 폐기 위험을 미리 확인합니다.</li>
+      <li><strong>AI 추천가</strong> — 상품 등록 시 KAMIS 소매 시세를 근거로 판매가를 추천하고, 상품 설명은 gpt-4o-mini로 생성합니다.</li>
+      <li><strong>회원 · 인증</strong> — JWT 인증(탈퇴 시 토큰 즉시 무효화·블랙리스트), BCrypt 비밀번호 저장.</li>
+    </ul>
+  </section>
+
+  <!-- 아키텍처 -->
+  <section>
+    <p class="label">시스템 아키텍처</p>
+    <div class="frame" style="padding:28px;">
+      <svg viewBox="0 0 1000 560" role="img" aria-label="BaroFarm 시스템 아키텍처: Vue 3 프론트, Caddy HTTPS, Spring Boot 백엔드, MySQL, KAMIS·OpenAI 외부 API, GitHub Actions·Docker·Oracle Cloud 배포 파이프라인" style="width:100%; height:auto; font-family:inherit;">
+        <defs>
+          <marker id="arwB" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#d9480f"/>
+          </marker>
+        </defs>
+
+        <!-- 외부 API -->
+        <rect x="410" y="16" width="215" height="60" rx="12" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="517" y="41" text-anchor="middle" fill="#191f28" font-size="13" font-weight="700">KAMIS 소매 시세</text>
+        <text x="517" y="60" text-anchor="middle" fill="#4e5968" font-size="11.5">AI 추천가 근거 · 등락 주의 문구</text>
+        <rect x="655" y="16" width="215" height="60" rx="12" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="762" y="41" text-anchor="middle" fill="#191f28" font-size="13" font-weight="700">OpenAI gpt-4o-mini</text>
+        <text x="762" y="60" text-anchor="middle" fill="#4e5968" font-size="11.5">상품 설명 생성 (실호출)</text>
+        <line x1="600" y1="128" x2="530" y2="82" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <line x1="690" y1="128" x2="755" y2="82" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+
+        <!-- 클라이언트 -->
+        <rect x="24" y="140" width="210" height="180" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/vuejs.svg" x="109" y="160" width="40" height="40"/>
+        <text x="129" y="228" text-anchor="middle" fill="#191f28" font-size="15" font-weight="800">Vue 3</text>
+        <text x="129" y="252" text-anchor="middle" fill="#4e5968" font-size="12.5">프론트엔드</text>
+        <text x="129" y="274" text-anchor="middle" fill="#8b95a1" font-size="11.5">마감임박 딜 전용 탭 /deals</text>
+
+        <!-- Caddy -->
+        <rect x="300" y="160" width="160" height="130" rx="14" fill="#ffffff" stroke="#e5e8eb"/>
+        <text x="380" y="212" text-anchor="middle" fill="#191f28" font-size="14.5" font-weight="800">Caddy</text>
+        <text x="380" y="236" text-anchor="middle" fill="#4e5968" font-size="12">HTTPS 리버스 프록시</text>
+        <text x="380" y="256" text-anchor="middle" fill="#8b95a1" font-size="11">barofarm.duckdns.org</text>
+        <line x1="234" y1="225" x2="294" y2="225" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <text x="264" y="213" text-anchor="middle" fill="#4e5968" font-size="11" font-weight="600">HTTPS</text>
+        <line x1="460" y1="225" x2="524" y2="225" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+
+        <!-- Spring Boot -->
+        <rect x="530" y="128" width="230" height="195" rx="16" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/spring.svg" x="625" y="146" width="38" height="38"/>
+        <text x="645" y="212" text-anchor="middle" fill="#191f28" font-size="15" font-weight="800">Spring Boot</text>
+        <text x="645" y="236" text-anchor="middle" fill="#4e5968" font-size="12.5">MyBatis · JWT 인증(블랙리스트)</text>
+        <text x="645" y="256" text-anchor="middle" fill="#4e5968" font-size="12.5">폐기위험 엔진 · 동적 할인</text>
+        <text x="645" y="278" text-anchor="middle" fill="#8b95a1" font-size="11.5">주문 시 서버가 가격 재계산</text>
+
+        <!-- MySQL -->
+        <rect x="820" y="168" width="160" height="115" rx="14" fill="#ffffff" stroke="#e5e8eb"/>
+        <image href="assets/arch/mysql.svg" x="882" y="186" width="36" height="36"/>
+        <text x="900" y="248" text-anchor="middle" fill="#191f28" font-size="14" font-weight="700">MySQL</text>
+        <text x="900" y="268" text-anchor="middle" fill="#4e5968" font-size="11.5">상품·주문·회원</text>
+        <line x1="760" y1="225" x2="814" y2="225" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+
+        <!-- 배포 파이프라인 -->
+        <rect x="24" y="410" width="952" height="116" rx="16" fill="#f4f6fa"/>
+        <text x="44" y="440" fill="#8b95a1" font-size="12" font-weight="700">배포 파이프라인</text>
+        <image href="assets/arch/github.svg" x="130" y="444" width="38" height="38"/>
+        <text x="149" y="506" text-anchor="middle" fill="#4e5968" font-size="12">GitHub Push</text>
+        <line x1="210" y1="464" x2="290" y2="464" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <image href="assets/arch/githubactions.svg" x="316" y="444" width="38" height="38"/>
+        <text x="335" y="506" text-anchor="middle" fill="#4e5968" font-size="12">GitHub Actions CI</text>
+        <line x1="410" y1="464" x2="490" y2="464" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <image href="assets/arch/docker.svg" x="516" y="444" width="38" height="38"/>
+        <text x="535" y="506" text-anchor="middle" fill="#4e5968" font-size="12">Docker Compose</text>
+        <line x1="610" y1="464" x2="690" y2="464" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <image href="assets/arch/oracle.svg" x="716" y="448" width="60" height="30"/>
+        <text x="746" y="506" text-anchor="middle" fill="#4e5968" font-size="12">Oracle Cloud VM</text>
+        <line x1="645" y1="406" x2="645" y2="329" stroke="#d9480f" stroke-width="2" marker-end="url(#arwB)"/>
+        <text x="658" y="374" fill="#8b95a1" font-size="11.5">배포</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 기술적 의사결정 -->
+  <section>
+    <p class="label">기술적 의사결정</p>
+    <h2 class="sec-title">왜 이렇게 만들었는지가 설계의 절반입니다</h2>
+
+    <div class="compare" style="margin-top:36px;">
+      <div class="col">
+        <span class="tag asis">고민</span>
+        <h4>할인가를 누가 확정하나</h4>
+        <p>동적 할인은 화면에 보이는 가격과 결제 시점 가격이 달라질 수 있습니다. 클라이언트가 보낸 가격을 그대로 믿으면 가격 조작에 노출됩니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">결정</span>
+        <h4>주문 시 서버가 재계산해 청구</h4>
+        <p>가격 계산 로직을 서버에만 두고, 주문 시점에 서버가 폐기위험·할인율을 다시 계산해 청구합니다. 클라이언트 가격은 표시용일 뿐입니다.</p>
+      </div>
+    </div>
+
+    <div class="compare" style="margin-top:24px;">
+      <div class="col">
+        <span class="tag asis">고민</span>
+        <h4>폐기위험을 무엇으로 산출하나</h4>
+        <p>실거래 트래픽이 없는 신규 서비스라 ML 모델을 학습시킬 실데이터가 없습니다. 근거 없는 모델은 만들지 않기로 했습니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">결정</span>
+        <h4>규칙 기반 엔진 + 합성 데이터 검증</h4>
+        <p>유통기한 D-day와 재고를 규칙 기반으로 평가해 HIGH/MED/LOW를 산출합니다. 행동로그는 seed 고정 파라메트릭 시뮬레이터로 합성하되, 그 위에서 계산한 지표는 전부 실측임을 문서에 명시했습니다.</p>
+      </div>
+    </div>
+
+    <div class="compare" style="margin-top:24px;">
+      <div class="col">
+        <span class="tag asis">고민</span>
+        <h4>탈퇴한 회원의 토큰</h4>
+        <p>JWT는 발급 후 만료 전까지 유효해서, 탈퇴한 회원의 토큰이 남은 유효기간 동안 살아 있는 문제가 있습니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">결정</span>
+        <h4>블랙리스트로 즉시 무효화</h4>
+        <p>탈퇴 시 토큰을 블랙리스트에 올려 즉시 무효화합니다. 비밀번호는 BCrypt로 전환하고, 배포 도메인 CORS 처리까지 인증·보안 흐름을 직접 설계했습니다.</p>
+      </div>
+    </div>
+
+    <div class="compare" style="margin-top:24px;">
+      <div class="col">
+        <span class="tag asis">고민</span>
+        <h4>AI 추천가의 근거</h4>
+        <p>LLM에게 가격을 자유롭게 생성시키면 근거를 댈 수 없습니다. 판매자가 믿고 쓸 수 있어야 합니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">결정</span>
+        <h4>공공 시세를 근거로, LLM은 설명만</h4>
+        <p>판매가 추천은 KAMIS 소매 시세를 근거로 하고 등락·단위 주의 문구까지 노출합니다. LLM(gpt-4o-mini)은 상품 설명 생성에만 씁니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 트러블슈팅 -->
+  <section>
+    <p class="label">트러블슈팅</p>
+    <h2 class="sec-title">배포 단계에서 만난 문제들</h2>
+    <ol class="steps" style="margin-top:28px; max-width:720px;">
+      <li><div><h4>배포 도메인 CORS 403</h4><p>운영 도메인에서 백엔드 호출이 403으로 막혔습니다. 배포 도메인을 CORS 허용 구성에 반영해 해결했고, 이 과정을 인증·보안 흐름 설계에 포함시켰습니다.</p></div></li>
+      <li><div><h4>HTTPS 전환 후 혼합콘텐츠</h4><p>운영 HTTPS 전환 과정에서 혼합콘텐츠 차단이 발생했습니다. Caddy 리버스 프록시 구성을 정리해 전 구간 HTTPS로 통일했습니다.</p></div></li>
+      <li><div><h4>Docker MySQL 한글 깨짐</h4><p>팀 개발환경(Docker Compose)에서 MySQL 한글이 깨지는 문제를 charset 강제 설정으로 해결하고, 환경 자체를 compose로 통일해 재발을 막았습니다.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- 결과지표 -->
+  <section>
+    <p class="label">결과지표</p>
+    <div class="metric-grid">
+      <div class="metric-card"><p class="k">완주 범위</p><p class="v">개발 → CI → 운영 배포</p></div>
+      <div class="metric-card"><p class="k">커밋 기준 기여</p><p class="v">약 71%</p></div>
+      <div class="metric-card"><p class="k">설계 문서</p><p class="v">6종<small> 요구사항~화면설계</small></p></div>
+      <div class="metric-card"><p class="k">운영</p><p class="v">HTTPS<small> barofarm.duckdns.org</small></p></div>
+    </div>
+  </section>
+
+  <!-- 기술 스택 -->
+  <section>
+    <p class="label">기술 스택</p>
+    <div class="tech">
+      <span>Spring Boot</span>
+      <span>Java 17</span>
+      <span>MyBatis</span>
+      <span>MySQL</span>
+      <span>Vue 3</span>
+      <span>Docker</span>
+      <span>GitHub Actions</span>
+      <span>Oracle Cloud</span>
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="index.html"><span class="dir">인덱스</span>← 이도연 포트폴리오</a>
+    <a class="next" href="turtle-neck.html"><span class="dir">다른 SSAFY 프로젝트</span>토끼와 거북목 →</a>
+  </nav>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
+
+</div>
+</body>
+</html>
