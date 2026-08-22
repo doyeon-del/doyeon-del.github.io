@@ -111,7 +111,7 @@
     '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
     "</button>" +
     '<div class="gbot-panel" hidden>' +
-    '<div class="gbot-head"><b>포트폴리오 안내</b><span>키워드 검색 기반 · LLM 아님</span><button class="gbot-close" aria-label="닫기">×</button></div>' +
+    '<div class="gbot-head"><b>포트폴리오 안내</b><button class="gbot-close" aria-label="닫기">×</button></div>' +
     '<div class="gbot-log"></div>' +
     '<div class="gbot-chips"></div>' +
     '<form class="gbot-form"><input type="text" placeholder="궁금한 것을 물어보세요" aria-label="질문 입력"><button type="submit">묻기</button></form>' +
