@@ -84,17 +84,19 @@
         <span class="go">자세히 보기 →</span>
       </a>
 
-      <a class="case-card" href="news-mailer.html">
+      <a class="case-card" href="barofarm.html">
         <div class="meta-row">
           <span class="num">PROJECT 04</span>
-          <span class="badge plain">1인 설계·구현</span>
+          <span class="badge">운영 배포</span>
+          <span class="badge plain">팀장 · BE</span>
         </div>
-        <h3>경제 뉴스 다이제스트 메일러</h3>
-        <p class="desc">Kafka 기반 멀티에이전트 개인 프로젝트</p>
+        <div class="title-with-icon"><img class="app-icon" src="assets/arch/barofarm.png" alt="BaroFarm 로고"><h3>BaroFarm</h3></div>
+        <p class="desc">SSAFY 관통 프로젝트 — 신선식품 직거래 마켓 <strong>운영 배포</strong></p>
+        <div class="thumb"><img src="assets/barofarm/home.png" alt="BaroFarm 홈 화면 — 신선식품 마켓 실서비스"></div>
         <div class="chips">
-          <span>에이전트 <strong>4종</strong></span>
-          <span>Kafka <strong>3단</strong> 토픽</span>
-          <span>실 Gmail 발송 검증</span>
+          <span>개발 → CI → <strong>운영 배포</strong> 완주</span>
+          <span>커밋 기여 <strong>약 71%</strong></span>
+          <span>설계 문서 <strong>6종</strong></span>
         </div>
         <span class="go">자세히 보기 →</span>
       </a>
@@ -106,35 +108,25 @@
   <section id="works" class="sec-gap-s">
     <p class="label">그 외 프로젝트</p>
 
-    <!-- BaroFarm -->
+    <!-- 뉴스 다이제스트 메일러 -->
     <details class="pcard">
       <summary>
         <div>
-          <p class="pm"><b>SSAFY 15기 관통 프로젝트</b>2026.05 – 06 · 2인 팀 (팀장)</p>
-          <p class="pt">BaroFarm — 신선식품 직거래 마켓 &amp; 폐기위험 예측·동적 할인</p>
+          <p class="pm"><b>개인 프로젝트</b>2026.06 – · 1인 설계·구현</p>
+          <p class="pt">경제 뉴스 다이제스트 메일러 — Kafka 멀티에이전트 파이프라인</p>
         </div>
         <span class="toggle-hint"></span>
       </summary>
       <div class="pcard-body">
         <div class="pcard-links">
-          <a href="barofarm.html">상세 페이지 →</a>
-          <a href="https://barofarm.duckdns.org" target="_blank" rel="noopener">운영 배포 ↗</a>
-          <a href="https://github.com/doyeon-del/BaroFarm" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="news-mailer.html">상세 페이지 →</a>
         </div>
-        <p class="p-summary">신선식품은 유통기한이 짧아 소상공인 판매자에게 폐기 손실이 큰데, 기존 마켓은 임박 재고를 판매자가 수동으로 내려야 하고 소비자는 그 딜을 찾기 어렵습니다. 판매자에게는 폐기 위험을 미리 보여주고, 소비자에게는 마감임박 딜을 한곳에 모아주는 마켓으로 설계해, 커머스 백엔드와 배포 인프라를 단독으로 구현하고 클라우드 VM에 HTTPS 운영 배포까지 완주했습니다.</p>
-        <div class="pips">
-          <span>개발 → CI → 운영 배포 완주</span>
-          <span>커밋 기준 기여 약 71%</span>
+        <p class="p-summary">멀티 소스 경제 뉴스를 Kafka로 수집하고, 역할을 분리한 에이전트 4종(요약·분류·큐레이션·편집)이 가공해 하루 한 번 이메일 다이제스트로 발송하는 파이프라인입니다. LLM 호출부를 인터페이스로 추상화해 API 키 없이도 전체 파이프라인을 완주할 수 있고, 발송은 성공 후 커밋(at-least-once)으로 유실을 막았습니다.</p>
+        <div class="chips">
+          <span>에이전트 <strong>4종</strong></span>
+          <span>Kafka <strong>3단</strong> 토픽</span>
+          <span>실 Gmail 발송 검증</span>
         </div>
-        <ul class="pbullets">
-          <li><strong>커머스 백엔드 단독 구현:</strong> Spring Boot/MyBatis 기반 CRUD와 JWT 인증(탈퇴 시 토큰 즉시 무효화·블랙리스트), BCrypt 전환, 배포 도메인 CORS 처리까지 인증·보안 흐름을 직접 설계했습니다.</li>
-          <li><strong>폐기위험 엔진 &amp; 동적 할인:</strong> 유통기한 D-day와 재고를 규칙 기반으로 평가해 폐기위험(HIGH/MED/LOW)을 산출하고, 위험도에 연동해 할인가가 바뀌는 로직을 구현했습니다. 가격은 주문 시 서버가 재계산해 청구하도록 설계해 클라이언트 가격 조작을 차단했습니다.</li>
-          <li><strong>데이터 레이어:</strong> 실트래픽이 없어 행동로그를 파라메트릭 시뮬레이터로 합성(seed 고정·재현 가능)하고 서비스 시드로 변환하는 파이프라인을 만들었습니다. 데이터는 합성이되, 그 위에서 계산한 지표는 전부 실측임을 문서에 명시했습니다.</li>
-          <li><strong>AI 추천가:</strong> 상품 등록 시 KAMIS 소매 시세를 근거로 판매가를 추천하고(등락·단위 주의 문구까지 노출), 상품 설명은 gpt-4o-mini를 실호출해 생성했습니다.</li>
-          <li><strong>배포/인프라:</strong> Docker Compose로 팀 개발환경을 통일하고, Caddy(HTTPS 리버스프록시) + GitHub Actions CI를 구성해 Oracle Cloud VM에 운영 배포했습니다. 혼합콘텐츠·CORS 403 등 배포 단계 이슈를 직접 해결했습니다.</li>
-          <li><strong>설계 문서:</strong> 요구사항정의서·유스케이스·ERD·WBS·간트차트·화면설계 6종을 작성하고 버전 관리했습니다.</li>
-        </ul>
-        <div class="chips"><span>Spring Boot</span><span>Java 17</span><span>MyBatis</span><span>MySQL</span><span>Vue 3</span><span>Docker</span><span>GitHub Actions</span><span>Oracle Cloud</span></div>
       </div>
     </details>
 
