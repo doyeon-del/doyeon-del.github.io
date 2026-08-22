@@ -208,7 +208,7 @@
     <ol class="steps" style="margin-top:28px; max-width:880px;">
       <li><div><h4>LLM 예산 20초 &lt; 타임아웃 25초</h4><p>LLM 호출이 실패해도 타임아웃 전에 폴백을 반환합니다.</p></div></li>
       <li><div><h4>thinking 14초 → 2.4초</h4><p>응답 지연의 원인이던 thinking 시간을 조정했습니다.</p></div></li>
-      <li><div><h4>폴백 캐시 3종</h4><p>실패 상황별 폴백 캐시를 두어 사용자 흐름이 끊기지 않게 했습니다.</p></div></li>
+      <li><div><h4>폴백 캐시 2종</h4><p>첫 답변용·후속 답변용 폴백 캐시를 두어 실패해도 사용자 흐름이 끊기지 않게 했습니다.</p></div></li>
     </ol>
     <div class="frame" style="margin-top:40px;">
       <img src="assets/case2/gilbeot_admin_desktop.png" alt="길벗 관리자 현황 대시보드 — 지식 카드와 검수 상태">
@@ -223,7 +223,7 @@
       <div class="metric-card"><p class="k">해커톤 예선</p><p class="v">상위 6팀<small> 결선 진출</small></p></div>
       <div class="metric-card"><p class="k">골든 테스트</p><p class="v">12케이스</p></div>
       <div class="metric-card"><p class="k">AI 판단</p><p class="v">5단계</p></div>
-      <div class="metric-card"><p class="k">폴백 캐시</p><p class="v">3종</p></div>
+      <div class="metric-card"><p class="k">폴백 캐시</p><p class="v">2종</p></div>
     </div>
   </section>
 
