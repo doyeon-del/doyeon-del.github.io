@@ -140,7 +140,7 @@
     <details class="pcard">
       <summary>
         <div>
-          <p class="pm"><b>개인 프로젝트</b>2026 · 단독 진행</p>
+          <p class="pm"><b>개인 프로젝트</b>2026 </p>
           <p class="pt">브라질 이커머스 데이터로 본 '배송 지연 → 만족도 → 리텐션'</p>
         </div>
         <span class="toggle-hint"></span>
@@ -159,7 +159,7 @@
         </div>
         <p class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</p>
         <div class="pips">
-          <span>지연 3일 기점 평점 4.28→2.58 급락</span>
+          <span>지연 3일 기점 평점 4.28 -> 2.58 급락</span>
           <span>Same State 7.5일 vs Cross State 14.7일</span>
         </div>
         <ul class="pbullets">
@@ -216,7 +216,7 @@
       <div class="pcard-body">
         <p class="p-summary">같은 질문에 ChatGPT와 Gemini가 어떤 출처를 들고 오는지 100건을 직접 라벨링해서 비교했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 통계 지표를 얹어 LLM 응답의 편향을 점수화하는 평가 모델까지 제안했습니다.</p>
         <div class="pips">
-          <span>평가셋 100건 직접 라벨링</span>
+          <span>평가셋 100건 라벨링</span>
           <span>재분류 규칙 정의</span>
           <span>Bias Risk Score 모델 제안</span>
         </div>
@@ -236,7 +236,7 @@
       <summary>
         <div>
           <p class="pm"><b>데이터마케팅코리아</b>2024.03 – 06 · 데이터컨설팅팀 인턴</p>
-          <p class="pt">버즈 데이터 다루며 라벨링 기준 만들기</p>
+          <p class="pt">수집된 버즈 데이터 라벨링 기준 수집</p>
         </div>
         <span class="toggle-hint"></span>
       </summary>
@@ -245,7 +245,7 @@
           <a href="https://doyeon-del.github.io/buzz-data-quality-demo/" target="_blank" rel="noopener">재현 데모 ↗</a>
           <a href="https://github.com/doyeon-del/buzz-data-quality-demo" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-        <p class="p-summary">고객사의 ETF 플랫폼에서 네이버 검색·카페·블로그 같은 채널의 버즈 데이터를 매일 다뤘습니다. 키워드 추출 정확도를 떨어뜨리는 패턴을 찾아내, 분석가들이 같은 기준으로 데이터를 쓸 수 있도록 사전과 DB 명세서를 직접 정리했습니다.</p>
+        <p class="p-summary">고객사의 ETF 플랫폼에서 네이버 검색·카페·블로그 같은 채널의 버즈 데이터를 매일 수집했습니다. 키워드 추출 정확도를 떨어뜨리는 패턴을 찾아내, 분석가들이 같은 기준으로 데이터를 쓸 수 있도록 사전과 DB 명세서를 직접 정리했습니다.</p>
         <div class="pips">
           <span>도메인 사전 1만 행</span>
           <span>DB 명세서 30+ 가이드라인 표준화</span>
@@ -319,7 +319,7 @@
       </div>
 
       <div class="t-item">
-        <p class="t-meta">2026 · BigQuery 세미 프로젝트</p>
+        <p class="t-meta">2026 · BigQuery 활용 프로젝트</p>
         <h3>브라질 이커머스 데이터로 코호트 돌려보기</h3>
         <p>이커머스 마켓플레이스에서 배송 지연이 고객 잔존에 어떻게 작용하는지 보고 싶었습니다. Olist 공개 데이터를 BigQuery에 올리고 raw→staging→mart 계층으로 정리한 뒤, 첫 주문에서 지연을 겪은 고객과 정시 배송 고객의 리텐션 차이를 직접 비교했습니다.</p>
         <div class="chips"><span>BigQuery</span><span>SQL · 코호트</span><span>Streamlit</span></div>
@@ -333,23 +333,23 @@
       </div>
 
       <div class="t-item">
-        <p class="t-meta">2025 · 학사 학위 논문</p>
+        <p class="t-meta">2025 · 문헌정보학 학사 학위 논문</p>
         <h3>ChatGPT와 Gemini, 같은 질문에 어떤 출처를 바탕으로 대답할까</h3>
         <p>같은 질문 10개를 두 모델에 넣고 응답 100건을 받아서, 출처 유형과 주제를 하나씩 직접 라벨링했습니다. 모호한 사례는 분류 규칙을 새로 정의해 다시 묶었고, 그 위에 KL/JS divergence와 Gini, Entropy를 얹어 'Bias Risk Score'라는 평가 모델을 제안했습니다.</p>
         <div class="chips"><span>직접 라벨링 100건</span><span>재분류 규칙 정의</span><span>LLM 평가 모델</span></div>
       </div>
 
       <div class="t-item">
-        <p class="t-meta">2024 · 데이터마케팅코리아 · 데이터컨설팅팀</p>
+        <p class="t-meta">2024 · 데이터마케팅코리아 -  데이터컨설팅팀</p>
         <h3>SQL로 매일 DB 내의 이상값 잡아내기</h3>
         <p>네이버 검색·카페·블로그·BigKinds 같은 채널에서 매일 들어오는 버즈 데이터를 SQL로 점검해 누락·중복·null 같은 이상값을 직접 잡아냈습니다. 그 위에서 1만 행 규모 불용어 사전과 DB 테이블 30여 개 명세서도 정리해, ML을 활용한 데이터 분석 결과의 정확도를 높이고자 했습니다.</p>
         <div class="chips"><span>SQL · 데이터 점검</span><span>불용어 사전 1만 행</span><span>가이드라인 표준화</span></div>
       </div>
 
       <div class="t-item">
-        <p class="t-meta">2023 · 융합기초프로젝트 (5인 팀) · 개인 전공 프로젝트</p>
+        <p class="t-meta">2023 · 융합기초프로젝트 (5인 팀, 팀장) </p>
         <h3>피보팅</h3>
-        <p>중간 평가에서 아이템이 망했을 때, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</p>
+        <p>중간 평가에서 아이템의 한계를 인지하고, 시장 데이터와 논문을 정리해 팀을 설득해 방향을 바꿨고 우수상을 받았습니다. 같은 해 혼자서는 공공도서관 접근성 데이터를 회귀분석하고, R Shiny로 조건을 지정하여 결과를 조회할 수 있는 대시보드를 만들었습니다.</p>
         <div class="chips"><span>R · Shiny</span><span>Arduino MVP</span><span>사용자 테스트</span></div>
       </div>
 
@@ -369,10 +369,10 @@
           <dt>학력 · 교육</dt>
           <dd>
             <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2021.03 – 2026.02</span><br>
-            성균관대학교 문헌정보학 주전공 · <b>통계학 복수전공</b>
+            성균관대학교 문헌정보학 주전공 · 통계학 복수전공
             <span style="display:block; height:12px;"></span>
             <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2026.01 – 2026.12</span><br>
-            삼성청년SW·AI아카데미(SSAFY) 15기 — 2학기 진행 중
+            삼성청년SW·AI아카데미(SSAFY) 15기
           </dd>
         </div>
         <div>
