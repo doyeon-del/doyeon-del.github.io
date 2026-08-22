@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI에게 맡기기 전에, 틀린 걸 판별할 기준부터 만들었다 — 이도연</title>
+<title>토끼와 거북목 — 이도연</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="css/style.css">
   <style>
@@ -29,7 +29,7 @@
       <span class="badge">공통 프로젝트 3위</span>
       <span class="badge plain">팀장 · FE</span>
     </div>
-    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(32px,5vw,50px);">AI에게 맡기기 전에, 틀린 걸 판별할 기준부터 만들었다</h1>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(30px,4.6vw,46px);">웹캠 기반 실시간 자세 감지·스트레칭 데스크톱 앱</h1>
     <div class="meta">
       <span><b>프로젝트</b> 토끼와 거북목 — SSAFY 공통 프로젝트</span>
       <span><b>결과</b> 3위 (2026.08)</span>
@@ -48,6 +48,52 @@
       <span>Spring Boot · WebSocket (팀)</span>
       <span>MySQL · Redis (팀)</span>
       <span>Jenkins · Docker (팀)</span>
+    </div>
+  </section>
+
+
+  <!-- 주요 기능 -->
+  <section>
+    <p class="label">주요 기능</p>
+    <ol class="steps" style="margin-top:8px; max-width:880px;">
+      <li><div><h4>실시간 자세 감지</h4><p>거북목(구부정한 자세)·화면 근접·졸음 3가지 상태를 웹캠으로 실시간 감지하고 화면 알림으로 알려줍니다. 시스템 트레이에 상주해 창을 닫아도 백그라운드에서 감지가 이어지며, 모든 영상 분석은 사용자 PC 안에서만 이루어지고 영상은 서버로 전송되지 않습니다.</p></div></li>
+      <li><div><h4>스트레칭 가이드 및 동작 판정</h4><p>설정한 작업 시간이 끝나면 스트레칭을 제안하고, 동작별 상세 가이드에 따라 올바르게 수행했는지 카메라로 판정합니다.</p></div></li>
+      <li><div><h4>개인 / 팀 모드</h4><p>혼자서도, 팀 단위로도 사용할 수 있습니다. 팀 모드에서는 서로의 작업 상태를 공유하고, 팀에서 정한 시각에 팀원들과 같이 스트레칭합니다.</p></div></li>
+      <li><div><h4>보상 / 상점</h4><p>세션 참여와 좋은 자세 유지로 골드를 받아 캐릭터를 꾸밉니다. 키운 캐릭터는 트레이 아이콘에도 반영되어 작업 중에도 늘 곁에 보입니다.</p></div></li>
+      <li><div><h4>기록 대시보드</h4><p>개인 단위로도, 팀 단위로도 바른 자세 시간, 시간대별 그래프, 연속 기록을 확인할 수 있습니다.</p></div></li>
+    </ol>
+    <div class="compare" style="margin-top:36px;">
+      <div class="col">
+        <h4>실시간 알림 3종 — 개별 토글 가능</h4>
+        <p><b>자세 · 화면 근접 · 졸음</b>을 감지합니다. 자세는 좋음 / 주의 / 거북목 / 미검출 4단계로 판정하고, 졸음은 얼굴 모델의 깜박임 지표로 잡습니다.</p>
+      </div>
+      <div class="col">
+        <h4>무효화 감지 2종 — 항상 동작</h4>
+        <p><b>자리비움 · 노트북 젖힘</b>은 판정 기준 자체가 무효가 되는 상태라 알림을 끌 수 없고, 사용자가 처리해야 판정이 이어집니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기술적 차별성 -->
+  <section>
+    <p class="label">기술적 차별성</p>
+    <div class="case-grid" style="margin-top:8px;">
+      <div class="card">
+        <h3>온디바이스 AI</h3>
+        <p>MediaPipe(Face/Pose Landmarker)를 서버가 아닌 사용자 PC의 렌더러에서 직접 실행합니다. 웹캠 영상은 어떤 형태로도 서버에 전송되지 않아, 상시 카메라 감시라는 민감한 기능을 개인정보 부담 없이 제공합니다.</p>
+      </div>
+      <div class="card">
+        <h3>개인화 캘리브레이션</h3>
+        <p>목-어깨 비율의 절대값은 사람·카메라 위치마다 달라 고정 임계값으로는 판정할 수 없습니다. 시작 시 사용자의 "바른 자세"를 측정해 개인 baseline을 만들고 기준 대비 하락률(%)로 판정하며, 어깨가 화면 밖으로 나가는 상황 감지 같은 환경 점검까지 포함해 오판정을 줄였습니다. 임계값 근처에서 판정이 깜빡이지 않도록 히스테리시스·지속시간 확정 로직도 둡니다.</p>
+      </div>
+      <div class="card">
+        <h3>스트레칭 동작의 정밀 채점 엔진</h3>
+        <p>관절 각도 기반으로 진행률·축 이탈·측정 불가를 분리해 채점하고, 조건별 진행률의 최솟값을 쓰는 AND 방식으로 자세 인식 정확도를 높였습니다. 판정 로직 전체가 웹캠 없이 실행 가능한 순수 함수/상태 머신으로 설계되어 유닛 테스트 22종으로 검증했습니다.</p>
+      </div>
+      <div class="card">
+        <h3>팀 세션 실시간 동기화</h3>
+        <p>raw WebSocket 위에 커스텀 JSON 프로토콜을 직접 설계해 팀원 간 작업 상태 공유와 동시 스트레칭 세션을 구현했습니다. STOMP 같은 기성 메시징 규격 대신 서비스 명세에 맞춘 경량 프로토콜입니다.</p>
+      </div>
     </div>
   </section>
 
@@ -126,39 +172,6 @@
         <text x="558" y="408" fill="#8b95a1" font-size="11.5">배포</text>
       </svg>
     </div>
-  </section>
-
-  <!-- 0. 서비스 소개 -->
-  <section>
-    <p class="label">서비스 소개</p>
-    <h2 class="sec-title">바른 작업 자세 습관 형성을 돕는 실시간 자세 감지·스트레칭 데스크톱 앱입니다</h2>
-    <p class="body-text">
-      장시간 모니터 앞에서 일할 때 무너지는 자세는 본인이 알아차리기 어렵습니다.
-      토끼와 거북목은 바른 작업 자세 습관 형성을 돕기 위해 기획한 앱으로,
-      웹캠 영상을 <b>사용자 PC 안에서만</b> 분석해 자세를 판정하고 알림을 보냅니다.
-      영상과 좌표는 서버로 전송하지 않으며, 네트워크는 최초 AI 모델 다운로드 시에만 사용합니다.
-    </p>
-    <div class="compare" style="margin-top:36px;">
-      <div class="col">
-        <h4>실시간 알림 3종 — 개별 토글 가능</h4>
-        <p><b>자세 · 화면 근접 · 졸음</b>을 감지합니다. 자세는 좋음 / 주의 / 거북목 / 미검출 4단계로 판정하고, 졸음은 얼굴 모델의 깜박임 지표로 잡습니다.</p>
-      </div>
-      <div class="col">
-        <h4>무효화 감지 2종 — 항상 동작</h4>
-        <p><b>자리비움 · 노트북 젖힘</b>은 판정 기준 자체가 무효가 되는 상태라 알림을 끌 수 없고, 사용자가 처리해야 판정이 이어집니다.</p>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:32px; max-width:880px;">
-      <span>판정 흐름 — 웹캠 영상에서 MediaPipe 모델 2종(얼굴·몸통)으로 귀·어깨 등 좌표를 추출하고, 지표를 계산해 <b>개인 캘리브레이션 기준값 대비 하락률</b>로 판정합니다. 고정 임계값이 아니라 사람마다 기준이 다르고, 임계값 근처에서 판정이 깜빡이지 않도록 히스테리시스·지속시간 확정 로직을 둡니다.</span>
-    </div>
-    <p class="body-text" style="margin-top:32px;">
-      감지 외에도 작업 시간이 끝나면 스트레칭을 제안하고 관절 각도 기반으로 동작 수행을 채점하며,
-      팀 모드에서는 정해진 시각에 팀원들과 함께 스트레칭합니다.
-      세션 참여와 좋은 자세 유지로 골드를 받아 캐릭터를 꾸미고(트레이 아이콘에도 반영),
-      바른 자세 시간·시간대별 그래프·연속 기록을 대시보드로 확인합니다.
-      Electron + React 프론트에 Spring Boot 백엔드(raw WebSocket 커스텀 프로토콜 · Spring AI), MySQL·Redis,
-      Jenkins·Caddy 기반 EC2 배포로 구성했습니다.
-    </p>
   </section>
 
   <!-- 1. 문제 -->
