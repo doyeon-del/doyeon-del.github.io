@@ -66,7 +66,13 @@
     border: 1px solid rgba(255, 255, 255, 0.74);
     box-shadow: 0 18px 50px rgba(25, 31, 40, 0.09);
   }
-  .hero-sub { margin-top: 12px; font-size: 20px; font-weight: 600; color: var(--sub); }
+  /* 이름·버튼은 왼쪽, 한 줄 소개는 오른쪽 빈 공간에 붙인다 */
+  .hero-glass { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+  .hero-main { min-width: 0; }
+  .hero-sub {
+    margin: 0 0 6px; font-size: 20px; font-weight: 600; color: var(--sub);
+    text-align: right; white-space: nowrap; flex-shrink: 0;
+  }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn-solid, .btn-glass {
     display: inline-flex; align-items: center; gap: 7px;
@@ -94,6 +100,18 @@
     .hero-cta { margin-top: 22px; }
     .btn-solid, .btn-glass { font-size: 14px; }
   }
+  /* 가로가 좁으면 오른쪽 정렬이 안 먹으니 이름 아래로 되돌린다.
+     display:contents 로 hero-main 을 걷어내야 순서를 끼워넣을 수 있다 */
+  @media (max-width: 680px) {
+    .hero-glass { flex-direction: column; align-items: stretch; gap: 0; }
+    .hero-main { display: contents; }
+    .hero-title { order: 1; }
+    .hero-sub {
+      order: 2; margin: 12px 0 0; text-align: left;
+      white-space: normal; font-size: 17px;
+    }
+    .hero-cta { order: 3; }
+  }
 </style>
 </head>
 <body>
@@ -120,11 +138,13 @@
   <!-- 히어로 -->
   <section class="hero">
     <div class="hero-glass">
-      <h1 class="hero-title">이도연</h1>
-      <p class="hero-sub">데이터에서 개발까지</p>
-      <div class="hero-cta">
-        <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
+      <div class="hero-main">
+        <h1 class="hero-title">이도연</h1>
+        <div class="hero-cta">
+          <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
+        </div>
       </div>
+      <p class="hero-sub">데이터에서 개발까지</p>
     </div>
   </section>
 
@@ -171,11 +191,11 @@
       <a class="case-card" href="turtle-neck.html">
         <div class="meta-row">
           <span class="num">PROJECT 03</span>
-          <span class="badge">3위</span>
+          <span class="badge">우수 프로젝트</span>
           <span class="badge plain">팀장 · FE</span>
         </div>
         <div class="title-with-icon"><img class="app-icon" src="assets/case3/app_icon.png" alt="토끼와 거북목 앱 아이콘"><h3>토끼와 거북목</h3></div>
-        <p class="desc">SSAFY 공통 프로젝트 <strong>3위</strong> — 웹캠 자세 감지·스트레칭 데스크톱 앱</p>
+        <p class="desc">SSAFY <strong>우수 프로젝트 선정</strong> — 웹캠 자세 감지·스트레칭 데스크톱 앱</p>
         <div class="thumb"><img src="assets/case3/home.png" alt="토끼와 거북목 홈 화면 — 세션 시작과 연속 기록" style="object-position: left top;"></div>
         <div class="chips">
           <span>사용자 피드백 <strong>27건</strong> 반영</span>
@@ -480,6 +500,15 @@
           </dd>
         </div>
         <div>
+          <dt>자격 · 어학</dt>
+          <dd>
+            빅데이터분석기사 · 정보처리기사<br>
+            SQLD · ADsP
+            <span style="display:block; height:12px;"></span>
+            OPIc IH · TOEIC 960
+          </dd>
+        </div>
+        <div style="grid-column: 1 / -1;">
           <dt>스킬</dt>
           <dd><div class="chips"><span class="main">Python</span><span class="main">SQL</span><span class="main">BigQuery</span><span class="main">R</span><span class="main">React</span><span>Java · Spring Boot</span><span>TypeScript</span><span>Node.js</span><span>Next.js</span><span>Electron</span><span>Kafka</span><span>Docker</span><span>Streamlit</span><span>Tableau</span><span>Git</span></div></dd>
         </div>
