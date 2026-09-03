@@ -85,10 +85,9 @@
   .top .gh.mail:hover { color: var(--blue); border-color: var(--blue); background: rgba(255, 255, 255, 0.86); }
 
   /* 프로필: 이름·연락처 칸을 뺐으므로 3열로 채우고 스킬만 전폭 */
-  .profile-grid { grid-template-columns: repeat(3, 1fr); }
-  @media (min-width: 821px) and (max-width: 1040px) {
-    .profile-grid { grid-template-columns: 1fr 1fr; }
-  }
+  @media (min-width: 1041px) { .profile-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 821px) and (max-width: 1040px) { .profile-grid { grid-template-columns: 1fr 1fr; } }
+  /* 820px 이하는 style.css 의 1열 규칙에 맡긴다 */
 
   /* 이름·버튼은 왼쪽, 한 줄 소개는 오른쪽 빈 공간에 붙인다 */
   /* 히어로 이름만 10% 축소 (원래 clamp(40px, 6.4vw, 64px)) — 상세 페이지 h1 은 안 건드린다 */
@@ -96,8 +95,9 @@
   .hero-glass { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
   .hero-main { min-width: 0; }
   .hero-sub {
-    margin: 0 0 6px; font-size: 20px; font-weight: 600; color: var(--sub);
-    text-align: right; white-space: nowrap; flex-shrink: 0;
+    margin: 0 0 5px; font-size: 19px; font-weight: 600; color: var(--sub);
+    text-align: right; line-height: 1.62; word-break: keep-all;
+    max-width: 420px; flex-shrink: 1;
   }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn-solid, .btn-glass {
@@ -134,7 +134,7 @@
     .hero-title { order: 1; }
     .hero-sub {
       order: 2; margin: 12px 0 0; text-align: left;
-      white-space: normal; font-size: 17px;
+      max-width: none; font-size: 16.5px;
     }
     .hero-cta { order: 3; }
   }
@@ -174,7 +174,7 @@
           <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
         </div>
       </div>
-      <p class="hero-sub">데이터에서 개발까지</p>
+      <p class="hero-sub">한 번 더 고민하고, 한 단계 더 나아갑니다.</p>
     </div>
   </section>
 
