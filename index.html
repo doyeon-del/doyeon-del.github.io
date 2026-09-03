@@ -77,13 +77,37 @@
   }
 
   /* WHO I AM — 기업 소개 페이지처럼 키워드 세 개로 */
-  .who-kicker {
-    font-size: 13px; font-weight: 800; letter-spacing: 0.14em;
-    color: var(--blue); margin-bottom: 14px;
+  .who-h2 { font-size: clamp(28px, 3.9vw, 38px); letter-spacing: 0.05em; }
+  /* 카드마다 따로 펼쳐지도록 높이를 늘려 맞추지 않는다 */
+  .who-grid { align-items: start; }
+  .who-card {
+    position: relative;
+    background: var(--card); border-radius: 20px; overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease;
   }
-  #who .card { padding: 32px 30px; }
-  #who .card h3 { font-size: 18px; line-height: 1.45; margin-bottom: 12px; }
-  #who .card p { font-size: 15px; line-height: 1.75; }
+  .who-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(25, 31, 40, 0.08); }
+  .who-head {
+    display: flex; flex-direction: column; align-items: flex-start;
+    width: 100%; padding: 30px 28px 24px; cursor: pointer;
+    font: inherit; text-align: left; background: none; border: none;
+  }
+  .who-head:focus-visible { outline: 2px solid var(--blue); outline-offset: -4px; border-radius: 20px; }
+  .who-key { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; color: var(--blue); margin-bottom: 10px; }
+  .who-title { font-size: 18px; font-weight: 800; color: var(--ink); line-height: 1.45; word-break: keep-all; }
+  .who-more::after {
+    content: "자세히 ▾"; position: absolute; top: 34px; right: 26px;
+    font-size: 13px; font-weight: 700; color: var(--sub);
+  }
+  .who-card.open .who-more::after { content: "접기 ▴"; }
+  /* 0fr → 1fr 로 행 높이를 전이시키면 내용 높이를 몰라도 부드럽게 펼쳐진다 */
+  .who-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .34s ease; }
+  .who-card.open .who-body { grid-template-rows: 1fr; }
+  .who-inner { overflow: hidden; }
+  .who-inner > * { padding: 0 28px; }
+  .who-en { font-size: 13.5px; font-weight: 700; color: var(--blue); letter-spacing: 0.01em; margin-bottom: 12px; }
+  .who-text { font-size: 15px; line-height: 1.75; color: var(--sub); word-break: keep-all; margin-bottom: 16px; }
+  .who-inner .chips { padding-bottom: 30px; }
+  @media (prefers-reduced-motion: reduce) { .who-body { transition: none; } }
 
   /* 상훈명이 길어 뱃지 줄이 넘칠 수 있다 — 넘치는 대신 줄바꿈시킨다 */
   .case-card .meta-row { flex-wrap: wrap; row-gap: 8px; }
@@ -99,14 +123,10 @@
   /* 820px 이하는 style.css 의 1열 규칙에 맡긴다 */
 
   /* 이름·버튼은 왼쪽, 한 줄 소개는 오른쪽 빈 공간에 붙인다 */
-  /* 히어로 이름만 10% 축소 (원래 clamp(40px, 6.4vw, 64px)) — 상세 페이지 h1 은 안 건드린다 */
-  .hero-glass .hero-title { font-size: clamp(36px, 5.76vw, 58px); }
-  .hero-glass { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
-  .hero-main { min-width: 0; }
-  .hero-sub {
-    margin: 0 0 5px; font-size: 19px; font-weight: 600; color: var(--sub);
-    text-align: right; line-height: 1.62; word-break: keep-all;
-    max-width: 420px; flex-shrink: 1;
+  /* 히어로: 큰 이름 대신 한 줄 소개가 헤드라인. 이름은 상단 바에 상시 노출된다 */
+  .hero-glass .hero-title {
+    font-size: clamp(29px, 4.3vw, 44px);
+    line-height: 1.38; letter-spacing: -0.025em;
   }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn-solid, .btn-glass {
@@ -138,14 +158,8 @@
   /* 가로가 좁으면 오른쪽 정렬이 안 먹으니 이름 아래로 되돌린다.
      display:contents 로 hero-main 을 걷어내야 순서를 끼워넣을 수 있다 */
   @media (max-width: 680px) {
-    .hero-glass { flex-direction: column; align-items: stretch; gap: 0; }
-    .hero-main { display: contents; }
-    .hero-title { order: 1; }
-    .hero-sub {
-      order: 2; margin: 12px 0 0; text-align: left;
-      max-width: none; font-size: 16.5px;
-    }
-    .hero-cta { order: 3; }
+    .hero-glass .hero-title { line-height: 1.42; }
+    .hero-cta { gap: 8px; }
   }
 </style>
 </head>
@@ -155,6 +169,7 @@
   <div class="wrap">
     <span class="name">이도연</span>
     <nav>
+      <a href="#who">소개</a>
       <a href="#cases">프로젝트</a>
       <a href="#timeline">이력</a>
       <a href="#about">프로필</a>
@@ -177,40 +192,66 @@
   <!-- 히어로 -->
   <section class="hero">
     <div class="hero-glass">
-      <div class="hero-main">
-        <h1 class="hero-title">이도연</h1>
-        <div class="hero-cta">
-          <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
-        </div>
+      <h1 class="hero-title">한 번 더 고민하고,<br>한 단계 더 나아갑니다.</h1>
+      <div class="hero-cta">
+        <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
+        <a class="btn-glass" href="#who">이런 사람입니다 →</a>
       </div>
-      <p class="hero-sub">한 번 더 고민하고, 한 단계 더 나아갑니다.</p>
     </div>
   </section>
 
   <!-- 어떤 사람인가 -->
   <section id="who">
-    <p class="who-kicker">WHO I AM</p>
-    <h2 class="index-h2">이런 사람입니다</h2>
-    <div class="num-cards">
+    <h2 class="index-h2 who-h2">WHO I AM</h2>
+    <div class="num-cards who-grid">
 
-      <div class="card">
-        <span class="n">1</span>
-        <h3>맡은 일은 끝까지 완성합니다</h3>
-        <p>만들어 두는 것과 굴러가게 만드는 것은 다르다고 생각합니다. BaroFarm은 개발에서 멈추지 않고 CI와 클라우드 VM 운영까지 직접 붙어 지금도 서비스가 돌아갑니다. 인턴 때 다룬 데이터는 공개할 수 없어, 같은 구조를 합성 데이터로 다시 만들어 결과를 확인할 수 있게 남겼습니다.</p>
-      </div>
+      <article class="who-card">
+        <button class="who-head" type="button" aria-expanded="false" aria-controls="who-body-1">
+          <span class="n">1</span>
+          <span class="who-key">OWNERSHIP</span>
+          <span class="who-title">맡은 일은 끝까지 완성합니다</span>
+          <span class="who-more"></span>
+        </button>
+        <div class="who-body" id="who-body-1">
+          <div class="who-inner">
+            <p class="who-en">Ship it, then keep it running.</p>
+            <p class="who-text">만들어 두는 것과 굴러가게 만드는 것은 다르다고 생각합니다. BaroFarm은 개발에서 멈추지 않고 CI와 클라우드 VM 운영까지 직접 붙어 지금도 서비스가 돌아갑니다. 인턴 때 다룬 데이터는 공개할 수 없어, 같은 구조를 합성 데이터로 다시 만들어 결과를 확인할 수 있게 남겼습니다.</p>
+            <div class="chips"><span>BaroFarm 운영</span><span>합성 데이터 재현 데모</span></div>
+          </div>
+        </div>
+      </article>
 
-      <div class="card">
-        <span class="n">2</span>
-        <h3>의견 하나도 쉽게 흘려듣지 않습니다</h3>
-        <p>말에는 대개 이유가 있다고 봅니다. 토끼와 거북목에서는 사용자 피드백 27건을 하나씩 분류해 반영했고, 팀원마다 같은 기능을 다르게 이해하던 단계에서는 화면 30여 개를 직접 그려 서로 무엇을 말하고 있는지부터 맞췄습니다.</p>
-      </div>
+      <article class="who-card">
+        <button class="who-head" type="button" aria-expanded="false" aria-controls="who-body-2">
+          <span class="n">2</span>
+          <span class="who-key">LISTENING</span>
+          <span class="who-title">의견 하나도 쉽게 흘려듣지 않습니다</span>
+          <span class="who-more"></span>
+        </button>
+        <div class="who-body" id="who-body-2">
+          <div class="who-inner">
+            <p class="who-en">Every opinion has a reason behind it.</p>
+            <p class="who-text">말에는 대개 이유가 있다고 봅니다. 토끼와 거북목에서는 사용자 피드백 27건을 하나씩 분류해 반영했고, 팀원마다 같은 기능을 다르게 이해하던 단계에서는 화면 30여 개를 직접 그려 서로 무엇을 말하고 있는지부터 맞췄습니다.</p>
+            <div class="chips"><span>피드백 27건 반영</span><span>와이어프레임 30여 장</span></div>
+          </div>
+        </div>
+      </article>
 
-      <div class="card">
-        <span class="n">3</span>
-        <h3>궁금한 것은 직접 해보고 확인합니다</h3>
-        <p>문헌정보학에서 시작해 통계학을 함께 공부했고, 데이터 분석에서 백엔드와 AI까지 필요할 때마다 옮겨 왔습니다. 내린 결론도 그대로 두지 않습니다. 대전 분석에서는 제 결론을 AI에게 반박시켜 오류 3건을 직접 정정했습니다.</p>
-      </div>
-
+      <article class="who-card">
+        <button class="who-head" type="button" aria-expanded="false" aria-controls="who-body-3">
+          <span class="n">3</span>
+          <span class="who-key">CURIOSITY</span>
+          <span class="who-title">궁금한 것은 직접 해보고 확인합니다</span>
+          <span class="who-more"></span>
+        </button>
+        <div class="who-body" id="who-body-3">
+          <div class="who-inner">
+            <p class="who-en">Try it first, then decide.</p>
+            <p class="who-text">문헌정보학에서 시작해 통계학을 함께 공부했고, 데이터 분석에서 백엔드와 AI까지 필요할 때마다 옮겨 왔습니다. 내린 결론도 그대로 두지 않습니다. 대전 분석에서는 제 결론을 AI에게 반박시켜 오류 3건을 직접 정정했습니다.</p>
+            <div class="chips"><span>AI 반증 정정 3건</span><span>문헌정보 → 통계 → 데이터 → AI</span></div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -637,6 +678,17 @@
       if (!folded) document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' });
     });
   }
+})();
+</script>
+<script>
+(function () {
+  document.querySelectorAll(".who-head").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var card = btn.parentNode;
+      var open = card.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
 })();
 </script>
 <script src="assets/guide-bot.js" defer></script>
