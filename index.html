@@ -16,6 +16,7 @@
   body {
     --blue: #006524;       /* 딥 그린 D2 — 흰 배경 대비 7.27:1 */
     --blue-soft: #caedce;  /* 뱃지·버튼 칩 배경 — 글씨 대비 5.72:1 */
+    --muted: #6b7684;      /* 원본 #8b95a1 이 흰 배경에서 너무 흐려서 한 단계 진하게(대비 4.9:1) */
   }
   /* style.css 에 파란 hex 로 하드코딩된 곳만 따로 덮어씀 */
   .btn-ghost:hover { background: #b9ddbd; }
@@ -66,6 +67,15 @@
     border: 1px solid rgba(255, 255, 255, 0.74);
     box-shadow: 0 18px 50px rgba(25, 31, 40, 0.09);
   }
+  /* 프로필 항목명을 프로젝트 뱃지와 같은 칩으로 — 회색 대문자 라벨보다 눈에 붙는다 */
+  .profile-grid dt {
+    display: inline-flex; align-items: center;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0;
+    color: var(--blue); background: var(--blue-soft);
+    border-radius: 100px; padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+
   /* 상훈명이 길어 뱃지 줄이 넘칠 수 있다 — 넘치는 대신 줄바꿈시킨다 */
   .case-card .meta-row { flex-wrap: wrap; row-gap: 8px; }
 
@@ -441,7 +451,7 @@
 
   <!-- 타임라인 -->
   <section id="timeline">
-    <h2 class="index-h2">그동안 해온 일들<span class="sub">최신 순으로 정리했습니다.</span></h2>
+    <h2 class="index-h2">그동안 해온 일들</h2>
     <div class="timeline">
 
       <div class="t-item">
@@ -498,7 +508,7 @@
           <dt>학력 · 교육</dt>
           <dd>
             <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2021.03 – 2026.02</span><br>
-            성균관대학교 문헌정보학 주전공 · 통계학 복수전공
+            성균관대학교 문헌정보학 · 통계학
             <span style="display:block; height:12px;"></span>
             <span style="color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums;">2026.01 – 2026.12</span><br>
             삼성청년SW·AI아카데미(SSAFY) 15기
