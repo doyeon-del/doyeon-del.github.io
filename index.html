@@ -66,7 +66,20 @@
     border: 1px solid rgba(255, 255, 255, 0.74);
     box-shadow: 0 18px 50px rgba(25, 31, 40, 0.09);
   }
+  /* 헤더 우측: 메일을 GitHub 왼쪽에. 메일만 초록으로 강조한다 */
+  .top .top-right { gap: 10px; }
+  .top .gh.mail { color: var(--blue); border-color: rgba(0, 101, 36, 0.3); }
+  .top .gh.mail:hover { color: var(--blue); border-color: var(--blue); background: rgba(255, 255, 255, 0.86); }
+
+  /* 프로필: 이름·연락처 칸을 뺐으므로 3열로 채우고 스킬만 전폭 */
+  .profile-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: 821px) and (max-width: 1040px) {
+    .profile-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   /* 이름·버튼은 왼쪽, 한 줄 소개는 오른쪽 빈 공간에 붙인다 */
+  /* 히어로 이름만 10% 축소 (원래 clamp(40px, 6.4vw, 64px)) — 상세 페이지 h1 은 안 건드린다 */
+  .hero-glass .hero-title { font-size: clamp(36px, 5.76vw, 58px); }
   .hero-glass { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
   .hero-main { min-width: 0; }
   .hero-sub {
@@ -125,6 +138,10 @@
       <a href="#about">프로필</a>
     </nav>
     <div class="top-right">
+      <a class="gh mail" href="mailto:dlehduslee@naver.com" aria-label="이메일 보내기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m3 7 8.2 5.5a1.5 1.5 0 0 0 1.6 0L21 7"></path></svg>
+        <span>dlehduslee@naver.com</span>
+      </a>
       <a class="gh" href="https://github.com/doyeon-del" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"></path></svg>
         <span>GitHub</span>
@@ -191,11 +208,11 @@
       <a class="case-card" href="turtle-neck.html">
         <div class="meta-row">
           <span class="num">PROJECT 03</span>
-          <span class="badge">우수 프로젝트</span>
+          <span class="badge">우수상</span>
           <span class="badge plain">팀장 · FE</span>
         </div>
         <div class="title-with-icon"><img class="app-icon" src="assets/case3/app_icon.png" alt="토끼와 거북목 앱 아이콘"><h3>토끼와 거북목</h3></div>
-        <p class="desc">SSAFY <strong>우수 프로젝트 선정</strong> — 웹캠 자세 감지·스트레칭 데스크톱 앱</p>
+        <p class="desc">웹캠 자세 감지·스트레칭 데스크톱 앱</p>
         <div class="thumb"><img src="assets/case3/home.png" alt="토끼와 거북목 홈 화면 — 세션 시작과 연속 기록" style="object-position: left top;"></div>
         <div class="chips">
           <span>사용자 피드백 <strong>27건</strong> 반영</span>
@@ -207,11 +224,11 @@
       <a class="case-card" href="barofarm.html">
         <div class="meta-row">
           <span class="num">PROJECT 04</span>
-          <span class="badge">사이트 운영</span>
+          <span class="badge">사이트</span>
           <span class="badge plain">팀장 · BE</span>
         </div>
         <div class="title-with-icon"><img class="app-icon" src="assets/arch/barofarm.png" alt="BaroFarm 로고"><h3>BaroFarm</h3></div>
-        <p class="desc">SSAFY 관통 프로젝트 — 신선식품 직거래 마켓 <strong>사이트 운영 중</strong></p>
+        <p class="desc">신선식품 직거래 마켓 사이트</p>
         <div class="thumb"><img src="assets/barofarm/home.png" alt="BaroFarm 홈 화면 — 신선식품 마켓 실서비스"></div>
         <div class="chips">
           <span>개발 → CI → <strong>운영</strong>까지 완주</span>
@@ -475,10 +492,6 @@
     <h2 class="index-h2">프로필</h2>
     <div class="profile-card">
       <div class="profile-grid">
-        <div>
-          <dt>이름 · 연락처</dt>
-          <dd><b>이도연</b><br>dlehduslee@naver.com<br>github.com/doyeon-del</dd>
-        </div>
         <div>
           <dt>학력 · 교육</dt>
           <dd>
