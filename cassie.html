@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cassie — 다중 실험 비교 기능 개선 — 이도연</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 프로젝트 테마 — Cassie 플럼 바이올렛 */
+    :root {
+      --blue: #5b4b9e; --blue-soft: #ece8f7; --dark: #26203f;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="case-top">
+    <a href="index.html">← 이도연 포트폴리오</a>
+    <span class="idx">PROJECT 04 / 04</span>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="case-hero">
+    <p class="kicker">Pow.Bio — Data Team 인턴</p>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:20px; flex-wrap:wrap;">
+      <span class="badge">Pow.Bio</span>
+      <span class="badge plain">Data Team 인턴</span>
+      <span class="badge plain">2025.03 – 2025.06</span>
+    </div>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(32px,5vw,50px);">Cassie —<br>다중 실험 비교 기능 개선</h1>
+    <div class="meta">
+      <span><b>회사</b> Pow.Bio (미국) · Data Team</span>
+      <span><b>역할</b> 인턴 (WEST · 16주)</span>
+      <span><b>대상</b> 발효 시뮬레이션 결과 분석 플랫폼 Cassie</span>
+    </div>
+    <div class="pcard-links" style="margin-top:20px;">
+      <a href="https://doyeon-del.github.io/fermentation-multirun-demo/" target="_blank" rel="noopener">재현 데모 ↗</a>
+      <a href="https://github.com/doyeon-del/fermentation-multirun-demo" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- 개요 -->
+  <section>
+    <p class="label">개요</p>
+    <h2 class="sec-title">여러 탭을 오가며 비교하던 작업을 한 차트로 모았습니다</h2>
+    <p class="body-text">
+      연구진이 조건별 시뮬레이션 결과를 비교하기 위해 여러 탭을 오가는 불편을 인터뷰로 확인했습니다.
+      여러 실험을 선택해 한 차트에서 겹쳐 비교할 수 있도록 조회 방식과 데이터 처리 구조를 개선했습니다.
+    </p>
+    <div class="frame" style="margin-top:36px;">
+      <img src="assets/powbio/multirun.png" alt="여러 발효 실험 결과를 한 차트에 겹쳐 비교하는 다중 실험 비교 화면 — 합성 데이터 재현 데모">
+      <p class="cap">재현 데모 — 여러 실험 결과를 한 차트에 겹쳐 비교하는 화면. 회사 데이터 대신 합성 데이터를 사용했습니다.</p>
+    </div>
+  </section>
+
+  <!-- AS-IS → TO-BE -->
+  <section>
+    <p class="label">조회 방식</p>
+    <h2 class="sec-title">개별 조회에서 다중 실험 비교로</h2>
+    <div class="compare" style="margin-top:28px;">
+      <div class="col">
+        <span class="tag asis">AS-IS</span>
+        <h4>개별 결과 조회</h4>
+        <p>실험 결과를 하나씩 열어 볼 수 있었습니다. 조건별로 비교하려면 탭을 여러 개 띄우거나 이미지를 내려받아 나란히 놓아야 했습니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">TO-BE</span>
+        <h4>다중 실험 비교</h4>
+        <p>여러 실험을 선택하면 한 차트에 겹쳐 그려지고, 실험별 색과 선 모양으로 구분됩니다. 비교한 차트는 이미지로 내보낼 수 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 담당 업무 -->
+  <section>
+    <p class="label">담당 업무</p>
+    <h2 class="sec-title">요구 파악에서 문서화까지 세 단계로 진행했습니다</h2>
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
+      <li>
+        <div>
+          <h4>사용자 요구 파악</h4>
+          <p>개별 결과 조회 중심의 화면과 연구진의 실제 비교 작업 사이에 차이가 있음을 확인했습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>화면 및 데이터 연동 개선</h4>
+          <p>단일·다중 실험을 선택할 수 있도록 화면을 수정하고, 여러 결과를 함께 불러오도록 백엔드 API 응답 구조를 조정했습니다. 실험별 색과 선 모양을 구분하고 차트 이미지 내보내기 기능을 추가했습니다.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>데이터 흐름 문서화</h4>
+          <p>DB에서 API를 거쳐 화면에 표시되는 흐름을 다이어그램으로 정리하고, DB 접근 문서와 기능 사용 가이드를 작성했습니다.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 남긴 것 -->
+  <section>
+    <p class="label">남긴 것</p>
+    <div class="metric-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="metric-card"><p class="k">조회 방식</p><p class="v">단일 → 다중 실험<small> 한 차트에 겹쳐 비교</small></p></div>
+      <div class="metric-card"><p class="k">데이터 연동</p><p class="v">API 응답 구조 조정<small> 여러 결과 동시 조회</small></p></div>
+      <div class="metric-card"><p class="k">문서</p><p class="v">3종<small> 데이터 흐름 · DB 접근 · 사용 가이드</small></p></div>
+    </div>
+  </section>
+
+  <!-- 회고 -->
+  <section>
+    <p class="label">회고</p>
+    <p class="retro">
+      화면을 고치기 전에 연구진이 실제로 어떻게 비교하는지부터 물었습니다.
+      요구를 확인하고 나니 바꿔야 할 것은 차트 하나가 아니라 조회 방식과 응답 구조였고,
+      그 흐름을 문서로 남겨 다음 사람이 이어갈 수 있게 했습니다.
+    </p>
+    <div class="tech">
+      <span>React</span>
+      <span>JavaScript</span>
+      <span>Chart.js</span>
+      <span>MUI</span>
+      <span>PostgreSQL</span>
+      <span>F#·.NET 백엔드 연동</span>
+    </div>
+    <p class="footnote" style="margin-top:16px; font-size:14.5px;">재현 데모는 React 18 · Vite · MUI · Chart.js 로 만든 프론트엔드 단독 구성이며, 합성 데이터를 사용합니다.</p>
+  </section>
+
+  <nav class="pager">
+    <a href="turtle-neck.html"><span class="dir">이전 프로젝트</span>← 토끼와 거북목</a>
+    <a class="next" href="index.html"><span class="dir">인덱스</span>이도연 포트폴리오 →</a>
+  </nav>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
+
+</div>
+<script src="assets/guide-bot.js" defer></script>
+</body>
+</html>

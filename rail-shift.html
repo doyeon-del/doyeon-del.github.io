@@ -18,7 +18,7 @@
 
   <header class="case-top">
     <a href="index.html">← 이도연 포트폴리오</a>
-    <span class="idx">PROJECT 01 / 04</span>
+    <span class="idx">PROJECT 02 / 04</span>
   </header>
 
   <!-- 히어로 -->
@@ -78,7 +78,8 @@
     <p class="label">검증</p>
     <h2 class="sec-title">공개데이터 11종을 결합하고, 읽기 규칙부터 정했습니다</h2>
     <p class="body-text">
-      데이터를 결합하기 전에 <b>「행≠작업, 행 수≠물동량, 기록 부재≠작업 부재」</b>라는 사전 규칙을 세웠습니다.
+      데이터를 결합하기 전에 각 데이터가 어떻게 만들어졌는지, 어디까지 서로 비교할 수 있는지부터 확인했습니다.
+      그 위에 <b>「행≠작업, 행 수≠물동량, 기록 부재≠작업 부재」</b>라는 읽기 규칙을 세웠습니다.
       이 규칙이 있었기 때문에 신탄진 컨테이너 35행이 35번의 작업이 아니라
       하루·한 건의 일괄 기록이라는 것을 확인할 수 있었습니다.
     </p>
@@ -109,13 +110,32 @@
         <span class="tag tobe">TO-BE</span>
         <h4>철도복합 성립 조건</h4>
         <p>양끝 비용이 임계치 아래로 내려오면 철도복합이 성립합니다. 하역 작업비 기준 회당 22,150~27,600원이 그 경계입니다.</p>
+        <p style="margin-top:10px; font-size:14.5px; color:var(--muted);">적용 조건 — 인천항→대전 왕복 · 고시 운임 기준 · 하역 작업비 외 항목은 현재 수준으로 고정</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 해석 기준 -->
+  <section>
+    <p class="label">해석 기준</p>
+    <h2 class="sec-title">수치마다 읽는 범위를 정해 두었습니다</h2>
+    <div class="compare" style="margin-top:28px;">
+      <div class="col">
+        <span class="tag asis">모델 점수</span>
+        <h4>전환 확률이 아닙니다</h4>
+        <p>가중 로지스틱 회귀의 점수는 구간별 전환 가능성을 견주는 상대 순위로만 사용했습니다. 확률 보정을 거치지 않았기 때문에 '전환 확률 n%'로 읽지 않았고, 점수를 물량으로 환산한 산출물은 제안에서 제외했습니다.</p>
+      </div>
+      <div class="col">
+        <span class="tag asis">비용 임계값</span>
+        <h4>조건이 붙은 수치입니다</h4>
+        <p>회당 22,150~27,600원은 인천항→대전 왕복, 고시 운임 기준에서 하역 작업비 외 항목을 현재 수준으로 고정했을 때의 경계입니다. 구간이나 운임 조건이 바뀌면 다시 계산해야 합니다.</p>
       </div>
     </div>
   </section>
 
   <!-- 5. AI 반증 -->
   <section>
-    <p class="label">AI를 반증에 활용</p>
+    <p class="label">마지막 점검 — AI를 반증에 활용</p>
     <h2 class="sec-title">"이 결론을 반박하라"</h2>
     <p class="body-text">
       결론을 완성한 뒤, AI에게 결론을 다듬게 하는 대신 반박하게 했습니다.
@@ -211,10 +231,10 @@
   <section>
     <p class="label">결과지표</p>
     <div class="metric-grid">
+      <div class="metric-card"><p class="k">검토·결합한 공개데이터</p><p class="v">11종</p></div>
+      <div class="metric-card"><p class="k">비용을 비교한 운송 경로</p><p class="v">3개<small> 왕복 총비용</small></p></div>
+      <div class="metric-card"><p class="k">전환 조건 (하역 작업비 · 조건부)</p><p class="v">22,150~27,600<small>원/회</small></p></div>
       <div class="metric-card"><p class="k">공모전 결과</p><p class="v">최우수상</p></div>
-      <div class="metric-card"><p class="k">임계단가 역산</p><p class="v">22,150~27,600<small>원/회</small></p></div>
-      <div class="metric-card"><p class="k">AI 반증으로 오류 정정</p><p class="v">3건</p></div>
-      <div class="metric-card"><p class="k">결합한 공개데이터</p><p class="v">11종</p></div>
     </div>
   </section>
 
@@ -222,9 +242,10 @@
   <section>
     <p class="label">회고</p>
     <p class="retro">
-      결론을 그럴듯하게 만드는 데 AI를 쓰지 않았습니다.
-      결론을 반박시키고, 반박을 버티지 못한 산출물은 폐기했습니다.
-      제안에 실은 수치는 모두 이 과정을 거친 것들입니다.
+      데이터를 결합하기 전에 생성 방식과 비교 가능한 범위부터 확인했고,
+      비용은 경로별로 같은 기준에서 비교했습니다.
+      제안에 실은 임계값에는 적용 조건을 함께 붙였고,
+      마지막에는 AI에게 결론을 반박시켜 버티지 못한 산출물을 뺐습니다.
     </p>
     <div class="tech">
       <span>Python (pandas · matplotlib)</span>
@@ -234,8 +255,8 @@
   </section>
 
   <nav class="pager">
-    <a href="index.html"><span class="dir">인덱스</span>이도연 포트폴리오</a>
-    <a class="next" href="gilbeot.html"><span class="dir">다음 프로젝트</span>길벗 Gilbeot →</a>
+    <a href="etf-quality.html"><span class="dir">이전 프로젝트</span>← ETF 데이터 플랫폼 품질 점검 및 운영 개선</a>
+    <a class="next" href="turtle-neck.html"><span class="dir">다음 프로젝트</span>토끼와 거북목 →</a>
   </nav>
 
   <footer>
