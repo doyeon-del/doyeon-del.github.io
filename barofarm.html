@@ -164,12 +164,12 @@
       <div class="col">
         <span class="tag asis">고민</span>
         <h4>폐기위험을 무엇으로 산출하나</h4>
-        <p>실거래 트래픽이 없는 신규 서비스라 ML 모델을 학습시킬 실데이터가 없습니다. 근거 없는 모델은 만들지 않기로 했습니다.</p>
+        <p>실거래 트래픽이 없는 신규 서비스라 ML 모델을 학습시킬 실데이터가 없습니다. 그래서 학습 모델 대신 규칙 기반으로 산출했습니다.</p>
       </div>
       <div class="col tobe">
         <span class="tag tobe">결정</span>
         <h4>규칙 기반 엔진 + 합성 데이터 검증</h4>
-        <p>유통기한 D-day와 재고를 규칙 기반으로 평가해 HIGH/MED/LOW를 산출합니다. 행동로그는 seed 고정 파라메트릭 시뮬레이터로 합성하되, 그 위에서 계산한 지표는 전부 실측임을 문서에 명시했습니다.</p>
+        <p>유통기한 D-day와 재고를 규칙 기반으로 평가해 HIGH/MED/LOW를 산출합니다. 행동로그는 seed를 고정한 시뮬레이터로 합성했고, 이 데이터에서 계산한 지표라는 점을 문서에 적었습니다.</p>
       </div>
     </div>
 
@@ -182,7 +182,7 @@
       <div class="col tobe">
         <span class="tag tobe">결정</span>
         <h4>블랙리스트로 즉시 무효화</h4>
-        <p>탈퇴 시 토큰을 블랙리스트에 올려 즉시 무효화합니다. 비밀번호는 BCrypt로 전환하고, 배포 도메인 CORS 처리까지 인증·보안 흐름을 직접 설계했습니다.</p>
+        <p>탈퇴 시 토큰을 블랙리스트에 올려 즉시 무효화합니다. 비밀번호는 BCrypt로 저장하도록 바꿨습니다.</p>
       </div>
     </div>
 
@@ -205,7 +205,7 @@
     <p class="label">문제 해결</p>
     <h2 class="sec-title">배포 단계에서 만난 문제들</h2>
     <ol class="steps" style="margin-top:28px; max-width:720px;">
-      <li><div><h4>배포 도메인 CORS 403</h4><p>운영 도메인에서 백엔드 호출이 403으로 막혔습니다. 배포 도메인을 CORS 허용 구성에 반영해 해결했고, 이 과정을 인증·보안 흐름 설계에 포함시켰습니다.</p></div></li>
+      <li><div><h4>배포 도메인 CORS 403</h4><p>운영 도메인에서 백엔드 호출이 403으로 막혔습니다. 배포 도메인을 CORS 허용 목록에 추가해 해결했습니다.</p></div></li>
       <li><div><h4>HTTPS 전환 후 혼합콘텐츠</h4><p>운영 HTTPS 전환 과정에서 혼합콘텐츠 차단이 발생했습니다. Caddy 리버스 프록시 구성을 정리해 전 구간 HTTPS로 통일했습니다.</p></div></li>
       <li><div><h4>Docker MySQL 한글 깨짐</h4><p>팀 개발환경(Docker Compose)에서 MySQL 한글이 깨지는 문제를 charset 강제 설정으로 해결하고, 환경 자체를 compose로 통일해 재발을 막았습니다.</p></div></li>
     </ol>
@@ -215,7 +215,7 @@
   <section>
     <p class="label">결과/성과</p>
     <div class="metric-grid">
-      <div class="metric-card"><p class="k">완주 범위</p><p class="v">개발 → CI → 사이트 운영</p></div>
+      <div class="metric-card"><p class="k">진행 범위</p><p class="v">개발 → CI → 사이트 운영</p></div>
       <div class="metric-card"><p class="k">커밋 기준 기여</p><p class="v">약 71%</p></div>
       <div class="metric-card"><p class="k">설계 문서</p><p class="v">6종<small> 요구사항~화면설계</small></p></div>
       <div class="metric-card"><p class="k">운영</p><p class="v">HTTPS<small> barofarm.duckdns.org</small></p></div>

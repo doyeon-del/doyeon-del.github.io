@@ -246,7 +246,7 @@
   <!-- 히어로 -->
   <section class="hero">
     <div class="hero-glass">
-      <h1 class="hero-title">데이터의 흐름을 이해하고,<br>관리와 활용 방식을 개선합니다.</h1>
+      <h1 class="hero-title">데이터가 틀어진 지점을 찾고,<br>같은 기준으로 쓰이게 정리합니다.</h1>
       <p class="hero-sub">문헌정보학과 통계학을 공부하며 정보의 분류 기준과 분석 방법을 익혔습니다. SQL 기반 품질 점검, 공개데이터 분석, 지표 정의 조율, 데이터 조회 기능 개선을 경험했습니다.</p>
       <div class="hero-cta">
         <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
@@ -256,13 +256,12 @@
 
   <!-- 어떤 사람인가 -->
   <section id="who">
-    <h2 class="index-h2 who-h2">WHO I AM</h2>
+    <h2 class="index-h2 who-h2">일하는 방식</h2>
     <div class="num-cards who-grid">
 
       <article class="who-card">
         <div class="who-tilt">
           <span class="n">1</span>
-          <span class="who-key">TRACING</span>
           <h3 class="who-title">데이터 흐름과 원인 추적</h3>
           <p class="who-desc">결과에 오류가 나타나면 수집·적재·가공 과정을 따라가며 원인을 확인합니다.</p>
         </div>
@@ -271,7 +270,6 @@
       <article class="who-card">
         <div class="who-tilt">
           <span class="n">2</span>
-          <span class="who-key">DEFINITION</span>
           <h3 class="who-title">정의와 기준 정리</h3>
           <p class="who-desc">같은 데이터가 같은 의미로 쓰이도록 항목 정의와 계산 기준을 확인하고 문서로 남깁니다.</p>
         </div>
@@ -280,7 +278,6 @@
       <article class="who-card">
         <div class="who-tilt">
           <span class="n">3</span>
-          <span class="who-key">IMPROVEMENT</span>
           <h3 class="who-title">사용자 요구와 개선</h3>
           <p class="who-desc">데이터를 사용하는 사람의 작업 방식을 파악하고, 담당자와 요구사항을 조율해 개선에 반영합니다.</p>
         </div>
@@ -425,20 +422,20 @@
           <img src="assets/olist/hero.png" alt="Olist 배송·고객 경험 Streamlit 대시보드 — KPI 요약 화면" loading="lazy">
         </a>
         <div class="pshot-grid">
-          <a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 붕괴</div></a>
+          <a href="assets/olist/delay.png" target="_blank" rel="noopener"><img src="assets/olist/delay.png" alt="지연 일수별 리뷰 점수 콤보 차트" loading="lazy"><div class="gcap">배송 지연 — 평점 하락</div></a>
           <a href="assets/olist/geo.png" target="_blank" rel="noopener"><img src="assets/olist/geo.png" alt="판매자-고객 지역 리드타임" loading="lazy"><div class="gcap">지역 매칭 — 리드타임</div></a>
           <a href="assets/olist/retention.png" target="_blank" rel="noopener"><img src="assets/olist/retention.png" alt="배송 경험별 코호트 리텐션" loading="lazy"><div class="gcap">코호트 리텐션</div></a>
         </div>
         <p class="p-summary">브라질 최대 이커머스 마켓플레이스 Olist의 공개 데이터 약 10만 건을 BigQuery에 올려, 배송 지연이 고객 만족도와 잔존율에 어떻게 작용하는지를 SQL로 정량화했습니다. 분석 결과를 Streamlit 대시보드로 묶어 변수를 직접 골라가며 확인할 수 있게 했습니다.</p>
         <div class="pips">
-          <span>지연 3일 기점 평점 4.28 -> 2.58 급락</span>
+          <span>지연 3일부터 평점 4.28 → 2.58</span>
           <span>Same State 7.5일 vs Cross State 14.7일</span>
         </div>
         <ul class="pbullets">
-          <li><strong>데이터 모델링:</strong> raw → staging → mart → analysis 4계층으로 분리해 분석 자산의 재현성과 재사용성을 확보했습니다. dbt에서 쓰는 디멘셔널 모델링 사상을 사이드 프로젝트에 적용해본 경험입니다.</li>
-          <li><strong>지연 임계점 분석:</strong> 예상일 대비 지연 일수를 D≤0, D+1~2, D+3~4 단위로 버킷팅해 평점이 비선형적으로 무너지는 지점을 찾았습니다. 정시·조기 평점 4.28에서 D+3~4 구간 평점 2.58로 급락했고, 저평점률은 9.5%에서 53.5%까지 상승했습니다.</li>
+          <li><strong>데이터 모델링:</strong> raw → staging → mart → analysis 4계층으로 나눠, 같은 결과를 다시 만들고 중간 테이블을 다른 분석에도 쓸 수 있게 했습니다. dbt의 디멘셔널 모델링 방식을 참고했습니다.</li>
+          <li><strong>지연 임계점 분석:</strong> 예상일 대비 지연 일수를 D≤0, D+1~2, D+3~4 단위로 버킷팅해 평점이 크게 떨어지는 지점을 찾았습니다. 정시·조기 평점 4.28이 D+3~4 구간에서 2.58로 떨어졌고, 저평점률은 9.5%에서 53.5%까지 상승했습니다.</li>
           <li><strong>코호트 리텐션:</strong> 첫 주문 배송 경험에 따라 고객을 두 그룹(지연 vs 정시)으로 나누고 월별 잔존율을 비교했습니다. Olist는 재구매가 희소해 표본 안정성에 한계가 있다는 점도 함께 명시했습니다.</li>
-          <li><strong>통계 추론:</strong> Welch t-test + Cohen's d + 95% 신뢰구간으로 그룹 간 평점 차이를 검정했습니다. 큰 표본에서 p-value의 한계를 인지하고 효과크기를 함께 보고했습니다.</li>
+          <li><strong>통계 추론:</strong> Welch t-test + Cohen's d + 95% 신뢰구간으로 그룹 간 평점 차이를 검정했습니다. 표본이 커서 p-value만으로는 차이의 크기를 알 수 없어 효과크기를 함께 적었습니다.</li>
           <li><strong>인터랙티브 대시보드:</strong> Streamlit + BigQuery로 KPI 카드와 6개 탭(퍼널 / 통계 검정 / 배송 지연 / 지역 매칭 / 카테고리 / 리텐션)을 구성했고, 자격증명이 없으면 CSV 폴백으로도 띄울 수 있게 만들었습니다.</li>
         </ul>
         <div class="chips"><span>BigQuery</span><span>SQL</span><span>Python</span><span>pandas</span><span>scipy.stats</span><span>Streamlit</span></div>
@@ -465,7 +462,7 @@
         </a>
         <p class="p-summary">유통기한 기반 폐기위험 산출과 동적 할인 로직을 Spring Boot 백엔드로 구현하고, Docker와 GitHub Actions CI로 클라우드 VM에 HTTPS 운영 배포까지 마쳤습니다.</p>
         <div class="chips">
-          <span>개발 → CI → <strong>운영</strong>까지 완주</span>
+          <span>개발 → CI → <strong>운영 배포</strong>까지</span>
           <span>커밋 기여 <strong>약 71%</strong></span>
           <span>설계 문서 <strong>6종</strong></span>
         </div>
@@ -485,11 +482,11 @@
         <div class="pcard-links">
           <a href="news-mailer.html">상세 페이지 →</a>
         </div>
-        <p class="p-summary">멀티 소스 경제 뉴스를 Kafka로 수집하고, 역할을 분리한 에이전트 4종(요약·분류·큐레이션·편집)이 가공해 하루 한 번 이메일 다이제스트로 발송하는 파이프라인입니다. LLM 호출부를 인터페이스로 추상화해 API 키 없이도 전체 파이프라인을 완주할 수 있고, 발송은 성공 후 커밋(at-least-once)으로 유실을 막았습니다.</p>
+        <p class="p-summary">멀티 소스 경제 뉴스를 Kafka로 수집하고, 역할을 분리한 에이전트 4종(요약·분류·큐레이션·편집)이 가공해 하루 한 번 이메일 다이제스트로 발송하는 파이프라인입니다. LLM 호출부를 인터페이스로 추상화해 API 키 없이도 전체 파이프라인이 끝까지 실행되고, 발송은 성공 후 커밋(at-least-once)으로 유실을 막았습니다.</p>
         <div class="chips">
           <span>에이전트 <strong>4종</strong></span>
           <span>Kafka <strong>3단</strong> 토픽</span>
-          <span>실 Gmail 발송 검증</span>
+          <span>Gmail 실제 발송 확인</span>
         </div>
       </div>
     </details>
@@ -511,11 +508,11 @@
           <span>Bias Risk Score 모델 제안</span>
         </div>
         <ul class="pbullets">
-          <li><strong>평가셋 직접 구축 &amp; 라벨링:</strong> 사회·정책·환경·교육 등 10개 대표 쿼리를 설계했고, ChatGPT/Gemini 응답 상위 5건씩 총 100개 레코드를 <strong>출처(domain) · 정보유형(source type) · 주제 토픽</strong> 단위로 직접 라벨링해 CSV로 정형화했습니다.</li>
-          <li><strong>모호 케이스 재분류 &amp; 가이드라인 정의:</strong> news/com을 '언론 기반', gov/edu/org를 '공공·학술 기반'으로 묶는 등 모호한 source_type을 일관 규칙으로 재분류했습니다. 결측값(stance_tag, country_tag) 처리 기준을 정의해 KL/JS 연산의 일관성을 확보했습니다.</li>
+          <li><strong>평가셋 구축과 라벨링:</strong> 사회·정책·환경·교육 등 10개 대표 쿼리를 설계했고, ChatGPT/Gemini 응답 상위 5건씩 총 100개 레코드를 <strong>출처(domain) · 정보유형(source type) · 주제 토픽</strong> 단위로 직접 라벨링해 CSV로 정형화했습니다.</li>
+          <li><strong>모호한 사례 재분류 기준:</strong> news/com을 '언론 기반', gov/edu/org를 '공공·학술 기반'으로 묶는 등 모호한 source_type을 같은 규칙으로 다시 분류했습니다. 결측값(stance_tag, country_tag) 처리 기준도 정해 KL/JS 계산이 같은 기준으로 이뤄지게 했습니다.</li>
           <li><strong>편향 정량화 모델:</strong> KL/JS divergence(엔진 간 분포 차이), Gini index(집중도), Shannon entropy(다양성)를 동일 가중으로 결합한 <strong>Bias Risk Score</strong>를 정의했습니다. ANOVA·χ² 검정으로 차이의 통계적 유의성을 확인했습니다.</li>
-          <li><strong>핵심 발견:</strong> ChatGPT는 news·blog 등 언론 기반 출처 의존도가 높았고(JS divergence 0.69), Gemini는 academic·gov·nonprofit에 고르게 분포했습니다. 환경·감시 등 정책성 주제일수록 두 모델의 정보 구조가 구조적으로 다름을 검증했습니다.</li>
-          <li><strong>실무적 의미:</strong> LLM 기반 정보 서비스의 출력 품질을 정량적으로 평가할 수 있는 틀입니다. RAG 평가셋 구축, 출처 신뢰도 검증, 환각·편향 리스크 분석 등 AI 안전성 영역으로 확장 가능합니다.</li>
+          <li><strong>결과:</strong> ChatGPT는 news·blog 등 언론 출처 비중이 높았고(JS divergence 0.69), Gemini는 academic·gov·nonprofit에 고르게 분포했습니다. 환경·감시 같은 정책 주제에서 두 모델의 출처 구성 차이가 더 컸습니다.</li>
+          <li><strong>활용:</strong> LLM 답변이 어떤 출처에 기대는지 수치로 비교하는 방법으로, RAG 평가셋을 만들거나 출처 신뢰도를 점검할 때 쓸 수 있습니다.</li>
         </ul>
         <div class="chips"><span>Python</span><span>pandas</span><span>scipy.stats</span><span>LLM 평가</span><span>라벨링·재분류</span><span>Information Quality</span></div>
       </div>
@@ -526,7 +523,7 @@
       <summary>
         <div>
           <p class="pm"><b>개인 프로젝트</b>2023.09 – 12</p>
-          <p class="pt">수도권 공공도서관 접근성 분석 &amp; R Shiny 대시보드</p>
+          <p class="pt">수도권 공공도서관 접근성 분석과 R Shiny 대시보드</p>
         </div>
         <span class="toggle-hint"></span>
       </summary>
@@ -534,7 +531,7 @@
         <p class="p-summary">수도권의 공공도서관이 지역별로 얼마나 다르게 접근되는지 공공데이터로 분석했습니다. 결과를 R Shiny 대시보드로 만들어, 보고서를 읽지 않아도 지역과 노선을 직접 골라가며 격차를 확인할 수 있게 했습니다.</p>
         <ul class="pbullets">
           <li>KOSIS·행정안전부 데이터 수집·정제, 회귀분석으로 이용률 영향요인 검증했습니다. '도서관당 인구수'로 지역 격차를 수치화했습니다.</li>
-          <li>지역·지하철 노선 필터가 있는 R Shiny 대시보드를 구현해 분석 결과를 보고서가 아닌 탐색 가능한 인터페이스로 전달했습니다.</li>
+          <li>지역·지하철 노선 필터가 있는 R Shiny 대시보드를 구현해 지역과 노선을 골라 결과를 직접 볼 수 있게 했습니다.</li>
         </ul>
         <div class="chips"><span>R</span><span>tidyverse</span><span>Shiny</span><span>leaflet</span><span>회귀분석</span></div>
       </div>
@@ -553,7 +550,7 @@
         <p class="p-summary">초기 아이템(무인 포토부스)이 중간 평가에서 혹평을 받았습니다. 슬립테크 시장 데이터를 정리해 팀을 설득해 수면 자세 교정 기기로 방향을 바꿨고, 10일 만에 압력센서 기반 MVP를 만들어 실사용자 테스트까지 진행했습니다.</p>
         <ul class="pbullets">
           <li>초기 아이디어(무인 포토부스)가 설득력이 없다고 판단해 시장조사·논문 데이터를 정리하고 팀을 설득했으며, <strong>수면 자세 교정</strong>으로 피벗했습니다.</li>
-          <li>압력센서(FSR)+아두이노로 MVP를 제작했고, 실사용자 수면자세 측정 후 데이터를 시각화했습니다. 솔루션 가능성을 직접 검증했습니다.</li>
+          <li>압력센서(FSR)+아두이노로 MVP를 제작했고, 실사용자의 수면 자세를 측정해 데이터를 시각화했습니다.</li>
         </ul>
         <div class="chips"><span>Arduino</span><span>데이터 시각화</span><span>사용자 테스트</span></div>
       </div>
