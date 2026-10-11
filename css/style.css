@@ -345,6 +345,17 @@ section { margin-top: 120px; }
   word-break: keep-all; max-width: 880px;
 }
 
+.retro-h { font-size: 15px; font-weight: 700; color: var(--muted); margin: 32px 0 6px; }
+.retro-list { list-style: none; padding: 0; margin: 0; max-width: 880px; }
+.retro-list li {
+  position: relative; padding-left: 18px; margin-top: 10px;
+  font-size: 16.5px; color: var(--body); line-height: 1.7; word-break: keep-all;
+}
+.retro-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.72em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--blue);
+}
+
 /* 기술 스택 */
 .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 .tech span {
