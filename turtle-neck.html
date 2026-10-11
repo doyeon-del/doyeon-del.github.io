@@ -11,6 +11,26 @@
     :root {
       --blue: #4a665f; --blue-soft: #eaefe9; --dark: #2a332f;
     }
+    /* 알림 구조 — 우선순위 2단 */
+    .alert-layer { border-radius: 16px; padding: 24px; }
+    .alert-layer.top { background: #4a665f; color: #fff; }
+    .alert-layer.low { background: #eaefe9; }
+    .alert-layer .rank { font-size: 13px; font-weight: 700; opacity: .8; }
+    .alert-layer h4 { font-size: 19px; font-weight: 800; margin: 4px 0 6px; }
+    .alert-layer .desc { font-size: 15px; line-height: 1.6; margin: 0; }
+    .alert-layer.top .desc { color: #e3ebe6; }
+    .alert-layer.low .desc { color: var(--sub); }
+    .alert-shots { display: grid; gap: 12px; margin-top: 18px; }
+    .alert-shots.two { grid-template-columns: repeat(2, 1fr); }
+    .alert-shots.three { grid-template-columns: repeat(3, 1fr); }
+    .alert-shots img { width: 100%; display: block; border-radius: 8px; }
+    .alert-shots p { font-size: 13.5px; font-weight: 600; margin: 8px 0 0; }
+    .alert-layer.top .alert-shots p { color: #e3ebe6; }
+    .alert-layer.low .alert-shots p { color: var(--sub); }
+    .alert-between { text-align: center; font-size: 14.5px; font-weight: 700; color: var(--blue); padding: 14px 0; }
+    @media (max-width: 720px) {
+      .alert-shots.two, .alert-shots.three { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -93,48 +113,29 @@
   <!-- 알림 계층 -->
   <section>
     <p class="label">알림 구조</p>
-    <div class="frame" style="padding:28px;">
-      <svg viewBox="0 0 1000 540" role="img" aria-label="알림 계층: 무효화층(자리비움, 노트북 각도)이 감지층(화면근접, 거북목, 졸음)보다 먼저 노출되는 우선순위 구조" style="width:100%; height:auto; font-family:inherit;">
-        <defs>
-          <marker id="arwA" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-            <path d="M0,0 L9,4.5 L0,9 Z" fill="#4a665f"/>
-          </marker>
-        </defs>
-
-        <!-- 우선순위 축 -->
-        <text x="58" y="66" text-anchor="middle" fill="#8b95a1" font-size="11.5" font-weight="700">노출 우선순위</text>
-        <text x="58" y="100" text-anchor="middle" fill="#4e5968" font-size="11.5">높음</text>
-        <line x1="58" y1="112" x2="58" y2="470" stroke="#c9d3cd" stroke-width="2" marker-end="url(#arwA)"/>
-        <text x="58" y="500" text-anchor="middle" fill="#4e5968" font-size="11.5">낮음</text>
-
-        <!-- [2] 무효화층 -->
-        <rect x="110" y="60" width="780" height="190" rx="16" fill="#4a665f"/>
-        <text x="500" y="94" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">[2] 무효화층</text>
-        <text x="500" y="116" text-anchor="middle" fill="#d7e0da" font-size="12.5">재캘리브레이션이 필요한 알림 — 끌 수 없고, 처리해야 판정이 이어집니다</text>
-        <rect x="170" y="140" width="280" height="48" rx="10" fill="#ffffff"/>
-        <text x="310" y="169" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[2]-2 자리비움 알림</text>
-        <line x1="462" y1="164" x2="536" y2="164" stroke="#d7e0da" stroke-width="2" marker-end="url(#arwA)"/>
-        <rect x="550" y="140" width="280" height="48" rx="10" fill="#ffffff"/>
-        <text x="690" y="169" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[2]-1 노트북 각도 알림</text>
-        <text x="500" y="222" text-anchor="middle" fill="#d7e0da" font-size="11.5">층 안에서는 자리비움 → 노트북 각도 순으로 노출</text>
-
-        <!-- 층 사이 화살표 -->
-        <line x1="500" y1="256" x2="500" y2="308" stroke="#4a665f" stroke-width="2.5" marker-end="url(#arwA)"/>
-        <text x="516" y="288" fill="#4e5968" font-size="12" font-weight="600">동시 발생 시 [2] 무효화층 먼저</text>
-
-        <!-- [1] 감지층 -->
-        <rect x="110" y="320" width="780" height="185" rx="16" fill="#eaefe9"/>
-        <text x="500" y="354" text-anchor="middle" fill="#191f28" font-size="16" font-weight="800">[1] 감지층</text>
-        <text x="500" y="376" text-anchor="middle" fill="#4e5968" font-size="12.5">사용자 상태에 따라 자동으로 꺼지는 알림 — 개별 토글 가능</text>
-        <rect x="145" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
-        <text x="257" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-1 화면근접 알림</text>
-        <rect x="388" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
-        <text x="500" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-2 거북목 알림</text>
-        <rect x="631" y="398" width="225" height="48" rx="10" fill="#ffffff" stroke="#dbe3dd"/>
-        <text x="743" y="427" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="700">[1]-3 졸음 알림</text>
-        <text x="500" y="478" text-anchor="middle" fill="#8b95a1" font-size="11.5">층 안에서는 우선순위 없음 · 알림창 최대 3개 동시 표시</text>
-      </svg>
-      <p class="cap">[2] 무효화층은 재캘리브레이션이 필요한 알림, [1] 감지층은 사용자 상태에 따라 자동으로 꺼지는 알림입니다. 두 층이 동시에 발생하면 [2]층을, [2]-1과 [2]-2가 동시에 발생하면 [2]-2를 먼저 노출합니다.</p>
+    <h2 class="sec-title">끌 수 없는 알림을 먼저, 끌 수 있는 알림은 그다음에 띄웁니다</h2>
+    <div class="frame" style="padding:24px;">
+      <div class="alert-layer top">
+        <p class="rank">우선순위 1 · 무효화 알림</p>
+        <h4>측정 기준이 무너져 다시 맞춰야 하는 알림</h4>
+        <p class="desc">닫기 버튼이 없습니다. 자세를 다시 잡거나 세션을 끝내야 감지가 이어집니다. 둘이 함께 뜨면 자리비움을 먼저 보여 줍니다.</p>
+        <div class="alert-shots two">
+          <div><img src="assets/case3/alerts/away.png" alt="자리비움 알림 — 자리를 비우셨네요, 자세 탐지를 잠시 멈췄어요. 자세 다시 잡기 / 세션 종료 버튼" loading="lazy"><p>자리비움</p></div>
+          <div><img src="assets/case3/alerts/angle.png" alt="노트북 각도 알림 — 노트북 각도가 바뀌었어요, 자세 기준이 어긋나서 다시 잡아야 해요. 자세 다시 잡기 / 세션 종료 버튼" loading="lazy"><p>노트북 각도 변경</p></div>
+        </div>
+      </div>
+      <p class="alert-between">↓ 두 종류가 함께 발생하면 무효화 알림이 먼저</p>
+      <div class="alert-layer low">
+        <p class="rank">우선순위 2 · 감지 알림</p>
+        <h4>자세가 나빠졌을 때 알려 주는 알림</h4>
+        <p class="desc">자세가 돌아오면 저절로 사라지고, 설정에서 종류별로 끌 수 있습니다. 세 알림 사이에는 우선순위가 없고 최대 3개까지 함께 표시됩니다.</p>
+        <div class="alert-shots three">
+          <div><img src="assets/case3/alerts/turtle.png" alt="거북목 주의 알림" loading="lazy"><p>거북목</p></div>
+          <div><img src="assets/case3/alerts/near.png" alt="화면이 가까워요 알림" loading="lazy"><p>화면 근접</p></div>
+          <div><img src="assets/case3/alerts/drowsy.png" alt="졸음 주의 알림" loading="lazy"><p>졸음</p></div>
+        </div>
+      </div>
+      <p class="cap">실제 앱의 알림 화면입니다.</p>
     </div>
   </section>
 
