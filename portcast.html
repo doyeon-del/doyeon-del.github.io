@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port Cast: STS 크레인 작업자 맞춤형 AI 보조 — 이도연</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 프로젝트 테마 — Port Cast 바다 블루 */
+    :root {
+      --blue: #1f5fbf; --blue-soft: #e6eefb; --dark: #0a2a5e;
+    }
+    .dtable { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+    .dtable th, .dtable td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; word-break: keep-all; }
+    .dtable th { font-size: 13.5px; font-weight: 700; color: var(--muted); }
+    .dtable td b { color: var(--ink); }
+    .dtable td { color: var(--sub); }
+    .dtable td:first-child { white-space: nowrap; }
+    .table-wrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="case-top">
+    <a href="index.html">← 이도연 포트폴리오</a>
+    <span class="idx">추가 프로젝트</span>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="case-hero">
+    <p class="kicker">SSAFY 해양 X AI 아이디어 해커톤 — Port Cast</p>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+      <span class="badge">1위</span>
+      <span class="badge plain">시뮬레이션 검증 담당</span>
+    </div>
+    <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">Port Cast:<br>STS 크레인 작업자 맞춤형 AI 보조</h1>
+    <div class="meta">
+      <span><b>대회</b> SSAFY 해양 X AI 아이디어 해커톤 (부산 FLY ASIA 2026)</span>
+      <span><b>팀</b> 4인 · 시뮬레이션 검증 담당</span>
+      <span><b>결과</b> 1위 (2026.10.08, 삼성전자)</span>
+      <span><b>코드</b> github.com/doyeon-del/port-cast-sim</span>
+    </div>
+  </section>
+
+  <!-- 1. 배경 -->
+  <section>
+    <p class="label">기획 배경</p>
+    <h2 class="sec-title">자동화가 진행돼도 마지막 판단은 사람이 합니다</h2>
+    <p class="body-text">
+      항만 하역 현장에서는 매년 300명 넘는 재해자가 나오고, 그중 34.9%가 근속 1년 미만입니다(해양수산부 2022~2024).
+      자동화가 진행돼도 예외 상황 대응과 최종 판단은 여전히 크레인 작업자가 맡습니다.
+      팀은 작업자의 조이스틱 조작과 작업 환경을 실시간으로 읽어, <b>숙련도와 상태에 맞춰 보조 수준을 LOW·MID·HIGH 세 단계로 조절하는 AI</b>를 제안했습니다.
+    </p>
+    <div class="callout" style="margin-top:32px; max-width:880px;">
+      <span><b>제가 맡은 부분</b> — 실제 크레인 조종 데이터를 구할 수 없었습니다. 그래서 같은 조건에서 반복 비교할 수 있는 시뮬레이터와 가상 작업자를 직접 만들고, 보조 방식별 효과를 검증했습니다. 문제 정의와 보조 구조는 팀이 함께 기획했습니다.</span>
+    </div>
+  </section>
+
+  <!-- 2. 시뮬레이션 설계 -->
+  <section>
+    <p class="label">시뮬레이션 설계</p>
+    <h2 class="sec-title">해상 조건과 작업자는 고정하고, 보조 방식만 바꿨습니다</h2>
+    <p class="body-text">
+      STS 크레인이 선박 위 셀 가이드에 컨테이너를 내려놓는 착지 구간을 2D로 재현했습니다.
+      트롤리·와이어·컨테이너의 진자 운동, 선박의 상하·좌우 흔들림, 돌풍을 넣고 0.02초 단위로 최대 90초까지 계산합니다.
+      착지 속도가 0.6 m/s 이상이면 거친 착지, 좌우 오차가 0.35 m를 넘으면 가이드 충돌로 판정합니다.
+    </p>
+
+    <div class="table-wrap" style="margin-top:36px;">
+      <table class="dtable">
+        <thead><tr><th>가상 작업자</th><th>반응 속도 · 손떨림</th><th>조작 방식</th></tr></thead>
+        <tbody>
+          <tr><td><b>초보</b></td><td>0.55초 · 큼</td><td>남은 거리만큼 밀다가 늦게 감속하고, 정렬이 덜 된 상태로 내립니다.</td></tr>
+          <tr><td><b>숙련</b></td><td>0.18초 · 작음</td><td>미리 감속하고 선박 움직임을 따라가며, 갑판이 올라올 때는 기다립니다.</td></tr>
+          <tr><td><b>피곤한 작업자</b></td><td>0.35초부터 작업이 길어질수록 느려짐 · 중간</td><td>숙련자와 같은 방식이지만 반응이 늦고 손떨림이 큽니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap" style="margin-top:20px;">
+      <table class="dtable">
+        <thead><tr><th>보조 방식</th><th>동작</th></tr></thead>
+        <tbody>
+          <tr><td><b>A 보조 없음</b></td><td>작업자 혼자 조작합니다.</td></tr>
+          <tr><td><b>B 현재 위험 알림</b></td><td>지금 위험이 감지되면 진동합니다. 기존 연구에서 쓰는 방식입니다.</td></tr>
+          <tr><td><b>C Port Cast</b></td><td>2.5초 뒤 위험을 예측해 진동으로 경고하고, 숙련자 방향으로 조작을 보정하고, 하강 속도를 제한합니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">작업자 3명 × 보조 방식 3가지 × 해상 조건 60개 = 총 540회를 실행했습니다.</p>
+  </section>
+
+  <!-- 3. AI 모델 3개 -->
+  <section>
+    <p class="label">AI 모델</p>
+    <h2 class="sec-title">모델 세 개로 보조 여부, 경고 시점, 보정 방향을 정합니다</h2>
+    <div class="num-cards" style="margin-top:36px;">
+      <div class="card">
+        <span class="n">1</span>
+        <h3>상태 추정 — 로지스틱 회귀</h3>
+        <p>최근 4초 조작의 방향 전환 빈도·떨림·흔들림으로 작업자 상태 점수(0~100)를 냅니다. 72점 이상이면 숙련자로 보고 보조를 끄고, 점수가 낮을수록 보정을 강하게 겁니다.</p>
+        <p style="margin-top:12px;"><b style="color:var(--blue);">초보·숙련 구분 정확도 90%</b></p>
+      </div>
+      <div class="card">
+        <span class="n">2</span>
+        <h3>위험 예측 — 그래디언트 부스팅</h3>
+        <p>크레인·선박 상태 9개와 직전 조작값으로 2.5초 뒤까지의 최대 위험도를 예측합니다. 실제로 일어난 결과를 정답으로 학습했습니다.</p>
+        <p style="margin-top:12px;"><b style="color:var(--blue);">위험 구간 판별 AUC 0.995 · R² 0.911</b></p>
+      </div>
+      <div class="card">
+        <span class="n">3</span>
+        <h3>숙련자 모방 — MLP</h3>
+        <p>같은 상황에서 숙련자가 넣었을 조이스틱 값을 냅니다. 초보·피곤한 작업자가 실제로 겪은 상황에도 숙련자 조작을 정답으로 붙여 학습했습니다.</p>
+        <p style="margin-top:12px;"><b style="color:var(--blue);">숙련자 조작 재현도 R² 0.976</b></p>
+      </div>
+    </div>
+    <div class="frame" style="margin-top:40px;">
+      <img src="assets/portcast/operator_state.png" alt="같은 해상 조건에서 초보, 숙련, 피곤한 숙련 작업자의 상태 점수와 보조 강도가 시간에 따라 변하는 그래프">
+    </div>
+    <p class="cap">상태 점수와 보조 강도 — 숙련자는 점수가 기준선 위에 머물러 보조가 거의 꺼지고, 초보와 피곤한 작업자는 조작이 흔들릴 때마다 보조가 강해집니다. 피곤한 작업자를 따로 학습시키지는 않았습니다.</p>
+  </section>
+
+  <!-- 4. 착지 과정 분석 -->
+  <section>
+    <p class="label">착지 과정 분석</p>
+    <h2 class="sec-title">위험을 먼저 알리고, 착지 속도를 낮췄습니다</h2>
+    <div class="frame bare" style="margin-top:36px;">
+      <img src="assets/portcast/compare.png" alt="피곤한 작업자 착지 비교 — 보조 없음은 0.64 m/s 거친 착지, Port Cast는 0.37 m/s 정상 착지">
+    </div>
+    <p class="cap">발표에서 결과 수치보다 먼저 보여준 비교 영상의 마지막 장면입니다. 해상 조건과 작업자는 같습니다.</p>
+    <div class="frame" style="margin-top:40px;">
+      <img src="assets/portcast/anatomy.png" alt="착지 과정 분석 — 남은 높이, 2.5초 뒤 예측 위험도와 현재 위험도, 작업자 입력과 실제 크레인 입력">
+    </div>
+    <p class="cap">비교 영상과 같은 실험(피곤한 작업자, 해상 조건 #2)을 시간 순서로 펼쳤습니다. 컨테이너를 옮기는 0~28초 구간은 생략했습니다.</p>
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
+      <li><div><h4>가이드 진입 전</h4><p>예측 위험도가 현재 위험도보다 2.3초 먼저 0.5를 넘었고, 이때 진동 경고가 울렸습니다. 작업자는 진동을 느끼고 하강을 멈췄습니다.</p></div></li>
+      <li><div><h4>착지 직전</h4><p>현재 위험도는 0.05 이하였지만 예측 위험도가 0.79까지 오르면서 진동 경고와 하강 제한이 작동했습니다.</p></div></li>
+      <li><div><h4>결과</h4><p>보조 없음은 0.64 m/s로 거친 착지, Port Cast는 0.37 m/s로 정상 착지했습니다. 대신 착지까지 6.2초가 더 걸렸습니다.</p></div></li>
+    </ol>
+    <div class="callout" style="margin-top:32px; max-width:880px;">
+      <span><b>특정 사례만 고른 결과가 아닙니다.</b> 같은 해상 조건 60개 중 33개에서 보조 없음은 실패하고 Port Cast는 성공했습니다. 반대 경우는 4개였습니다.</span>
+    </div>
+  </section>
+
+  <!-- 5. 결과 -->
+  <section>
+    <p class="label">결과/성과</p>
+    <h2 class="sec-title">1,000회 반복 실험에서도 같은 방향이 나왔습니다</h2>
+    <p class="body-text">
+      60회 결과가 우연이 아닌지 확인하려고, 피곤한 작업자 기준으로 보조 없음과 Port Cast를 각각 1,000회 다시 실행했습니다.
+    </p>
+    <div class="metric-grid" style="margin-top:36px;">
+      <div class="metric-card"><p class="k">SSAFY 해양 X AI 아이디어 해커톤</p><p class="v">1위<small> 삼성전자</small></p></div>
+      <div class="metric-card"><p class="k">위험 사건 비율 (1,000회)</p><p class="v">69.9 → 18.7%<small> 95% CI 16.3~21.3%</small></p></div>
+      <div class="metric-card"><p class="k">초보 정상 착지 (60회)</p><p class="v">18 → 78%</p></div>
+      <div class="metric-card"><p class="k">숙련자와 초보의 성공률 격차</p><p class="v">+52 → −7%p</p></div>
+    </div>
+
+    <div class="frame" style="margin-top:40px; padding:28px;">
+      <svg viewBox="0 0 900 380" role="img" aria-label="작업자별 정상 착지 비율. 초보 보조 없음 18%, 현재 위험 알림 42%, Port Cast 78%. 피곤한 작업자 28%, 50%, 77%. 숙련 70%, 73%, 72%." style="width:100%; height:auto; font-family:inherit;">
+        <text x="0" y="22" fill="#191f28" font-size="17" font-weight="800">작업자별 정상 착지 비율 (해상 조건 60개)</text>
+        <rect x="0" y="40" width="12" height="12" rx="3" fill="#f2a679"/><text x="18" y="51" fill="#4e5968" font-size="13">A 보조 없음</text>
+        <rect x="120" y="40" width="12" height="12" rx="3" fill="#9db8e6"/><text x="138" y="51" fill="#4e5968" font-size="13">B 현재 위험 알림</text>
+        <rect x="268" y="40" width="12" height="12" rx="3" fill="#1f5fbf"/><text x="286" y="51" fill="#4e5968" font-size="13">C Port Cast</text>
+        <line x1="40" y1="330" x2="880" y2="330" stroke="#d1d6db"/>
+        <line x1="40" y1="190" x2="880" y2="190" stroke="#eef1f4"/>
+        <text x="32" y="334" text-anchor="end" fill="#8b95a1" font-size="12">0</text>
+        <text x="32" y="194" text-anchor="end" fill="#8b95a1" font-size="12">50</text>
+        <!-- 초보: 높이 = % × 2.8 -->
+        <rect x="90"  y="279.6" width="56" height="50.4"  rx="4" fill="#f2a679"/><text x="118" y="271" text-anchor="middle" fill="#4e5968" font-size="13">18%</text>
+        <rect x="152" y="212.4" width="56" height="117.6" rx="4" fill="#9db8e6"/><text x="180" y="204" text-anchor="middle" fill="#4e5968" font-size="13">42%</text>
+        <rect x="214" y="111.6" width="56" height="218.4" rx="4" fill="#1f5fbf"/><text x="242" y="103" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="800">78%</text>
+        <text x="180" y="356" text-anchor="middle" fill="#191f28" font-size="14" font-weight="700">초보</text>
+        <!-- 피곤한 작업자 -->
+        <rect x="370" y="251.6" width="56" height="78.4"  rx="4" fill="#f2a679"/><text x="398" y="243" text-anchor="middle" fill="#4e5968" font-size="13">28%</text>
+        <rect x="432" y="190"   width="56" height="140"   rx="4" fill="#9db8e6"/><text x="460" y="181" text-anchor="middle" fill="#4e5968" font-size="13">50%</text>
+        <rect x="494" y="114.4" width="56" height="215.6" rx="4" fill="#1f5fbf"/><text x="522" y="106" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="800">77%</text>
+        <text x="460" y="356" text-anchor="middle" fill="#191f28" font-size="14" font-weight="700">피곤한 작업자</text>
+        <!-- 숙련 -->
+        <rect x="650" y="134"   width="56" height="196"   rx="4" fill="#f2a679"/><text x="678" y="126" text-anchor="middle" fill="#4e5968" font-size="13">70%</text>
+        <rect x="712" y="125.6" width="56" height="204.4" rx="4" fill="#9db8e6"/><text x="740" y="117" text-anchor="middle" fill="#4e5968" font-size="13">73%</text>
+        <rect x="774" y="128.4" width="56" height="201.6" rx="4" fill="#1f5fbf"/><text x="802" y="120" text-anchor="middle" fill="#191f28" font-size="13.5" font-weight="800">72%</text>
+        <text x="740" y="356" text-anchor="middle" fill="#191f28" font-size="14" font-weight="700">숙련</text>
+      </svg>
+      <p class="cap">숙련자는 상태 점수가 높아 보조가 대부분 꺼지기 때문에, 보조 없음과 비슷한 결과가 나옵니다.</p>
+    </div>
+
+    <p class="retro-h">해석할 때 유의할 점</p>
+    <ul class="retro-list">
+      <li>거친 착지 0%는 성과 지표로 쓰지 않았습니다. 하강 속도를 제한하도록 설계했기 때문에 1,000회 중 가장 강한 착지도 0.53 m/s로 기준(0.6 m/s)보다 낮았습니다.</li>
+      <li>작업 시간은 늘어납니다. 피곤한 작업자의 평균 착지 시간이 47.1초에서 62.9초가 됐습니다.</li>
+      <li>가상 작업자 기반 결과입니다. 구조가 작동하는 원리를 확인한 것이고, 현장 효과를 뜻하지는 않습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 배운 점과 개선 방향 -->
+  <section>
+    <p class="label">배운 점과 개선 방향</p>
+    <p class="retro">
+      데이터가 없는 아이디어를 숫자로 보여주려면, 결과를 바꿀 수 있는 조건을 먼저 고정해야 했습니다.
+      해상 조건과 작업자를 묶어 두고 보조 방식만 바꿨고, 효과처럼 보이지만 설계 때문에 생긴 숫자(거친 착지 0%)는 성과에서 뺐습니다.
+    </p>
+    <p class="retro-h">아쉬운 점과 개선 방향</p>
+    <ul class="retro-list">
+      <li>숙련자 모방 모델의 정답이 가상 숙련 작업자와 같은 규칙에서 나옵니다. 정답 쪽으로 당겨서 잘 되는 구조라, 다른 목표 정책으로 학습시켜 이 순환을 끊어야 합니다.</li>
+      <li>진동 경고·조작 보정·하강 제한을 한꺼번에 켜서, 어느 보조가 얼마나 효과를 냈는지 나눠 보지 못했습니다. 보조 요소를 하나씩 켜는 비교가 다음 단계입니다.</li>
+      <li>보조를 끄는 기준(72점)과 경고 기준을 손으로 정했습니다. 기준을 바꿔 가며 안전과 작업 시간이 어떻게 맞바뀌는지 곡선으로 보여줘야 운영자가 설정을 고를 수 있습니다.</li>
+      <li>2D, 컨테이너 1개, 착지 구간만 다룹니다. 사람이 직접 조종하는 비교 실험이 없습니다.</li>
+    </ul>
+    <div class="tech">
+      <span>Python</span>
+      <span>NumPy · pandas</span>
+      <span>scikit-learn</span>
+      <span>matplotlib</span>
+      <span>ffmpeg</span>
+    </div>
+    <p class="footnote" style="margin-top:20px;">코드: <a href="https://github.com/doyeon-del/port-cast-sim" target="_blank" rel="noopener" style="color:var(--blue);">github.com/doyeon-del/port-cast-sim</a> (팀 프로젝트 중 시뮬레이션·효과 검증 파트만 공개)</p>
+  </section>
+
+  <nav class="pager">
+    <a class="home" href="index.html">메인으로 가기</a>
+    <a class="next" href="latte.html"><span class="dir">다음 프로젝트</span>라떼는 馬이야 →</a>
+  </nav>
+
+  <footer>
+    <span>이도연 — dlehduslee@naver.com</span>
+    <a href="https://github.com/doyeon-del" target="_blank" rel="noopener">github.com/doyeon-del</a>
+  </footer>
+
+</div>
+<script src="assets/guide-bot.js" defer></script>
+</body>
+</html>
