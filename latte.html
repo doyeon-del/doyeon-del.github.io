@@ -35,12 +35,13 @@
     <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
       <span class="badge">SSAFY 우수 프로젝트</span>
       <span class="badge plain">AI · 백엔드·프론트 연동</span>
+      <span class="badge plain">서비스 소개 영상 제작</span>
     </div>
     <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">라떼는 馬이야:<br>내 성향대로 튜닝하는 AI 경마 예측 플랫폼</h1>
     <div class="meta">
       <span><b>과정</b> SSAFY 15기 특화 프로젝트 (블록체인 예측 도메인)</span>
       <span><b>기간</b> 2026.08 – 2026.10</span>
-      <span><b>팀</b> 6인 · AI 파트 · 백엔드·프론트 연동</span>
+      <span><b>팀</b> 6인 · AI 파트 · 백엔드·프론트 연동 · 소개 영상 제작</span>
       <span><b>결과</b> SSAFY 우수 프로젝트 선정 (2026.10.02)</span>
     </div>
     <div class="frame-row" style="margin-top:48px;">
@@ -130,6 +131,7 @@
           <tr><td><b>AI 모델</b></td><td>ML·DL 공통 비교 기준을 설계하고, 게임용 경주를 학습에서 격리했습니다. 6축 LightGBM 랭킹 파이프라인과 검증셋 기반 확률 보정을 만들었습니다.</td></tr>
           <tr><td><b>봇·밸런스</b></td><td>AI 봇 9명 시뮬레이션을 설계하고 FastAPI 봇 서버와 테스트를 만들었습니다. 배당형·역배형 프리셋의 시장 계수를 맞추고 프리셋 5종을 실측했습니다.</td></tr>
           <tr><td><b>연동·화면</b></td><td>게임용 실제 경주 적재, 경주 카드 확률, 정산 오류 수정, 고정 착순 리플레이·베팅 보드·결과 공개 화면을 맡았습니다.</td></tr>
+          <tr><td><b>소개 영상</b></td><td>팀 제출용 서비스 소개 영상(91.6초)을 Claude Code와 Remotion으로 만들었습니다. 팀 제출본으로 채택됐습니다.</td></tr>
         </tbody>
       </table>
     </div>
@@ -287,19 +289,28 @@
   <!-- 11. 서비스 소개 영상 -->
   <section>
     <p class="label">서비스 소개 영상</p>
-    <h2 class="sec-title">팀 제출용 91.6초 영상을 코드로 편집했습니다</h2>
+    <h2 class="sec-title">AI 에이전트에게 실행을 맡기고, 판단은 제가 했습니다</h2>
     <p class="body-text">
-      경마공원 실촬영 55클립, 출연진 녹음 12줄, 배포 서비스 화면 캡처를 소재로 썼습니다.
-      편집은 Remotion(React)으로 컷·자막·그래픽을 코드로 짰고, 실행은 Claude Code가 맡고 장면 구성과 넣고 뺄 것은 제가 정했습니다.
-      팀 제출본으로 채택됐습니다.
+      팀 제출용 서비스 소개 영상(91.6초)을 만들었습니다. 경마공원 실촬영 55클립, 출연진 녹음 12줄, 배포 서비스 화면 캡처를 소재로 썼고,
+      편집은 Remotion(React)으로 컷·자막·그래픽을 코드로 짰습니다.
+      ffmpeg 변환과 음량 조정, OpenCV 지면 추적과 얼굴 블러, Playwright 화면 캡처 같은 실행은 Claude Code가 맡았고,
+      장면 구성과 무엇을 넣고 뺄지는 제가 정했습니다. 팀 제출본으로 채택됐습니다.
     </p>
     <div class="frame bare" style="margin-top:32px;">
       <img src="assets/latte/video_flow.png" alt="서비스 소개 영상 중 예측 흐름 장면 — 이번 주 금·토·일 경기 데이터 가져오기">
     </div>
-    <ul class="retro-list" style="margin-top:28px;">
-      <li>발표에서 게임 기능을 먼저 소개한 뒤 트는 영상이라, '처음 보는 척'하는 도입을 버리고 서사를 바꿨습니다.</li>
-      <li>실제 서비스에 없는 자동 수집 문구는 뺐습니다. 길이는 118초에서 다시 짜서 91.6초로 마감했습니다.</li>
-    </ul>
+    <p class="cap">예측이 나오는 흐름을 발표 장표 톤으로 보여주는 장면입니다.</p>
+    <div class="metric-grid" style="margin-top:36px; grid-template-columns:repeat(3,1fr);">
+      <div class="metric-card"><p class="k">최종 길이</p><p class="v">91.6초<small> 118초에서 다시 짬</small></p></div>
+      <div class="metric-card"><p class="k">실촬영 소재</p><p class="v">55클립</p></div>
+      <div class="metric-card"><p class="k">렌더·수정한 판</p><p class="v">v53</p></div>
+    </div>
+    <p class="retro-h">제가 내린 판단</p>
+    <ol class="steps" style="margin-top:12px; max-width:880px;">
+      <li><div><h4>서사 전환</h4><p>발표에서 게임 기능을 먼저 소개한 뒤 트는 영상이라, '처음 보는 척'하는 도입을 버리고 게임을 해본 사람이 실제 경주 예측을 알게 되는 흐름으로 바꿨습니다.</p></div></li>
+      <li><div><h4>없는 기능은 뺌</h4><p>실제 서비스에 없는 자동 수집 문구가 들어가 있던 것을 찾아 지웠습니다.</p></div></li>
+      <li><div><h4>렌더마다 검산</h4><p>타임라인과 음량(-14 LUFS)을 확인하는 스크립트를 렌더할 때마다 돌렸습니다.</p></div></li>
+    </ol>
   </section>
 
   <!-- 배운 점과 개선 방향 -->
@@ -324,6 +335,7 @@
       <span>Spring Boot</span>
       <span>React</span>
       <span>Remotion</span>
+      <span>Claude Code</span>
     </div>
     <p class="footnote" style="margin-top:20px;">팀 레포와 배포 서버는 SSAFY 내부 자원이라 외부에 공개되어 있지 않습니다.</p>
   </section>
