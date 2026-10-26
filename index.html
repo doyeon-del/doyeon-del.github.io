@@ -79,8 +79,8 @@
   /* WHO I AM — 키워드 세 개와 일하는 방식 한 문장. 움직임은 제목·카드 등장에만 쓴다.
      아래는 전부 index 전용 블록이라 프로젝트 상세 페이지에는 영향이 없다. */
   .who-h2 {
-    font-size: clamp(28px, 3.9vw, 38px); letter-spacing: 0.05em;
-    position: relative; display: inline-block; margin-bottom: 36px;
+    font-size: clamp(22px, 2.6vw, 26px); letter-spacing: 0.05em;
+    position: relative; display: inline-block; margin-bottom: 30px;
   }
   /* 글자를 하나씩 올리고, 다 올라오면 밑줄을 왼쪽에서 끝까지 긋는다 */
   .who-h2 .ch {
@@ -178,10 +178,17 @@
     font-size: clamp(22px, 2.96vw, 30px);
     line-height: 1.38; letter-spacing: -0.025em;
   }
-  .hero-sub {
-    margin-top: 18px; max-width: 680px;
-    font-size: 18px; line-height: 1.7; color: var(--sub); word-break: keep-all;
+  /* 한 줄 소개 아래 핵심 이력 세 줄 — 항목명은 프로필과 같은 초록 칩 */
+  .hero-facts { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px 28px; }
+  .hero-facts div { display: flex; align-items: center; gap: 10px; }
+  .hero-facts dt {
+    font-size: 12.5px; font-weight: 700; color: var(--blue); background: var(--blue-soft);
+    border-radius: 100px; padding: 4px 11px;
   }
+  .hero-facts dd { font-size: 16px; font-weight: 600; color: var(--ink); word-break: keep-all; }
+
+  /* 섹션 제목은 히어로 한 줄 소개(최대 30px)보다 작게 */
+  h2.index-h2 { font-size: clamp(22px, 2.6vw, 26px); margin-bottom: 28px; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn-solid, .btn-glass {
     display: inline-flex; align-items: center; gap: 7px;
@@ -205,7 +212,8 @@
     .hero-field { height: 500px; }
     .hero { margin-top: 22px; }
     .hero-glass { border-radius: 24px; padding: 26px 22px; }
-    .hero-sub { font-size: 17px; }
+    .hero-facts { flex-direction: column; gap: 10px; }
+    .hero-facts dd { font-size: 15px; }
     .hero-cta { margin-top: 22px; }
     .btn-solid, .btn-glass { font-size: 14px; }
   }
@@ -247,7 +255,11 @@
   <section class="hero">
     <div class="hero-glass">
       <h1 class="hero-title">사용자가 겪는 불편을 찾고,<br>데이터와 기술을 활용해 <span style="white-space:nowrap;">서비스 개선으로 연결합니다.</span></h1>
-      <p class="hero-sub">미국 바이오 스타트업 인턴 시절, 연구진이 실험 결과를 비교하려고 화면을 몇 번씩 오가는 걸 보고 여러 실험을 한 차트에 겹쳐 보는 기능을 만들었습니다. 팀장으로 만든 자세 교정 앱은 삼성 임직원 사용자 테스트에서 받은 피드백을 반영해 다시 고쳤습니다. 문헌정보학과 통계학을 함께 전공해, 흩어진 정보를 정리하는 일과 그 결과를 숫자로 확인하는 일을 같이 합니다.</p>
+      <dl class="hero-facts">
+        <div><dt>현재</dt><dd>네이버클라우드 서비스 기획 인턴</dd></div>
+        <div><dt>인턴</dt><dd>미국 바이오 스타트업 · 데이터 컨설팅</dd></div>
+        <div><dt>전공</dt><dd>문헌정보학 · 통계학</dd></div>
+      </dl>
       <div class="hero-cta">
         <a class="btn-solid" href="#cases">프로젝트 보기 ↓</a>
       </div>
