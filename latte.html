@@ -30,150 +30,87 @@
 
   <header class="case-top">
     <a href="index.html">← 이도연 포트폴리오</a>
-    <span class="idx">추가 프로젝트</span>
+    <span class="idx">PROJECT 06 / 06</span>
   </header>
 
   <!-- 히어로 -->
   <section class="case-hero">
     <div class="latte-logo" role="img" aria-label="라떼는 馬이야 로고">라떼는 <span class="hanja">馬</span>이야</div>
     <p class="kicker">SSAFY 15기 특화 프로젝트</p>
-    <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:20px;">
       <span class="badge">SSAFY 우수 프로젝트</span>
-      <span class="badge plain">AI · 백엔드·프론트 연동</span>
-      <span class="badge plain">서비스 소개 영상 제작</span>
+      <span class="badge plain">AI 파트 · ML 모델</span>
+      <span class="badge plain">백엔드·프론트 연동</span>
     </div>
     <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">라떼는 馬이야:<br>내 성향대로 튜닝하는 AI 경마 예측 플랫폼</h1>
     <div class="meta">
       <span><b>과정</b> SSAFY 15기 특화 프로젝트 (블록체인 예측 도메인)</span>
       <span><b>기간</b> 2026.08 – 2026.10</span>
-      <span><b>팀</b> 6인 · AI 파트 · 백엔드·프론트 연동 · 소개 영상 제작</span>
+      <span><b>팀</b> 6인 · AI 파트(ML 모델·봇 서버) · 백엔드·프론트 연동</span>
       <span><b>결과</b> SSAFY 우수 프로젝트 선정 (2026.10.02)</span>
     </div>
     <div class="frame-row" style="margin-top:48px;">
       <div class="frame bare"><img src="assets/latte/race_list.png" alt="주말 경주 목록: 경주별 예측 1순위 말과 확률"></div>
       <div class="frame bare"><img src="assets/latte/probs.png" alt="한 경주의 단승·연승·복승 예측 확률 화면"></div>
     </div>
-    <p class="cap">이번 주 실제 경주 목록과 말별 예측 확률 화면입니다.</p>
+    <p class="cap">이번 주 실제 경주 목록과 말별 예측 확률 화면입니다. 화면의 점수와 확률은 제가 만든 예측 파이프라인에서 나옵니다.</p>
   </section>
 
-  <!-- 1. 기획 배경 -->
+  <!-- 1. 개요 -->
   <section>
-    <p class="label">기획 배경</p>
-    <h2 class="sec-title">정답지가 있는 경주를 예측 게임으로 만들어야 했습니다</h2>
+    <p class="label">프로젝트 개요</p>
+    <h2 class="sec-title">사용자가 비율을 정하면, AI 점수로 나만의 예측이 나옵니다</h2>
     <p class="body-text">
-      한국마사회 공공데이터 445,351행으로 학습한 모델을 사용자가 6개 축 비율로 조정해 경주를 예측하고,
-      예측과 베팅은 경주 전에 블록체인에 봉인합니다. 교육용·비환금성 서비스이고, 경마와 AI를 모두 모르는 2030이 대상입니다.
+      한국마사회 공공데이터 445,351행으로 학습한 모델이 말마다 컨디션·스피드·주행·기수·환경·실력 6개 항목 점수를 매기고,
+      사용자는 어떤 항목을 더 중시할지 비율만 정합니다. 과거 경주를 다시 푸는 게임이라 정답이 이미 있으므로,
+      예측과 베팅은 경주 전에 블록체인에 봉인합니다. 경마와 AI를 모두 모르는 2030을 위한 교육용·비환금성 서비스입니다.
     </p>
     <div class="num-cards" style="margin-top:36px;">
       <div class="card">
         <span class="n">1</span>
-        <h3>과거 경주는 결과가 이미 정해져 있습니다</h3>
-        <p>그래서 결과를 입력받지 않는 AI 예측이 필요했습니다.</p>
+        <h3>결과를 보지 않는 예측</h3>
+        <p>모델은 그 경주 이전 기록만 입력으로 받습니다.</p>
       </div>
       <div class="card">
         <span class="n">2</span>
-        <h3>운영자는 결과를 알고 있습니다</h3>
-        <p>그래서 예측과 베팅을 경주 전에 봉인했다는 증명이 필요했습니다.</p>
+        <h3>재학습 없는 개인화</h3>
+        <p>비율을 바꾸면 미리 계산한 점수를 다시 섞기만 합니다.</p>
       </div>
       <div class="card">
         <span class="n">3</span>
-        <h3>경마도 AI도 모르는 사람이 씁니다</h3>
-        <p>그래서 모델을 고르고 조정하는 게임 방식으로 풀어야 했습니다.</p>
+        <h3>믿을 수 있는 확률</h3>
+        <p>화면 확률, 봇 베팅, 배당, 정산이 같은 숫자를 씁니다.</p>
       </div>
     </div>
+    <p class="cap">1주차에 기존 주제(포커·룰렛)의 한계를 짚고 경마 예측으로 재제안해 채택됐습니다. 위 세 조건은 그 기획안에서 정한 설계 요건입니다.</p>
   </section>
 
-  <!-- 2. 주제 재제안 -->
-  <section>
-    <p class="label">기획</p>
-    <h2 class="sec-title">블록체인을 '기록 저장'에서 '게임이 성립하는 조건'으로 바꿨습니다</h2>
-    <p class="body-text">
-      처음 확정된 주제는 인디언 포커와 룰렛 베팅이었습니다. 1주차에 이 안의 한계를 짚고 경마 예측 기획안을 다시 제안했고, 팀이 채택했습니다.
-    </p>
-    <div class="compare" style="margin-top:36px;">
-      <div class="col">
-        <span class="tag asis">기존안 · 포커·룰렛</span>
-        <h4>블록체인이 베팅 기록 저장뿐</h4>
-        <p>일반 DB로도 충분했고, 단순 확률 게임이라 예측할 대상과 AI가 할 일이 거의 없었습니다. 카지노형 게임이라 사행성 문제도 드러났습니다.</p>
-      </div>
-      <div class="col tobe">
-        <span class="tag tobe">재제안 · 경마 예측</span>
-        <h4>봉인 없이는 게임이 성립하지 않음</h4>
-        <p>예측이 서비스의 중심이고 실제 데이터로 성능을 검증할 수 있습니다. 과거 경주는 정답이 있으니 사전 봉인이 전제 조건이 됩니다. 이 논리가 팀 README의 설계 원칙(정보 분리, 커밋-리빌)으로 이어졌습니다.</p>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:32px; max-width:880px;">
-      <span><b>"이미 끝난 경기 아닌가요?"</b><br>그래서 예측을 검증할 수 있고, 그래서 봉인이 필요합니다.</span>
-    </div>
-  </section>
-
-  <!-- 3. 경기방 흐름 -->
-  <section>
-    <p class="label">서비스 구조</p>
-    <h2 class="sec-title">결과는 정산에서 처음 읽힙니다</h2>
-    <p class="body-text">
-      경기방 한 판은 아래 순서로 진행됩니다. 예측 파이프라인은 결과를 입력받지 않고, 정산 전의 선택은 모두 체인에 봉인됩니다.
-    </p>
-    <ol class="steps" style="margin-top:28px; max-width:880px;">
-      <li><div><h4>방 생성</h4><p>아직 풀지 않은 실제 경주를 배정하고 말 이름과 날짜는 가립니다. 체인에 경주 해시를 기록합니다.</p></div></li>
-      <li><div><h4>봇 베팅 <span class="badge" style="margin-left:6px;">담당</span></h4><p>AI 봇 9명이 각자 모델로 말을 골라 시간차로 베팅합니다.</p></div></li>
-      <li><div><h4>사용자 베팅</h4><p>7가지 승식으로 마권을 쓰고 브라우저가 서명합니다. 체인에 마권 해시를 기록합니다.</p></div></li>
-      <li><div><h4>마감·리플레이 <span class="badge" style="margin-left:6px;">담당</span></h4><p>마감 10초 전에 봉인하고, 실제 착순대로 경주를 재생합니다.</p></div></li>
-      <li><div><h4>정산 <span class="badge" style="margin-left:6px;">담당</span></h4><p>파리뮤추얼 방식(환급률 80%)으로 배당을 계산해 환급합니다. 체인에 결과 해시를 기록합니다.</p></div></li>
-      <li><div><h4>공개·검증 <span class="badge" style="margin-left:6px;">담당</span></h4><p>실제 경마장·날짜·말 이름을 공개하고, 누구나 해시를 검증할 수 있습니다.</p></div></li>
-    </ol>
-  </section>
-
-  <!-- 4. 담당 -->
+  <!-- 2. 담당 -->
   <section>
     <p class="label">담당 역할</p>
-    <h2 class="sec-title">AI 결과가 서비스 숫자로 쓰이기까지 맡았습니다</h2>
+    <h2 class="sec-title">ML 예측 모델을 만들고, 그 확률이 서비스에서 쓰이기까지 맡았습니다</h2>
     <div class="table-wrap" style="margin-top:36px;">
       <table class="dtable">
-        <thead><tr><th>영역</th><th>한 일</th></tr></thead>
+        <thead><tr><th>영역</th><th>제가 한 일</th></tr></thead>
         <tbody>
-          <tr><td><b>기획</b></td><td>기존안의 한계를 짚고 경마 예측으로 재제안했습니다. 가중치를 '성향 선택'으로 정의하고, 가장 큰 위험과 검증 기준을 먼저 적었습니다.</td></tr>
-          <tr><td><b>AI 모델</b></td><td>ML·DL 공통 비교 기준을 설계하고, 게임용 경주를 학습에서 격리했습니다. 6축 LightGBM 랭킹 파이프라인과 검증셋 기반 확률 보정을 만들었습니다.</td></tr>
-          <tr><td><b>봇·밸런스</b></td><td>AI 봇 9명 시뮬레이션을 설계하고 FastAPI 봇 서버와 테스트를 만들었습니다. 배당형·역배형 프리셋의 시장 계수를 맞추고 프리셋 5종을 실측했습니다.</td></tr>
-          <tr><td><b>연동·화면</b></td><td>게임용 실제 경주 적재, 경주 카드 확률, 정산 오류 수정, 고정 착순 리플레이·베팅 보드·결과 공개 화면을 맡았습니다.</td></tr>
-          <tr><td><b>소개 영상</b></td><td>팀 제출용 서비스 소개 영상(91.6초)을 Claude Code와 Remotion으로 만들었습니다. 팀 제출본으로 채택됐습니다.</td></tr>
+          <tr><td><b>ML 모델</b></td><td>피처 42개 설계, 6축 LightGBM 랭킹 모델 학습, Plackett-Luce 결합과 검증셋 온도 보정, 7가지 승식 확률 계산까지 예측 파이프라인을 처음부터 작성했습니다.</td></tr>
+          <tr><td><b>평가 기준</b></td><td>ML과 DL을 같은 기준으로 비교하는 공통 평가 코드와 규칙을 만들고, 게임용 경주를 학습에서 격리했습니다.</td></tr>
+          <tr><td><b>프리셋 계수</b></td><td>배당형·역배형 프리셋의 시장 계수를 최우도로 적합하고, 프리셋 5종의 성격을 실측했습니다.</td></tr>
+          <tr><td><b>서비스 연결</b></td><td>AI 봇 시뮬레이션과 FastAPI 봇 서버, 게임용 경주 적재, 경주 카드 확률, 정산 오류 수정, 리플레이·베팅·결과 화면을 맡았습니다.</td></tr>
+          <tr><td><b>발표·영상</b></td><td>결선 AI 모델 장표와 대본, 무작위 기준선·신뢰구간 계산을 맡았고, 팀 서비스 소개 영상을 만들었습니다.</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="cap">근거: 본인 커밋 95건(2026.08.28~09.18), 작성 문서 docs/model · docs/bot · docs/ai/ODDS.md. 딥러닝 모델, 앙상블, 블록체인 연동, RAG 챗봇은 팀원이 맡았습니다.</p>
+    <p class="cap">근거: 본인 커밋 95건(2026.08.28~09.18), 작성 문서 docs/model · docs/bot · docs/ai/ODDS.md. 딥러닝 모델, ML·DL 앙상블, 데이터 수집 자동화, 블록체인 연동, RAG 챗봇은 팀원이 맡았습니다.</p>
   </section>
 
-  <!-- 5. 가중치 = 성향 -->
+  <!-- 3. ML: 문제 정의와 구조 -->
   <section>
-    <p class="label">기획</p>
-    <h2 class="sec-title">가중치는 정확도가 아니라 성향을 정하는 장치로 설계했습니다</h2>
-    <ol class="steps" style="margin-top:28px; max-width:880px;">
-      <li><div><h4>정답 없는 선택만 사용자에게</h4><p>정확도를 높이는 방향은 학습이 알려줍니다. 사용자에게는 안정형이냐 이변형이냐를 고르게 하고, 적중률과 평균 배당을 늘 나란히 보여줍니다.</p></div></li>
-      <li><div><h4>재학습이 아니라 재결합</h4><p>6축 점수를 미리 계산해 두면, 비율을 바꿀 때 가중합 한 번으로 예측이 바뀝니다.</p></div></li>
-      <li><div><h4>가장 큰 위험을 먼저 적기</h4><p>배당 축에 몰아주는 조합이 정답이 될 위험을 1주차 기획안에 적고, 검증 기준(격차 2%p)과 대응 5단계를 정했습니다.</p></div></li>
-    </ol>
-    <div class="table-wrap" style="margin-top:36px; max-width:640px;">
-      <table class="dtable">
-        <thead><tr><th>프리셋</th><th>1착 적중</th><th>고른 말 평균 배당</th></tr></thead>
-        <tbody>
-          <tr><td><b>기본형</b></td><td class="num">31.7%</td><td class="num">3.9배</td></tr>
-          <tr><td><b>사람형</b></td><td class="num">29.5%</td><td class="num">4.1배</td></tr>
-          <tr><td><b>상승세형</b></td><td class="num">31.7%</td><td class="num">3.9배</td></tr>
-          <tr><td><b>배당형</b></td><td class="num">33.8%</td><td class="num">3.0배</td></tr>
-          <tr><td><b>역배형</b></td><td class="num">26.4%</td><td class="num">8.3배</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="cap">검증 1,254경주 실측. 적중률이 높은 쪽은 배당이 낮고, 역배형은 드물게 크게 맞힙니다. 역배형 계수(−0.35)는 적합으로 나오지 않아 '설계값'으로 명시했습니다.</p>
-  </section>
-
-  <!-- 6. 파이프라인 -->
-  <section>
-    <p class="label">구현</p>
-    <h2 class="sec-title">경마를 분류가 아닌 랭킹 문제로 풀었습니다</h2>
+    <p class="label">ML 모델 ① 문제 정의</p>
+    <h2 class="sec-title">경마를 분류가 아닌 랭킹 문제로 정의했습니다</h2>
     <p class="body-text">
-      말마다 1착 여부를 맞히는 대신 경주 안 순서를 맞히도록 정의했습니다.
-      컨디션·스피드·주행·기수·환경·실력 6개 축마다 LightGBM 랭킹 모델을 따로 학습하고, 축 점수를 화면과 봇이 같이 씁니다.
+      말마다 1착 여부를 따로 맞히면 같은 경주 안의 상대가 누구인지가 빠집니다. 그래서 경주 안 순서를 맞히는 랭킹 문제로 보고,
+      6개 축마다 LightGBM lambdarank 모델을 따로 학습했습니다. 축 점수는 경주 안 백분위(0~100)로 내서, 화면과 봇이 같은 값을 씁니다.
     </p>
     <div class="frame" style="margin-top:32px; padding:28px;">
       <svg viewBox="0 0 1000 170" role="img" aria-label="6축 예측 파이프라인: 피처 42개, 축별 랭킹 학습, 경주 내 백분위, 가중합과 온도 보정" style="width:100%; height:auto; font-family:inherit;">
@@ -201,85 +138,115 @@
         <text x="890" y="106" text-anchor="middle" fill="#fdecdf" font-size="12.5">경주 안 확률 합 1</text>
       </svg>
     </div>
-    <ul class="retro-list" style="margin-top:28px;">
-      <li><b>온도는 검증셋에서 맞췄습니다.</b> 비율을 합 100으로 정규화하면 확률 분포가 평평해집니다. 학습셋에서 맞추면 과신하므로 검증셋에서 온도(T=0.0445)를 따로 맞췄고, 단승 예측 확률 평균 30.1%와 실측 29.8%가 맞았습니다(검증 2,473경주).</li>
-      <li><b>비교 기준을 코드 하나로 묶었습니다.</b> ML과 DL을 다른 사람이 만들어서 분할·전처리·평가를 공통 코드로 고정하고, 테스트셋은 최종 1회만 열었습니다. 표준오차(±0.85%p)의 2배 안의 차이는 우열로 보지 않았습니다.</li>
-    </ul>
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
+      <li><div><h4>피처는 전부 '그 경주 이전' 값</h4><p>경주성적 원본에서 피처 42개를 만들었고, 모두 해당 경주 전까지의 누적값입니다. 모델이 결과를 미리 볼 길을 피처 단계에서 막았습니다.</p></div></li>
+      <li><div><h4>재학습이 아니라 재결합</h4><p>축 점수를 미리 계산해 두면 사용자가 비율을 바꿀 때 가중합 한 번으로 예측이 바뀝니다. 즉시 반영하려면 결합이 선형이어야 해서, 축 6개 위에 선형 결합을 두는 구조를 택했습니다.</p></div></li>
+      <li><div><h4>슬라이더는 항목이 아니라 축에</h4><p>슬라이더를 피처 42개에 붙일지 축 6개에 붙일지 정해지지 않아 화면과 서버 작업이 멈춰 있었습니다. 축 안쪽이 LightGBM이라 항목에는 가중치를 곱할 수 없다는 근거로 축 6개를 제안해 확정했습니다.</p></div></li>
+    </ol>
   </section>
 
-  <!-- 7. 문제 해결: 적중률 -->
+  <!-- 4. ML: 확률 보정 -->
   <section>
-    <p class="label">문제 해결</p>
-    <h2 class="sec-title">적중률 40%가 부풀려진 숫자였습니다</h2>
-    <div class="metric-grid" style="margin-top:36px; grid-template-columns:repeat(3,1fr);">
+    <p class="label">ML 모델 ② 확률 보정</p>
+    <h2 class="sec-title">점수를 실제 적중과 맞는 확률로 바꿨습니다</h2>
+    <p class="body-text">
+      화면에는 "이 말이 1등 할 확률"이 나가고, 봇 베팅과 배당도 이 확률을 씁니다. 순위만 맞아서는 부족하고 확률 크기까지 맞아야 했습니다.
+    </p>
+    <ul class="retro-list" style="margin-top:28px;">
+      <li><b>축 결합은 Plackett-Luce로.</b> 6개 축 점수를 Plackett-Luce 모형으로 선형 결합해 프리셋 가중치를 구했고, 단승·연승·복승 등 7가지 승식 확률은 1착 확률을 전개해 계산하는 기준 구현으로 만들었습니다.</li>
+      <li><b>온도는 검증셋에서.</b> 사용자 비율을 합 100으로 정규화하면 확률 분포가 평평해집니다. 이를 되돌리는 온도(T=0.0445)를 학습셋이 아닌 검증셋에서 맞췄습니다. 학습셋에서 맞추면 확률이 과신되기 때문입니다.</li>
+      <li><b>결과.</b> 검증 2,473경주에서 단승 예측 확률 평균 30.1%, 실제 적중 29.8%로 맞았습니다.</li>
+    </ul>
+    <div class="callout" style="margin-top:32px; max-width:880px;">
+      <span><b>함께 공개한 한계</b><br>2·3착으로 갈수록 예측 확률이 낙관적이었습니다(연승 예측 71.0%, 실측 59.5%). 이 계열 모형에 알려진 편향이라 보고, 보정 전까지는 순위 비교용으로만 쓰도록 문서에 남겼습니다.</span>
+    </div>
+  </section>
+
+  <!-- 5. ML: 평가 기준과 데이터 격리 -->
+  <section>
+    <p class="label">ML 모델 ③ 평가 기준</p>
+    <h2 class="sec-title">ML과 DL을 같은 자로 재고, 부풀려진 적중률을 걷어냈습니다</h2>
+    <p class="body-text">
+      LightGBM은 제가, 딥러닝은 팀원이 만들었기 때문에 같은 기준이 없으면 어느 쪽이 나은지 말할 수 없었습니다.
+      분할·전처리·평가를 공통 코드 하나로 고정하고 규칙을 먼저 정했습니다.
+    </p>
+    <ol class="steps" style="margin-top:28px; max-width:880px;">
+      <li><div><h4>테스트셋은 최종 1회만</h4><p>모델을 고르는 동안에는 검증셋만 씁니다.</p></div></li>
+      <li><div><h4>오차 범위 안의 차이는 우열로 보지 않음</h4><p>표준오차(±0.85%p)의 2배보다 작은 차이는 같은 성능으로 봤습니다.</p></div></li>
+      <li><div><h4>경주 단위 정렬을 매번 검사</h4><p>랭킹 모델은 경주 순서가 깨져도 에러 없이 틀린 모델이 나오므로, 데이터를 불러올 때마다 확인했습니다.</p></div></li>
+    </ol>
+    <div class="table-wrap" style="margin-top:32px; max-width:640px;">
+      <table class="dtable">
+        <thead><tr><th>기준선 (검증 1,254경주)</th><th>1착 적중</th></tr></thead>
+        <tbody>
+          <tr><td><b>LightGBM (배당 제외 73피처)</b></td><td class="num">34.0%</td></tr>
+          <tr><td><b>시장 1번 인기마</b></td><td class="num">39.3%</td></tr>
+          <tr><td><b>무작위</b></td><td class="num">10.2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">성능은 절대 적중률이 아니라 무작위·시장 대비로 말하도록 기준선을 함께 세웠습니다. 이 기준으로 팀원의 딥러닝 4개 구조도 비교했고, 모두 LightGBM과 오차 범위 안이었습니다.</p>
+
+    <p class="retro-h" style="margin-top:44px;">게임용 경주 격리</p>
+    <div class="metric-grid" style="margin-top:12px; grid-template-columns:repeat(3,1fr);">
       <div class="metric-card"><p class="k">격리 전 기본 프리셋 단승</p><p class="v">40.4%</p></div>
       <div class="metric-card"><p class="k">게임용 경주 408일을 학습에서 뺀 뒤</p><p class="v">26.6%</p></div>
       <div class="metric-card"><p class="k">같은 기간 검증셋 수치</p><p class="v">29.9 → 30.5%<small> 그대로</small></p></div>
     </div>
-    <ol class="steps" style="margin-top:28px; max-width:880px;">
-      <li><div><h4>문제</h4><p>게임에 쓰는 경주에서 적중률이 검증셋보다 10%p 높게 나왔습니다.</p></div></li>
-      <li><div><h4>원인</h4><p>검증셋과 나란히 놓고 보니, 게임용 경주가 학습 기간과 겹쳐 학습한 데이터로 평가하고 있었습니다.</p></div></li>
-      <li><div><h4>해결</h4><p>게임용 경주는 학습에서 빼고 점수만 매기도록 바꿨습니다. 검증셋 수치는 그대로여서, 빠진 것은 과신한 부분뿐임을 확인했습니다.</p></div></li>
-    </ol>
-    <div class="callout" style="margin-top:32px; max-width:880px;">
-      <span><b>함께 공개한 한계</b><br>2·3착으로 갈수록 예측 확률이 낙관적이었습니다(연승 예측 71.0%, 실측 59.5%). 보정 전까지는 순위 비교용으로만 쓰도록 문서에 남겼습니다.</span>
-    </div>
+    <p class="body-text" style="margin-top:24px;">
+      게임에 쓰는 경주에서 적중률이 검증셋보다 10%p 높게 나왔습니다. 게임용 경주가 학습 기간과 겹쳐, 학습한 데이터로 평가하고 있었습니다.
+      게임용 경주는 학습에서 빼고 점수만 매기도록 바꿨고, 검증셋 수치가 그대로인 것으로 빠진 것은 과신한 부분뿐임을 확인했습니다.
+    </p>
   </section>
 
-  <!-- 8. 문제 해결: 봇 -->
+  <!-- 6. ML: 프리셋 계수 -->
   <section>
-    <p class="label">문제 해결</p>
-    <h2 class="sec-title">AI 봇: 180조합 통과 0에서 270회 전부 통과로</h2>
+    <p class="label">ML 모델 ④ 프리셋</p>
+    <h2 class="sec-title">프리셋 계수는 최우도로 맞추고, 근거 없는 값은 설계값으로 밝혔습니다</h2>
     <p class="body-text">
-      봇 9명은 배당을 무너뜨리지 않으면서 사용자가 이길 만한 상대가 되어야 했습니다. 게임용 1,166경주로 봇 설정을 시뮬레이션했습니다.
+      비율은 정확도를 올리는 장치가 아니라 안정형이냐 이변형이냐를 고르는 장치로 정의했습니다. 정확도의 최적값은 학습이 알려주기 때문입니다.
+      배당형·역배형 프리셋의 시장 계수는 서버의 결합식을 그대로 옮겨 최우도로 적합했습니다.
     </p>
-    <div class="compare" style="margin-top:36px;">
-      <div class="col">
-        <span class="tag asis">v1 · 0 / 180 통과</span>
-        <h4>봇 하나가 두 역할을 겸함</h4>
-        <p>출전 두수마다 배당 상한이 달라 고정 비율로는 12두 이상을 막지 못했습니다. 봇 강도를 조절하는 값은 말 순서를 그대로 두는 식이라, 바꿔도 봇 강도가 갈리지 않았습니다.</p>
-      </div>
-      <div class="col tobe">
-        <span class="tag tobe">v2 · 270 / 270 통과</span>
-        <h4>유동성 공급과 참가자를 나눔</h4>
-        <p>하우스 유동성은 닫힌 식으로 배당 상한을 보장하고, 봇 참가자는 확률 샘플링으로 말을 고르게 했습니다. 배당 상한 위반 0건, 봇 적중률 12~38%, 봇 수익률 −8~−20%로 기준을 모두 통과했습니다.</p>
-      </div>
-    </div>
-    <p class="body-text" style="margin-top:28px;">
-      이후 FastAPI 봇 서버로 구현하고, 상·하한, 같은 방·봇이면 같은 결과가 나오는지, 요청에 경주 결과가 섞이지 않는지 등을 pytest로 확인했습니다(90/90 통과).
-    </p>
-  </section>
-
-  <!-- 9. 문제 해결: 정산 -->
-  <section>
-    <p class="label">문제 해결</p>
-    <h2 class="sec-title">확률과 배당을 정산 화면까지 맞췄습니다</h2>
-    <div class="compare" style="margin-top:36px;">
-      <div class="col">
-        <span class="tag asis">연승 정산 오류</span>
-        <h4>베팅 총액의 240%를 지급</h4>
-        <p>마사회 실제 확정 배당의 역수 합(연승 3.750 = 입상 두수 ÷ 0.8)으로 정산 식을 검증해, 연승 베팅 총액을 입상 두수로 나누는 단계가 빠진 것을 찾았습니다. 식을 고치고 문서로 남겼으며, 적중자가 없는 승식은 전원 환급하도록 했습니다.</p>
-      </div>
-      <div class="col">
-        <span class="tag asis">배당 1.0배 문제</span>
-        <h4>배포본에서 연승 배당이 1.0배로 깔림</h4>
-        <p>배포 서버에서 직접 플레이하며 발견했습니다. 말 한 마리에 몰린 비중별로 배당을 계산해 보니 26.7%만 넘어도 하한 1.0배가 됐습니다. 원인은 봇이 인기마에 몰리는 정도(0.6)였습니다.</p>
-      </div>
-    </div>
-    <div class="table-wrap" style="margin-top:28px;">
+    <div class="table-wrap" style="margin-top:32px; max-width:640px;">
       <table class="dtable">
-        <thead><tr><th>목표 배당</th><th>바꿀 것</th><th>경주당 재화 발행</th></tr></thead>
+        <thead><tr><th>프리셋</th><th>1착 적중</th><th>고른 말 평균 배당</th></tr></thead>
         <tbody>
-          <tr><td><b>인기마 1.1~1.2배</b></td><td>현행 유지</td><td class="num">−7</td></tr>
-          <tr><td><b>인기마 1.3~1.5배 (추천)</b></td><td>봇 인기마 집중 0.6 → 0.3~0.4</td><td class="num">≈ 0</td></tr>
-          <tr><td><b>인기마 2배 이상</b></td><td>봇 분산 + 베팅 금액 상향</td><td class="num">+55 이상</td></tr>
+          <tr><td><b>기본형</b></td><td class="num">31.7%</td><td class="num">3.9배</td></tr>
+          <tr><td><b>사람형</b></td><td class="num">29.5%</td><td class="num">4.1배</td></tr>
+          <tr><td><b>상승세형</b></td><td class="num">31.7%</td><td class="num">3.9배</td></tr>
+          <tr><td><b>배당형</b></td><td class="num">33.8%</td><td class="num">3.0배</td></tr>
+          <tr><td><b>역배형</b></td><td class="num">26.4%</td><td class="num">8.3배</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="cap">가운데 안을 추천했습니다. 재화가 늘지도 줄지도 않고, 손대는 곳이 배당 계산기가 아니라 봇의 첫 선택 확률 한 줄이라 다른 기능에 미치는 위험이 작기 때문입니다.</p>
+    <p class="cap">검증 1,254경주 실측. 배당형 계수는 적합으로 +0.40을 얻었습니다. 역배형은 음수 제약으로 풀면 0에 붙어서(배당은 양의 예측력만 있음), −0.35를 '적합값이 아닌 설계값'으로 명시하고 회수율 이득의 근거가 없다는 점도 함께 적었습니다.</p>
   </section>
 
-  <!-- 10. 결과 -->
+  <!-- 7. 서비스 연결 -->
+  <section>
+    <p class="label">서비스 연결</p>
+    <h2 class="sec-title">모델 확률이 봇·배당·정산까지 같은 값으로 이어지게 했습니다</h2>
+    <div class="compare" style="margin-top:36px;">
+      <div class="col">
+        <span class="tag asis">봇 v1 · 0 / 180 통과</span>
+        <h4>봇 하나가 두 역할을 겸함</h4>
+        <p>봇 9명은 배당을 무너뜨리지 않으면서 이길 만한 상대여야 했습니다. 게임용 1,166경주로 시뮬레이션했지만, 출전 두수마다 배당 상한이 달라 고정 비율로는 막지 못했고, 강도 조절 값이 말 순서를 바꾸지 못해 봇 강도도 갈리지 않았습니다.</p>
+      </div>
+      <div class="col tobe">
+        <span class="tag tobe">봇 v2 · 270 / 270 통과</span>
+        <h4>유동성 공급과 참가자를 나눔</h4>
+        <p>하우스 유동성은 닫힌 식으로 배당 상한을 보장하고, 봇 참가자는 모델 확률에서 샘플링해 말을 고르게 했습니다. 상한 위반 0건, 봇 적중률 12~38%, 봇 수익률 −8~−20%로 기준을 모두 통과했습니다.</p>
+      </div>
+    </div>
+    <ul class="retro-list" style="margin-top:28px;">
+      <li><b>FastAPI 봇 서버.</b> 시뮬레이션과 별도로 서비스 코드를 구현하고, 같은 방·봇이면 같은 결과가 나오는지, 요청에 경주 결과가 섞이지 않는지 등을 pytest로 확인했습니다(90/90 통과).</li>
+      <li><b>게임용 경주 적재.</b> 축 점수를 1,140경주 분량으로 내보내 백엔드가 기동 시 적재하게 했습니다. 표시용 지표가 섞이면 1착 적중이 4.6%p 떨어지는 것을 확인하고 축 점수만 읽게 했습니다.</li>
+      <li><b>정산 오류 수정.</b> 마사회 실제 확정 배당으로 정산 식을 검증해, 연승 정산이 베팅 총액의 240%까지 지급되던 오류(입상 두수 나눗셈 누락)를 찾아 고쳤습니다.</li>
+      <li><b>배당 1.0배 문제.</b> 배포 서버에서 직접 플레이하다 연승 배당이 1.0배로 깔리는 것을 발견했습니다. 원인은 봇의 인기마 집중(0.6)이었고, 배당 계산기가 아니라 이 값 한 줄(0.3~0.4)만 바꾸는 안을 추천했습니다.</li>
+    </ul>
+  </section>
+
+  <!-- 8. 결과 -->
   <section>
     <p class="label">결과/성과</p>
     <div class="metric-grid">
@@ -288,34 +255,21 @@
       <div class="metric-card"><p class="k">단승 예측 확률 평균 / 실측</p><p class="v">30.1 / 29.8%</p></div>
       <div class="metric-card"><p class="k">봇 시뮬레이션 배당 상한 위반</p><p class="v">0건<small> 270회</small></p></div>
     </div>
-    <p class="cap" style="margin-top:20px;">제가 만든 ML 모델은 팀원의 DL 모델과 5:5 앙상블로 배포됐습니다. 결선에서는 AI 모델 장표·대본과, 학습에 쓰지 않은 1,254경주의 무작위 기준선·신뢰구간 계산을 맡았습니다.</p>
+    <p class="cap" style="margin-top:20px;">제가 만든 ML 모델은 팀원의 DL 모델과 5:5 앙상블로 배포됐습니다. 결선에서는 AI 모델 장표와 대본, 학습에 쓰지 않은 1,254경주의 무작위 기준선·신뢰구간 계산을 맡았습니다.</p>
   </section>
 
-  <!-- 11. 서비스 소개 영상 -->
+  <!-- 9. 서비스 소개 영상 -->
   <section>
     <p class="label">서비스 소개 영상</p>
-    <h2 class="sec-title">AI 에이전트에게 실행을 맡기고, 판단은 제가 했습니다</h2>
+    <h2 class="sec-title">팀 서비스 소개 영상도 만들었습니다</h2>
     <p class="body-text">
-      팀 제출용 서비스 소개 영상(91.6초)을 만들었습니다. 경마공원 실촬영 55클립, 출연진 녹음 12줄, 배포 서비스 화면 캡처를 소재로 썼고,
-      편집은 Remotion(React)으로 컷·자막·그래픽을 코드로 짰습니다.
-      ffmpeg 변환과 음량 조정, OpenCV 지면 추적과 얼굴 블러, Playwright 화면 캡처 같은 실행은 Claude Code가 맡았고,
-      장면 구성과 무엇을 넣고 뺄지는 제가 정했습니다. 팀 제출본으로 채택됐습니다.
+      팀 제출용 서비스 소개 영상(91.6초)을 Remotion(React)으로 컷·자막·그래픽을 코드로 짜서 만들었습니다.
+      영상 변환, 얼굴 블러, 화면 캡처 같은 실행은 Claude Code가 맡았고, 장면 구성과 무엇을 넣고 뺄지는 제가 정했습니다.
+      실제 서비스에 없는 자동 수집 문구를 찾아 지우는 등 내용을 검수했고, 팀 제출본으로 채택됐습니다.
     </p>
     <div class="frame bare" style="margin-top:32px;">
       <img src="assets/latte/video_flow.png" alt="서비스 소개 영상 중 예측 흐름 장면: 이번 주 금·토·일 경기 데이터 가져오기">
     </div>
-    <p class="cap">예측이 나오는 흐름을 발표 장표 톤으로 보여주는 장면입니다.</p>
-    <div class="metric-grid" style="margin-top:36px; grid-template-columns:repeat(3,1fr);">
-      <div class="metric-card"><p class="k">최종 길이</p><p class="v">91.6초<small> 118초에서 다시 짬</small></p></div>
-      <div class="metric-card"><p class="k">실촬영 소재</p><p class="v">55클립</p></div>
-      <div class="metric-card"><p class="k">렌더·수정한 판</p><p class="v">v53</p></div>
-    </div>
-    <p class="retro-h">제가 내린 판단</p>
-    <ol class="steps" style="margin-top:12px; max-width:880px;">
-      <li><div><h4>서사 전환</h4><p>발표에서 게임 기능을 먼저 소개한 뒤 트는 영상이라, '처음 보는 척'하는 도입을 버리고 게임을 해본 사람이 실제 경주 예측을 알게 되는 흐름으로 바꿨습니다.</p></div></li>
-      <li><div><h4>없는 기능은 뺌</h4><p>실제 서비스에 없는 자동 수집 문구가 들어가 있던 것을 찾아 지웠습니다.</p></div></li>
-      <li><div><h4>렌더마다 검산</h4><p>타임라인과 음량(-14 LUFS)을 확인하는 스크립트를 렌더할 때마다 돌렸습니다.</p></div></li>
-    </ol>
   </section>
 
   <!-- 배운 점과 개선 방향 -->
@@ -347,7 +301,7 @@
 
   <nav class="pager">
     <a class="home" href="index.html">메인으로 가기</a>
-    <a class="next" href="barofarm.html"><span class="dir">다음 프로젝트</span>BaroFarm →</a>
+    <a class="next" href="gilbeot.html"><span class="dir">다음 프로젝트</span>길벗 →</a>
   </nav>
 
   <footer>

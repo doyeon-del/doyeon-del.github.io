@@ -410,6 +410,23 @@
         <span class="go">자세히 보기 →</span>
       </a>
 
+      <a class="case-card" href="latte.html">
+        <div class="meta-row">
+          <span class="num">PROJECT 06</span>
+          <span class="badge">SSAFY 우수 프로젝트</span>
+          <span class="badge plain">AI 파트 · ML 모델</span>
+        </div>
+        <h3>라떼는 馬이야: AI 경마 예측 연습 플랫폼</h3>
+        <p class="desc">경마를 경주 안 순서를 맞히는 랭킹 문제로 정의하고, 6개 축별 LightGBM 랭킹 모델과 확률 보정까지 예측 파이프라인을 만들었습니다. 그 확률이 봇 베팅·배당·정산 화면까지 같은 값으로 쓰이도록 연결했습니다.</p>
+        <div class="thumb"><img src="assets/latte/race_list.png" alt="주말 경주 목록: 경주별 예측 1순위 말과 확률" style="object-position: center top;"></div>
+        <div class="chips">
+          <span>6축 <strong>LightGBM 랭킹</strong></span>
+          <span>1착 적중 <strong>31.2%</strong> (무작위 10.2%)</span>
+          <span>예측 확률 <strong>30.1%</strong> / 실측 <strong>29.8%</strong></span>
+        </div>
+        <span class="go">자세히 보기 →</span>
+      </a>
+
     </div>
   </section>
 
@@ -451,39 +468,6 @@
         </a>
         <p class="p-summary">문제 정의와 보조 구조는 팀이 함께 기획했고, 결과는 실제 크레인이 아닌 가상 작업자 시뮬레이션 기준입니다.</p>
         <div class="chips"><span>Python</span><span>NumPy</span><span>scikit-learn</span><span>matplotlib</span><span>ffmpeg</span></div>
-      </div>
-    </details>
-
-    <!-- 라떼는 馬이야 -->
-    <details class="pcard">
-      <summary>
-        <div>
-          <p class="pm"><b>SSAFY 15기 특화 프로젝트</b>2026.08 – 10 · 6인 팀 · AI · 백엔드·프론트 연동 · 소개 영상<span class="badge">SSAFY 우수 프로젝트</span></p>
-          <p class="pt">라떼는 馬이야: AI 경마 예측 연습 플랫폼</p>
-        </div>
-        <span class="toggle-hint"></span>
-      </summary>
-      <div class="pcard-body">
-        <div class="pcard-links">
-          <a href="latte.html">상세 페이지 →</a>
-        </div>
-        <div class="pshot-grid" style="grid-template-columns: repeat(2, 1fr);">
-          <a href="assets/latte/race_list.png" target="_blank" rel="noopener"><img src="assets/latte/race_list.png" alt="주말 경주 목록: 경주별 예측 1순위 말과 확률" loading="lazy"><div class="gcap">경주별 예측 1순위와 확률</div></a>
-          <a href="assets/latte/probs.png" target="_blank" rel="noopener"><img src="assets/latte/probs.png" alt="한 경주의 단승·연승·복승 예측 확률 화면" loading="lazy"><div class="gcap">승식별 예측 확률</div></a>
-        </div>
-        <p class="p-summary">한국마사회 공공데이터로 학습한 예측 모델을 사용자가 6개 축 가중치로 조절해 경주를 예측하고, 예측과 베팅이 경주 전에 봉인됐음을 블록체인으로 증명하는 교육용 플랫폼입니다. 저는 AI 파트에서 예측 파이프라인과 AI 봇 서버를 만들고, 모델이 낸 확률이 배당·정산·화면까지 같은 값으로 이어지도록 연결했습니다. 팀 서비스 소개 영상(91.6초)도 Claude Code와 Remotion으로 만들어 팀 제출본으로 채택됐습니다.</p>
-        <div class="pips">
-          <span>6축 LightGBM 랭킹 모델</span>
-          <span>봇 시뮬레이션 270회 배당 상한 위반 0</span>
-          <span>연승 정산 오류 수정</span>
-        </div>
-        <ul class="pbullets">
-          <li><strong>랭킹 문제로 정의:</strong> 말마다 1착 여부를 맞히는 분류가 아니라 경주 안 순서를 맞히는 랭킹 문제로 보고, 축(컨디션·스피드·주행·기수·환경·실력)마다 LightGBM lambdarank를 따로 학습했습니다. 가중치를 바꿔도 재학습 없이 바로 반영되는 구조입니다.</li>
-          <li><strong>비교 기준 고정:</strong> 팀원과 각자 만든 ML·DL 모델을 같은 분할·전처리·평가로 비교하도록 공통 평가 코드를 만들고, 표준오차 2배보다 작은 차이는 우열로 보지 않는다는 규칙을 정했습니다.</li>
-          <li><strong>부풀려진 적중률 확인:</strong> 게임에 쓰는 경주가 학습 구간에 들어 있어 기본 설정의 단승 적중률이 40.4%로 나오던 문제를 찾았습니다. 해당 경주를 학습에서 빼자 26.6%가 됐습니다.</li>
-          <li><strong>AI 봇과 정산:</strong> 봇 9명이 배당을 무너뜨리지 않도록 유동성 공급과 참가자 역할을 나눠 설계하고 FastAPI 서버로 구현했습니다. 실제 확정 배당으로 정산 식을 검증해 연승 정산이 해당 승식 베팅 총액의 240%까지 지급되던 오류를 찾아 고쳤습니다.</li>
-        </ul>
-        <div class="chips"><span>Python</span><span>LightGBM</span><span>FastAPI</span><span>pytest</span><span>Spring Boot</span><span>React</span><span>Remotion</span><span>Claude Code</span></div>
       </div>
     </details>
 
