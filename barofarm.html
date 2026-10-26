@@ -32,7 +32,7 @@
     </div>
     <h1 class="hero-title" style="margin-top:18px; font-size:clamp(34px,5.2vw,52px);">BaroFarm</h1>
     <div class="meta">
-      <span><b>프로젝트</b> 신선식품 직거래 마켓, 폐기위험 예측·동적 할인</span>
+      <span><b>프로젝트</b> 신선식품 직거래 마켓, 폐기 위험 산출·동적 할인</span>
       <span><b>기간</b> 2026.05 – 06</span>
       <span><b>역할</b> 팀장 · 백엔드/인프라</span>
       <span><b>배포</b> barofarm.duckdns.org</span>
@@ -47,10 +47,9 @@
   <section style="margin-top:64px;">
     <p class="label">소개</p>
     <p class="body-text" style="font-size:18px;">
-      신선식품은 유통기한이 짧아 소상공인 판매자에게 폐기 손실이 큽니다.
-      기존 마켓은 임박 재고를 판매자가 수동으로 내려야 하고, 소비자는 그 딜을 찾기 어렵습니다.
-      BaroFarm은 판매자에게는 폐기 위험을 미리 보여주고, 소비자에게는 마감임박 딜을 한곳에
-      모아주는 마켓입니다. 커머스 백엔드와 배포 인프라를 단독으로 구현하고,
+      유통기한이 임박한 신선식품을 모아 판매하는 직거래 마켓입니다.
+      판매자는 재고별 폐기 위험과 할인가를 확인하고, 소비자는 마감 임박 상품을 한곳에서 볼 수 있도록 기획했습니다.
+      커머스 백엔드와 배포 인프라를 단독으로 구현하고,
       클라우드 VM에 배포해 HTTPS로 사이트를 운영하고 있습니다.
     </p>
     <div class="frame bare" style="margin-top:36px;">
@@ -66,8 +65,8 @@
       <li><div><h4>마감임박 딜 전용 탭 (/deals)</h4><p>유통기한이 임박한 상품을 한곳에 모아 소비자에게 노출합니다.</p></div></li>
       <li><div><h4>폐기위험 산출 · 동적 할인</h4><p>유통기한 D-day와 재고로 폐기위험(HIGH/MED/LOW)을 평가하고, 위험도에 연동해 할인가가 바뀝니다.</p></div></li>
       <li><div><h4>판매자 폐기 대시보드</h4><p>판매자가 자기 재고의 폐기 위험을 미리 확인합니다.</p></div></li>
-      <li><div><h4>AI 추천가</h4><p>상품 등록 시 KAMIS 소매 시세를 근거로 판매가를 추천하고, 상품 설명은 gpt-4o-mini로 생성합니다.</p></div></li>
-      <li><div><h4>회원 · 인증</h4><p>JWT 인증(탈퇴 시 토큰 즉시 무효화·블랙리스트), BCrypt 비밀번호 저장.</p></div></li>
+      <li><div><h4>시세 기반 추천가</h4><p>상품 등록 시 KAMIS 소매 시세를 근거로 판매가를 추천하고, 상품 설명은 gpt-4o-mini로 생성합니다.</p></div></li>
+      <li><div><h4>회원 관리와 인증</h4><p>JWT로 인증하고, 탈퇴한 회원의 토큰은 블랙리스트로 무효화합니다. 비밀번호는 BCrypt로 해시해 저장합니다.</p></div></li>
     </ol>
   </section>
 
@@ -85,7 +84,7 @@
         <!-- 외부 API -->
         <rect x="410" y="16" width="215" height="60" rx="12" fill="#ffffff" stroke="#e5e8eb"/>
         <text x="517" y="41" text-anchor="middle" fill="#191f28" font-size="13" font-weight="700">KAMIS 소매 시세</text>
-        <text x="517" y="60" text-anchor="middle" fill="#4e5968" font-size="11.5">AI 추천가 근거 · 등락 주의 문구</text>
+        <text x="517" y="60" text-anchor="middle" fill="#4e5968" font-size="11.5">추천가 산출 · 등락 주의 문구</text>
         <rect x="655" y="16" width="215" height="60" rx="12" fill="#ffffff" stroke="#e5e8eb"/>
         <text x="762" y="41" text-anchor="middle" fill="#191f28" font-size="13" font-weight="700">OpenAI gpt-4o-mini</text>
         <text x="762" y="60" text-anchor="middle" fill="#4e5968" font-size="11.5">상품 설명 생성 (실호출)</text>
@@ -150,21 +149,21 @@
     <div class="compare" style="margin-top:8px;">
       <div class="col">
         <span class="tag asis">고민</span>
-        <h4>할인가를 누가 확정하나</h4>
+        <h4>주문 시점의 가격 확정</h4>
         <p>동적 할인은 화면에 보이는 가격과 결제 시점 가격이 달라질 수 있습니다. 클라이언트가 보낸 가격을 그대로 믿으면 가격 조작에 노출됩니다.</p>
       </div>
       <div class="col tobe">
         <span class="tag tobe">결정</span>
         <h4>주문 시 서버가 재계산해 청구</h4>
-        <p>가격 계산 로직을 서버에만 두고, 주문 시점에 서버가 폐기위험·할인율을 다시 계산해 청구합니다. 클라이언트 가격은 표시용일 뿐입니다.</p>
+        <p>가격 계산 로직을 서버에만 두고, 주문 시점에 서버가 폐기위험·할인율을 다시 계산해 청구합니다. 화면에서 전달한 가격은 결제 금액 계산에 사용하지 않습니다.</p>
       </div>
     </div>
 
     <div class="compare" style="margin-top:24px;">
       <div class="col">
         <span class="tag asis">고민</span>
-        <h4>폐기위험을 무엇으로 산출하나</h4>
-        <p>실거래 트래픽이 없는 신규 서비스라 ML 모델을 학습시킬 실데이터가 없습니다. 그래서 학습 모델 대신 규칙 기반으로 산출했습니다.</p>
+        <h4>거래 데이터가 없는 상태의 위험도 산출</h4>
+        <p>학습에 사용할 실제 거래 데이터가 없어, 유통기한과 재고에 따른 규칙으로 위험도를 산출했습니다.</p>
       </div>
       <div class="col tobe">
         <span class="tag tobe">결정</span>
@@ -189,12 +188,12 @@
     <div class="compare" style="margin-top:24px;">
       <div class="col">
         <span class="tag asis">고민</span>
-        <h4>AI 추천가의 근거</h4>
-        <p>LLM에게 가격을 자유롭게 생성시키면 근거를 댈 수 없습니다. 판매자가 믿고 쓸 수 있어야 합니다.</p>
+        <h4>시세 기반 추천가의 근거</h4>
+        <p>추천 가격의 근거를 보여주기 위해 가격 산출에 사용할 시세 데이터와 상품 설명 생성 기능을 분리했습니다.</p>
       </div>
       <div class="col tobe">
         <span class="tag tobe">결정</span>
-        <h4>공공 시세를 근거로, LLM은 설명만</h4>
+        <h4>KAMIS 시세 조회와 상품 설명 생성</h4>
         <p>판매가 추천은 KAMIS 소매 시세를 근거로 하고 등락·단위 주의 문구까지 노출합니다. LLM(gpt-4o-mini)은 상품 설명 생성에만 씁니다.</p>
       </div>
     </div>
@@ -207,7 +206,7 @@
     <ol class="steps" style="margin-top:28px; max-width:720px;">
       <li><div><h4>배포 도메인 CORS 403</h4><p>운영 도메인에서 백엔드 호출이 403으로 막혔습니다. 배포 도메인을 CORS 허용 목록에 추가해 해결했습니다.</p></div></li>
       <li><div><h4>HTTPS 전환 후 혼합콘텐츠</h4><p>운영 HTTPS 전환 과정에서 혼합콘텐츠 차단이 발생했습니다. Caddy 리버스 프록시 구성을 정리해 전 구간 HTTPS로 통일했습니다.</p></div></li>
-      <li><div><h4>Docker MySQL 한글 깨짐</h4><p>팀 개발환경(Docker Compose)에서 MySQL 한글이 깨지는 문제를 charset 강제 설정으로 해결하고, 환경 자체를 compose로 통일해 재발을 막았습니다.</p></div></li>
+      <li><div><h4>Docker MySQL 한글 깨짐</h4><p>팀 개발환경(Docker Compose)에서 MySQL 한글이 깨지는 문제를 charset 강제 설정으로 해결하고, Docker Compose로 팀 개발 환경을 통일했습니다.</p></div></li>
     </ol>
   </section>
 
@@ -224,12 +223,12 @@
 
   <!-- 배운 점과 개선 방향 -->
   <section>
-    <p class="label">배운 점과 개선 방향</p>
+    <p class="label">작업을 돌아보며</p>
     <p class="retro">
       배포 단계의 문제(CORS, 혼합콘텐츠, 한글 깨짐)는 대부분 로컬과 운영 환경의 차이에서 생겼습니다.
       그래서 배포 전에 운영 구성 그대로 로컬에서 띄워 확인하는 순서를 만들었습니다.
     </p>
-    <p class="retro-h">아쉬운 점과 개선 방향</p>
+    <p class="retro-h">남은 과제</p>
     <ul class="retro-list">
       <li>무료 VM(메모리 1GB)에서는 이미지를 빌드할 수 없어, 맥에서 빌드한 이미지를 서버로 옮겨 수동으로 배포합니다. 이 과정을 배포 스크립트로 자동화하는 것이 다음 과제입니다.</li>
       <li>AI 기능이 SSAFY GMS를 거치기 때문에 SSAFY 망 밖의 서버에서는 호출이 막힐 수 있고, 이때는 규칙 기반 문구로 대체됩니다. 외부 API로 바꿔야 운영 서버에서도 안정적으로 동작합니다.</li>

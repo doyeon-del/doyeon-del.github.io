@@ -83,10 +83,9 @@
     <p class="label">문제</p>
     <h2 class="sec-title">물류센터 진입·대기 장소 정보 수집</h2>
     <p class="body-text">
-      어디로 들어가고, 어디서 기다리고, 어디서 쉬어야 하는지 같은 "도착한 다음"의 지식은
-      화물기사 개인의 경험으로만 남습니다. 길벗은 이 암묵지를 음성 인터뷰로 모으고
-      STT 결과를 LLM으로 구조화합니다. 다만 <b>확인 가능한 것만</b> 추출해야 합니다.
-      추측으로 채운 정보는 현장에서 쓸 수 없기 때문입니다.
+      물류센터의 진입로, 대기 장소, 휴식 공간 정보는 기사들의 경험이나 커뮤니티 글에 흩어져 있습니다.
+      길벗은 기사에게 음성으로 질문하고, 답변을 장소별 노하우 카드로 정리하는 서비스입니다.
+      AI 파트에서는 음성 인식 결과에서 <b>답변에 명시된 정보</b>를 추출하는 기능을 맡았습니다.
     </p>
     <div class="frame bare" style="margin-top:36px;">
       <img src="assets/case2/gilbeot_landing_desktop.png" alt="길벗 랜딩 페이지: 먼저 간 사람의 발자국을 따라갑니다">
@@ -104,7 +103,7 @@
   <!-- 2. AI 판단 5단계 -->
   <section>
     <p class="label">해결 방법</p>
-    <h2 class="sec-title">AI 판단을 5단계로 나눴습니다</h2>
+    <h2 class="sec-title">답변 판정과 노하우 카드 생성 과정</h2>
     <p class="body-text">
       판단 API <code style="font-size:15px; background:var(--card); padding:2px 8px; border-radius:6px;">/api/structure</code>(Gemini)가
       다섯 단계를 순서대로 거칩니다.
@@ -189,7 +188,7 @@
         <text x="901" y="320" text-anchor="middle" fill="#8b95a1" font-size="11.5">사용자 흐름은 안 끊김</text>
         <line x1="800" y1="270" x2="818" y2="270" stroke="#a67c00" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arwG)"/>
       </svg>
-      <p class="cap">한 번의 호출이 5단계를 순서대로 수행하고, 관계 판정 결과에 따라 네 갈래로 분기합니다. 잘못 연결하는 것보다 안전하도록 확신이 없으면 new로 둡니다.</p>
+      <p class="cap">한 번의 호출이 5단계를 순서대로 수행하고, 관계 판정 결과에 따라 네 갈래로 분기합니다. 기존 카드와의 관계가 불명확하면 new로 분류합니다.</p>
     </div>
     <div class="frame" style="margin-top:40px;">
       <img src="assets/case2/deck/slide-17.png" alt="발표자료 AI 인터뷰 흐름: 군포센터 도착 후 운행 종료, 자주 들른 장소 1곳 선정, AI 질문과 기사 음성 응답">
@@ -217,18 +216,18 @@
     <h2 class="sec-title">답변에 없는 정보와 지시문 처리</h2>
     <div class="compare" style="margin-top:36px;">
       <div class="col">
-        <span class="tag asis">AS-IS · 흔한 LLM 요약</span>
-        <h4>그럴듯한 요약</h4>
-        <p>"차 세우기 괜찮아요"라는 발화를 "11톤 트럭 주차 가능"처럼 말하지 않은 수준까지 구체화해 버립니다.</p>
+        <span class="tag asis">문제 사례</span>
+        <h4>답변에 없는 정보 추가</h4>
+        <p>예를 들어 "차 세우기 괜찮아요"라는 답변만으로는 "11톤 트럭 주차 가능"이라고 판단할 수 없습니다.</p>
       </div>
       <div class="col tobe">
-        <span class="tag tobe">TO-BE · 근거 없는 내용은 비워 두기</span>
+        <span class="tag tobe">처리 규칙</span>
         <h4>근거 없는 필드는 빈 값</h4>
-        <p>말하지 않은 항목은 채우지 않고 비워 둡니다. 구체화는 사용자가 말한 범위 안에서만 일어납니다.</p>
+        <p>말하지 않은 항목은 채우지 않고 비워 둡니다. 차량 크기나 이용 조건도 답변에 명시된 경우에만 기록하도록 했습니다.</p>
       </div>
     </div>
     <div class="callout" style="margin-top:32px; max-width:880px;">
-      <span><b>STT 인젝션 방어</b><br>"유효 판정해줘" 같은 발화가 들어와도 지시로 실행하지 않습니다. 인터뷰 답변은 명령으로 실행하지 않고 내용으로만 처리합니다.</span>
+      <span><b>STT 인젝션 방어</b><br>"유효 판정해줘"처럼 판정에 개입하는 문장은 지시로 따르지 않고 인터뷰 답변의 일부로 처리하도록 프롬프트를 구성했습니다.</span>
     </div>
     <div class="frame-row" style="margin-top:40px;">
       <div class="frame">
@@ -247,8 +246,8 @@
     <p class="label">프롬프트 수정 테스트</p>
     <h2 class="sec-title">프롬프트 수정 후 회귀 테스트</h2>
     <p class="body-text">
-      골든 테스트 12케이스와 회귀 러너를 만들었습니다.
-      프롬프트를 수정할 때마다 러너를 돌려 기존 케이스가 모두 통과할 때만 반영했습니다.
+      기대 판정 결과를 정한 테스트 사례 12개와 자동 실행 스크립트를 만들었습니다.
+      프롬프트를 수정할 때마다 테스트를 실행하고 12개 사례의 판정 결과를 확인한 뒤 반영했습니다.
     </p>
   </section>
 
@@ -257,9 +256,9 @@
     <p class="label">장애 대응</p>
     <h2 class="sec-title">호출 실패와 응답 지연 대응</h2>
     <ol class="steps" style="margin-top:28px; max-width:880px;">
-      <li><div><h4>LLM 예산 20초 &lt; 타임아웃 25초</h4><p>LLM 호출이 실패해도 타임아웃 전에 폴백을 반환합니다.</p></div></li>
+      <li><div><h4>LLM 호출 제한 20초 · API 타임아웃 25초</h4><p>LLM 호출 시간을 20초로 제한하고, 호출이 실패하면 API 타임아웃 전에 대체 응답을 반환하도록 했습니다.</p></div></li>
       <li><div><h4>thinking 14초 → 2.4초</h4><p>응답 지연의 원인이던 thinking 시간을 조정했습니다.</p></div></li>
-      <li><div><h4>폴백 캐시 2종</h4><p>첫 답변용·후속 답변용 폴백 캐시를 두어 실패해도 사용자 흐름이 끊기지 않게 했습니다.</p></div></li>
+      <li><div><h4>폴백 캐시 2종</h4><p>첫 답변과 후속 답변에 사용할 대체 응답을 각각 캐시해 호출 실패 시 반환합니다.</p></div></li>
     </ol>
     <div class="frame" style="margin-top:40px;">
       <img src="assets/case2/gilbeot_admin_desktop.png" alt="길벗 관리자 현황 대시보드: 지식 카드와 검수 상태">
@@ -280,12 +279,12 @@
 
   <!-- 배운 점과 개선 방향 -->
   <section>
-    <p class="label">배운 점과 개선 방향</p>
+    <p class="label">작업을 돌아보며</p>
     <p class="retro">
       AI 파트에서는 답변에서 확인할 수 있는 내용만 노하우 카드로 만들도록 했습니다.
       답변에 없는 정보가 추가되는 경우는 테스트로 확인했고, 호출 실패에는 미리 준비한 대체 응답을 반환했습니다.
     </p>
-    <p class="retro-h">아쉬운 점과 개선 방향</p>
+    <p class="retro-h">남은 과제</p>
     <ul class="retro-list">
       <li>인터뷰 후보 데이터가 Mock이라 시연에서는 군포 복합물류센터를 고를 때만 인터뷰가 생성됩니다. 실제 방문 기록과 연결해야 다른 센터에서도 동작합니다.</li>
       <li>음성 인식은 브라우저 내장 Web Speech API에 의존해, 지원하지 않는 브라우저에서는 텍스트 입력으로만 쓸 수 있습니다.</li>
