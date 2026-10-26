@@ -78,7 +78,7 @@
       </div>
       <div class="card">
         <span class="n">3</span>
-        <h3>믿을 수 있는 확률</h3>
+        <h3>화면·베팅·정산의 확률 연동</h3>
         <p>화면 확률, 봇 베팅, 배당, 정산이 같은 숫자를 씁니다.</p>
       </div>
     </div>
@@ -88,7 +88,7 @@
   <!-- 2. 담당 -->
   <section>
     <p class="label">담당 역할</p>
-    <h2 class="sec-title">ML 예측 모델을 만들고, 그 확률이 서비스에서 쓰이기까지 맡았습니다</h2>
+    <h2 class="sec-title">담당 업무: 예측 모델과 봇 서버 개발</h2>
     <div class="table-wrap" style="margin-top:36px;">
       <table class="dtable">
         <thead><tr><th>영역</th><th>제가 한 일</th></tr></thead>
@@ -165,7 +165,7 @@
   <!-- 5. ML: 평가 기준과 데이터 격리 -->
   <section>
     <p class="label">ML 모델 ③ 평가 기준</p>
-    <h2 class="sec-title">ML과 DL을 같은 자로 재고, 부풀려진 적중률을 걷어냈습니다</h2>
+    <h2 class="sec-title">ML·DL 모델 비교와 학습 데이터 중복 수정</h2>
     <p class="body-text">
       LightGBM은 제가, 딥러닝은 팀원이 만들었기 때문에 같은 기준이 없으면 어느 쪽이 나은지 말할 수 없었습니다.
       분할·전처리·평가를 공통 코드 하나로 고정하고 규칙을 먼저 정했습니다.
@@ -202,7 +202,7 @@
   <!-- 6. ML: 프리셋 계수 -->
   <section>
     <p class="label">ML 모델 ④ 프리셋</p>
-    <h2 class="sec-title">프리셋 계수는 최우도로 맞추고, 근거 없는 값은 설계값으로 밝혔습니다</h2>
+    <h2 class="sec-title">프리셋별 계수 설정과 예측 결과</h2>
     <p class="body-text">
       비율은 정확도를 올리는 장치가 아니라 안정형이냐 이변형이냐를 고르는 장치로 정의했습니다. 정확도의 최적값은 학습이 알려주기 때문입니다.
       배당형·역배형 프리셋의 시장 계수는 서버의 결합식을 그대로 옮겨 최우도로 적합했습니다.
@@ -225,7 +225,7 @@
   <!-- 7. 서비스 연결 -->
   <section>
     <p class="label">서비스 연결</p>
-    <h2 class="sec-title">모델 확률이 봇·배당·정산까지 같은 값으로 이어지게 했습니다</h2>
+    <h2 class="sec-title">봇 서버 개발과 배당·정산 연동</h2>
     <div class="compare" style="margin-top:36px;">
       <div class="col">
         <span class="tag asis">봇 v1 · 0 / 180 통과</span>
@@ -276,8 +276,8 @@
   <section>
     <p class="label">배운 점과 개선 방향</p>
     <p class="retro">
-      모델 수치는 화면과 정산 숫자까지 따라가 봐야 사용자가 믿을 수 있는 숫자가 됩니다.
-      그래서 적중률을 좋게 만드는 것보다, 사용자가 보는 숫자가 실제 성능과 맞는지를 먼저 확인했습니다.
+      모델 평가 외에도 봇 베팅과 정산을 점검하면서 학습 데이터 중복과 배당 계산 오류를 발견했습니다.
+      예측 결과를 서비스에 붙이는 과정에서 데이터 적재, 봇 동작, 정산 식까지 함께 수정해야 했습니다.
     </p>
     <p class="retro-h">아쉬운 점과 개선 방향</p>
     <ul class="retro-list">

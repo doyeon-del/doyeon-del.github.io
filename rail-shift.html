@@ -118,7 +118,7 @@
   <!-- 해석 기준 -->
   <section>
     <p class="label">수치 해석</p>
-    <h2 class="sec-title">수치마다 읽는 범위를 정해 두었습니다</h2>
+    <h2 class="sec-title">모델 점수와 비용 임계값의 해석</h2>
     <div class="compare" style="margin-top:28px;">
       <div class="col">
         <span class="tag asis">모델 점수</span>
@@ -136,7 +136,7 @@
   <!-- 5. AI 반증 -->
   <section>
     <p class="label">AI로 결론 검토</p>
-    <h2 class="sec-title">"이 결론을 반박하라"</h2>
+    <h2 class="sec-title">운임 적용과 집계 오류 수정</h2>
     <p class="body-text">
       결론을 완성한 뒤 AI에게 결론을 반박하게 했습니다.
       이 과정에서 오류 3건을 찾았습니다.
@@ -156,13 +156,13 @@
       </li>
       <li>
         <div>
-          <h4>틀린 산출물은 폐기</h4>
-          <p>확률 미보정 모델 점수를 물량으로 환산한 산출물은 방어할 수 없다고 판단해 폐기했습니다.</p>
+          <h4>모델 점수를 물량으로 환산한 결과 제외</h4>
+          <p>확률 미보정 모델 점수를 물량으로 환산한 산출물은 환산 근거가 부족해 제외했습니다.</p>
         </div>
       </li>
     </ol>
     <div class="callout" style="margin-top:32px; max-width:880px;">
-      <span>AI는 <b>결론이 틀렸는지 확인하는 데</b> 썼습니다. 반박을 통과한 수치만 제안에 실었습니다.</span>
+      <span>AI가 지적한 내용을 원자료와 대조하고, 운임과 집계 단위를 수정해 다시 계산했습니다.</span>
     </div>
   </section>
 
@@ -244,7 +244,7 @@
     <p class="retro">
       데이터를 합치기 전에 각 자료가 어떻게 만들어졌고 어디까지 비교할 수 있는지부터 확인했습니다.
       비용은 경로마다 같은 기준으로 계산했고, 임계값에는 적용 조건을 함께 적었습니다.
-      마지막에는 AI에게 결론을 반박하게 해서 근거가 약한 산출물을 뺐습니다.
+      검토 과정에서 운임 적용 오류 2건과 집계 오류 1건을 수정했습니다.
     </p>
     <p class="retro-h">아쉬운 점과 개선 방향</p>
     <ul class="retro-list">
