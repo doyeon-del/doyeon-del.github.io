@@ -23,9 +23,63 @@
     .latte-logo { display: inline-block; margin-bottom: 18px; font-family: 'Jua', sans-serif; font-size: 34px; letter-spacing: -0.02em; line-height: 1; color: #4a3f35; }
     .latte-logo .hanja { color: #ff7a3d; }
     .table-wrap { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 8px 12px; }
+
+    /* 라떼 상세 페이지 */
+    .latte-case { --card: #f7f5f1; --line: #e8e3dc; --ink: #302a24; --sub: #655e55; }
+    .latte-case .wrap { max-width: 1060px; }
+    .latte-case section { margin-top: 100px; }
+    .latte-case .case-hero { margin-top: 64px; }
+    .latte-case .sec-title { max-width: 850px; font-size: clamp(25px, 3.4vw, 35px); line-height: 1.4; font-weight: 700; letter-spacing: -.04em; }
+    .latte-case .body-text { max-width: 800px; line-height: 1.9; }
+    .latte-case .label { color: #8b542f; letter-spacing: .02em; }
+    .latte-case .frame { border-radius: 8px; box-shadow: none; }
+    .latte-case .table-wrap { border-radius: 8px; }
+    .latte-case .num-cards { gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .latte-case .num-cards .card { padding: 26px 22px; background: transparent; border-radius: 0; }
+    .latte-case .num-cards .card + .card { border-left: 1px solid var(--line); }
+    .latte-case .num-cards .n { background: transparent; color: var(--blue); justify-content: flex-start; font-size: 13px; margin-bottom: 8px; }
+    .latte-case .steps > li::before { background: transparent; color: var(--blue); border-radius: 0; }
+    .latte-case .compare .col { border-radius: 8px; background: #f7f5f1; }
+    .latte-case .compare .col.tobe { background: #faf0e7; }
+    .latte-case .callout { border-radius: 0; border-left: 2px solid var(--blue); background: #fbf6f0; }
+    .latte-case .callout::before { display: none; }
+    .latte-case .cap { color: #756d63; line-height: 1.8; }
+    .latte-case .metric-card { background: #f7f5f1; border-radius: 8px; color: var(--ink); }
+    .latte-case .metric-card .k { color: var(--sub); }
+    .latte-case .metric-card .v { color: var(--ink); font-size: 30px; }
+    .latte-case .metric-card .v small { color: var(--sub); }
+    .results-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; padding-bottom: 30px; }
+    .results-intro { max-width: 560px; margin-top: 18px; color: var(--sub); font-size: 16px; line-height: 1.85; word-break: keep-all; }
+    .award-note { flex-shrink: 0; border-left: 1px solid var(--line); padding-left: 24px; margin-top: 8px; }
+    .award-note span, .award-note time { display: block; font-size: 12px; color: var(--sub); }
+    .award-note strong { display: block; margin: 5px 0; color: var(--ink); font-size: 19px; font-weight: 600; }
+    .result-row { display: grid; grid-template-columns: 48px minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding: 32px 0; border-top: 1px solid var(--line); }
+    .result-no { padding-top: 4px; color: #9b785b; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .result-copy h3 { font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--ink); margin-bottom: 10px; word-break: keep-all; }
+    .result-copy p { font-size: 15px; color: var(--sub); line-height: 1.85; word-break: keep-all; }
+    .result-values { display: flex; gap: 32px; align-items: flex-start; padding-left: 24px; }
+    .result-values div { flex: 1; }
+    .result-values dt { font-size: 12px; color: var(--sub); margin-bottom: 8px; }
+    .result-values dd { font-size: clamp(27px, 3.5vw, 38px); font-weight: 500; line-height: 1.2; color: var(--ink); letter-spacing: -.04em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .result-values dd small { font-size: 17px; margin-left: 3px; }
+    .result-values .result-primary dd { color: #a64a1c; }
+    .result-detail { font-size: 12px; color: var(--sub); margin-top: 12px; line-height: 1.7; }
+    .result-deployment { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 22px 0; font-size: 14px; color: var(--sub); line-height: 1.85; }
+    .result-deployment b { color: var(--ink); font-weight: 600; }
+    @media (max-width: 700px) {
+      .latte-case section { margin-top: 68px; }
+      .results-head { display: block; }
+      .award-note { margin-top: 24px; }
+      .result-row { grid-template-columns: 25px minmax(0, 1fr); gap: 12px; padding: 26px 0; }
+      .result-row > div:last-child { grid-column: 2; min-width: 0; }
+      .result-values { padding: 8px 0 0; gap: 24px; }
+      .latte-case .num-cards { grid-template-columns: 1fr; }
+      .latte-case .num-cards .card { padding: 20px 0; }
+      .latte-case .num-cards .card + .card { border-left: 0; border-top: 1px solid var(--line); }
+    }
   </style>
 </head>
-<body>
+<body class="latte-case">
 <div class="wrap">
 
   <header class="case-top">
@@ -247,15 +301,65 @@
   </section>
 
   <!-- 8. 결과 -->
-  <section>
-    <p class="label">결과/성과</p>
-    <div class="metric-grid">
-      <div class="metric-card"><p class="k">SSAFY 15기 특화 프로젝트</p><p class="v">우수 프로젝트<small> 2026.10.02</small></p></div>
-      <div class="metric-card"><p class="k">ML 축별 LightGBM 1착 적중</p><p class="v">31.2%<small> 무작위 10.2%</small></p></div>
-      <div class="metric-card"><p class="k">단승 예측 확률 평균 / 실측</p><p class="v">30.1 / 29.8%</p></div>
-      <div class="metric-card"><p class="k">봇 시뮬레이션 배당 상한 위반</p><p class="v">0건<small> 270회</small></p></div>
+  <section class="results" aria-labelledby="results-title">
+    <div class="results-head">
+      <div>
+        <p class="label">개발 결과</p>
+        <h2 class="sec-title" id="results-title">모델 평가와 서비스 적용 결과</h2>
+        <p class="results-intro">직접 개발한 ML 모델의 예측 결과와 봇 시뮬레이션 결과입니다. 아래 수치는 평가 대상과 조건이 달라 각각 구분해 정리했습니다.</p>
+      </div>
+      <aside class="award-note" aria-label="팀 수상 결과">
+        <span>SSAFY 15기 특화 프로젝트</span>
+        <strong>우수 프로젝트 선정</strong>
+        <time datetime="2026-10-02">2026.10.02 · 팀 수상</time>
+      </aside>
     </div>
-    <p class="cap" style="margin-top:20px;">제가 만든 ML 모델은 팀원의 DL 모델과 5:5 앙상블로 배포됐습니다. 결선에서는 AI 모델 장표와 대본, 학습에 쓰지 않은 1,254경주의 무작위 기준선·신뢰구간 계산을 맡았습니다.</p>
+
+    <article class="result-row">
+      <span class="result-no" aria-hidden="true">01</span>
+      <div class="result-copy">
+        <h3>ML 모델의 1착 적중률</h3>
+        <p>6개 축의 LightGBM 모델로 경주 내 순위를 예측했습니다. 비교 기준으로 무작위 선택의 적중률을 함께 표시했습니다.</p>
+      </div>
+      <div>
+        <dl class="result-values">
+          <div class="result-primary"><dt>ML 모델</dt><dd>31.2<small>%</small></dd></div>
+          <div><dt>무작위 선택</dt><dd>10.2<small>%</small></dd></div>
+        </dl>
+        <p class="result-detail">개별 ML 모델 기준. 서비스에 배포한 ML·DL 앙상블의 성능과는 구분됩니다.</p>
+      </div>
+    </article>
+
+    <article class="result-row">
+      <span class="result-no" aria-hidden="true">02</span>
+      <div class="result-copy">
+        <h3>예측 확률과 실제 적중률 비교</h3>
+        <p>단승 확률을 보정한 뒤 검증 2,473경주에서 예측 확률의 평균과 실제 적중률을 비교했습니다.</p>
+      </div>
+      <div>
+        <dl class="result-values">
+          <div><dt>평균 예측 확률</dt><dd>30.1<small>%</small></dd></div>
+          <div><dt>실제 적중률</dt><dd>29.8<small>%</small></dd></div>
+        </dl>
+        <p class="result-detail">평균값 비교이며, 모든 확률 구간의 보정 정확도를 뜻하지는 않습니다. 2·3착 확률은 추가 보정이 필요합니다.</p>
+      </div>
+    </article>
+
+    <article class="result-row">
+      <span class="result-no" aria-hidden="true">03</span>
+      <div class="result-copy">
+        <h3>봇 베팅의 배당 상한 검사</h3>
+        <p>유동성 공급과 봇 참가자의 역할을 분리한 뒤, 시뮬레이션에서 배당 상한을 넘는 경우가 있는지 확인했습니다.</p>
+      </div>
+      <div>
+        <dl class="result-values">
+          <div class="result-primary"><dt>배당 상한 위반</dt><dd>0<small>건</small></dd></div>
+          <div><dt>시뮬레이션</dt><dd>270<small>회</small></dd></div>
+        </dl>
+        <p class="result-detail">설정한 시뮬레이션 조건의 결과입니다.</p>
+      </div>
+    </article>
+    <p class="result-deployment"><b>서비스 적용</b>　제가 개발한 ML 모델은 팀원의 DL 모델과 5:5로 결합해 배포했습니다. 결선 발표에서는 AI 모델 설명 자료와 대본을 작성하고, 학습에 사용하지 않은 1,254경주의 무작위 기준선과 신뢰구간 계산을 맡았습니다.</p>
   </section>
 
   <!-- 9. 서비스 소개 영상 -->
